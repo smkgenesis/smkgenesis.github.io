@@ -1,16 +1,9 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "smkgenesis.github.io",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Hello,\nI am a Computer Science undergraduate at Yonsei University, deeply engaged in the intersection of computer science, physics, mathematics and finance.\nMy primary academic pursuit is quantum computing. I am currently working through foundational material like “Quantum Computation and Quantum Information” and am particularly fascinated by the application of quantum algorithms to complex challenges, such as the pricing of financial derivatives.\nTo document my learning and technical projects, I actively maintain a “Growth Diary” and run my personal technology blog.\nI am driven by a curiosity to understand, build, and connect with others who share these passions for the next generation of financial and information technologies."
   }
 ]
