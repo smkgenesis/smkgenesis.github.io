@@ -194,3 +194,40 @@ pre,
     letter-spacing: 0.03em;
   }
 }
+
+/* Force dark mode over Quarto/Bootstrap light defaults */
+:root {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-secondary-color: var(--muted);
+  --bs-border-color: var(--line);
+}
+
+html,
+body,
+#quarto-content,
+.quarto-container,
+.page-layout-article {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+main.content,
+main.content > * {
+  background: transparent !important;
+}
+
+header#quarto-header .navbar {
+  background: rgba(19, 22, 28, 0.82) !important;
+}
+
+.quarto-title-banner,
+.quarto-title-block,
+.listing-empty,
+.card,
+.table,
+table {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
