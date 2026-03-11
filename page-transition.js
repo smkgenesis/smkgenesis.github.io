@@ -1,4 +1,53 @@
 ﻿(() => {
+  // Force-inject critical styles — bypasses all external CSS caching
+  const _style = document.createElement("style");
+  _style.textContent = `
+    /* Search palette forced colors */
+    .aa-DetachedOverlay, .aa-DetachedContainer,
+    #quarto-search-results .aa-Panel {
+      background: #0d1117 !important;
+      border-color: #1e2a38 !important;
+    }
+    #quarto-search-results .aa-Input,
+    .aa-DetachedSearchButtonPlaceholder {
+      background: #161e29 !important;
+      color: #cdd4de !important;
+    }
+    #quarto-search-results .aa-List,
+    #quarto-search-results .aa-Source {
+      background: #111820 !important;
+    }
+    #quarto-search-results .aa-SourceHeader,
+    #quarto-search-results .aa-SourceHeaderLine {
+      background: #0d1117 !important;
+      border-bottom: 1px solid #1e2a38 !important;
+      background-image: none !important;
+    }
+    #quarto-search-results .aa-Item {
+      background: #111820 !important;
+    }
+    #quarto-search-results .aa-Item[aria-selected="true"],
+    #quarto-search-results .aa-Item[aria-selected="true"] .search-item,
+    #quarto-search-results .aa-Item[aria-selected="true"] .search-result-doc,
+    #quarto-search-results .aa-Item[aria-selected="true"] .search-result-more,
+    #quarto-search-results .aa-Item[aria-selected="true"] .search-result-doc-section {
+      background: #26374c !important;
+      background-color: #26374c !important;
+      background-image: none !important;
+    }
+    #quarto-search-results .search-item,
+    #quarto-search-results .search-result-title,
+    #quarto-search-results .search-result-crumbs,
+    #quarto-search-results .search-result-section {
+      color: #cdd4de !important;
+      background-image: none !important;
+    }
+    #quarto-search-results .search-result-text {
+      color: #8a99ad !important;
+    }
+  `;
+  document.head.appendChild(_style);
+
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const supportsViewTransition = "startViewTransition" in document;
   const useFallbackAnimation = !prefersReduced && !supportsViewTransition;
