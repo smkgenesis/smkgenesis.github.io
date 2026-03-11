@@ -397,3 +397,20 @@ body.is-pjax-transitioning {
 }
 
 
+
+/* Final hard-lock: remove bootstrap default blue from search results */
+#quarto-search-results .search-item,
+#quarto-search-results .search-item * {
+  background-color: #f6f9fd !important;
+  color: #1f2f45 !important;
+}
+
+#quarto-search-results .aa-Item[aria-selected="true"] .search-item,
+#quarto-search-results .aa-Item[aria-selected="true"] .search-item *,
+#quarto-search-results .search-item.search-item-selected,
+#quarto-search-results .search-item.search-item-selected *,
+#quarto-search-results .search-item.selected,
+#quarto-search-results .search-item.selected * {
+  background-color: #d6e5f6 !important;
+  color: #11253d !important;
+}
