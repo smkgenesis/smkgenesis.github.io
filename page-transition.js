@@ -22,7 +22,7 @@
       document.body.classList.add("page-leaving");
       window.setTimeout(() => {
         window.location.href = link.href;
-      }, 140);
+      }, 190);
     });
   }
 });

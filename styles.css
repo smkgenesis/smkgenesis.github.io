@@ -34,7 +34,7 @@ body {
   letter-spacing: 0;
   opacity: 0;
   transform: translateY(6px);
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition: opacity 280ms ease, transform 280ms ease;
 }
 
 body.page-entered {
@@ -255,4 +255,33 @@ pre,
     opacity: 1;
     transform: none;
   }
+}
+
+/* Strong overrides for Quarto search button/input */
+#quarto-search .aa-DetachedSearchButton,
+#quarto-search .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButtonPlaceholder {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+#quarto-search-results .aa-DetachedSearchButton,
+#quarto-search-results .aa-DetachedSearchButtonIcon,
+#quarto-search-results .aa-DetachedSearchButtonPlaceholder {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+#quarto-search-results form,
+#quarto-search-results input,
+#quarto-search-results .aa-InputWrapper,
+#quarto-search-results .aa-DetachedSearchButton,
+#quarto-search-results .aa-DetachedSearchButtonQuery,
+#quarto-search-results .aa-DetachedSearchButtonIcon,
+#quarto-search-results .aa-DetachedSearchButtonPlaceholder {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
 }
