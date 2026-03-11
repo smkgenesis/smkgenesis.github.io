@@ -3,7 +3,7 @@
   output-dir: _site
 
 website:
-  title: "SMKgenesis"
+  title: "Minkyu's Tech Blog"
   site-url: https://smkgenesis.com
   navbar:
     left:
@@ -22,3 +22,4 @@ format:
     include-in-header:
       - text: |
           <script src="page-transition.js" defer></script>
+
