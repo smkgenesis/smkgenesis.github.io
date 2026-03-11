@@ -124,7 +124,7 @@
 
     window.setTimeout(() => {
       window.location.href = to.toString();
-    }, 460);
+    }, 280);
   }, true);
 })();
 
