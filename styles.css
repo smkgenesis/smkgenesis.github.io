@@ -1544,3 +1544,279 @@ html body mark {
   background: #fae8d9 !important;
   color: #2a1f15 !important;
 }
+
+/* ==========================================================
+   MASTER FINISH LOCK v3 (SYSTEM FINAL)
+   Unified premium system: stained-glass + light design
+   ========================================================== */
+:root {
+  --sys-bg: #12151e;
+  --sys-bg-2: #111319;
+  --sys-grid: rgba(199, 211, 230, 0.012);
+
+  --sys-title: #f1f2f6;
+  --sys-body: #a4abbd;
+  --sys-muted: #7f8da5;
+  --sys-icon: #d6deec;
+
+  --sys-glass: rgba(245, 243, 239, 0.82); /* #F5F3EF + alpha */
+  --sys-glass-2: rgba(248, 246, 242, 0.86);
+  --sys-border-top: rgba(255, 255, 255, 0.46);
+  --sys-border-bottom: rgba(84, 64, 46, 0.18);
+  --sys-card: rgba(240, 233, 222, 0.58);
+  --sys-card-hover: rgba(244, 236, 224, 0.72);
+  --sys-accent: #f0dfcf;
+  --sys-ink: #2d261f;
+}
+
+html,
+body {
+  background: var(--sys-bg) !important;
+}
+
+body {
+  color: var(--sys-body) !important;
+  background-image:
+    radial-gradient(120% 90% at 50% 45%, rgba(27, 36, 52, 0.18) 0%, rgba(14, 19, 29, 0.54) 72%, rgba(10, 13, 20, 0.82) 100%),
+    repeating-linear-gradient(0deg, var(--sys-grid) 0px, var(--sys-grid) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 5px),
+    repeating-linear-gradient(90deg, rgba(192, 208, 232, 0.010) 0px, rgba(192, 208, 232, 0.010) 1px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 7px) !important;
+  background-attachment: fixed !important;
+}
+
+.quarto-title h1.title,
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+.navbar-title {
+  color: var(--sys-title) !important;
+}
+
+p,
+li,
+.analytics-note,
+.analytics-value {
+  color: var(--sys-body) !important;
+}
+
+#quarto-search .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButtonIcon svg {
+  color: var(--sys-icon) !important;
+  fill: var(--sys-icon) !important;
+  transition: color 160ms ease, fill 160ms ease, transform 160ms ease;
+}
+
+#quarto-search .aa-DetachedSearchButton:hover .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButton:hover .aa-DetachedSearchButtonIcon svg {
+  color: #ecf1fb !important;
+  fill: #ecf1fb !important;
+  transform: translateY(-0.5px);
+}
+
+/* Global Algolia lock */
+html body .aa-Autocomplete,
+html body .aa-DetachedOverlay,
+html body .aa-DetachedContainer,
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  --aa-primary-color-rgb: 45, 38, 31 !important;
+  --aa-muted-color-rgb: 127, 109, 92 !important;
+  --aa-selected-color-rgb: 240, 223, 207 !important;
+  --aa-background-color-rgb: 245, 243, 239 !important;
+  --aa-input-background-color-rgb: 248, 246, 242 !important;
+  --aa-panel-border-color-rgb: 136, 84, 44 !important;
+}
+
+html body .aa-DetachedOverlay {
+  background: rgba(8, 12, 20, 0.56) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(112%);
+  backdrop-filter: blur(12px) saturate(112%);
+  animation: sysOverlayIn 260ms ease-out both;
+}
+
+/* subtle environment response */
+html.aa-Detached #quarto-content,
+body.aa-Detached #quarto-content {
+  transform: scale(0.996);
+  filter: saturate(0.94);
+  transition: transform 260ms ease-out, filter 260ms ease-out;
+}
+
+html body .aa-DetachedContainer {
+  margin-top: 24px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  animation: sysLayerIn 260ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  background: var(--sys-glass) !important;
+  background-image: none !important;
+  border: 1px solid rgba(136, 84, 44, 0.10) !important;
+  border-top-color: var(--sys-border-top) !important;
+  border-bottom-color: var(--sys-border-bottom) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 50px -10px rgba(18, 21, 30, 0.5) !important;
+}
+
+html body .aa-Form {
+  border-radius: 9999px !important;
+  padding: 0 10px !important;
+  background: var(--sys-glass-2) !important;
+  border: 1px solid rgba(136, 84, 44, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84) !important;
+}
+
+html body .aa-Input,
+html body .aa-InputWrapper,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body input[type="search"] {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--sys-ink) !important;
+}
+
+html body .aa-Input::placeholder,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body .aa-InputWrapperPrefix *,
+html body .aa-InputWrapperSuffix *,
+html body .aa-ClearButton,
+html body .aa-ClearButton * {
+  color: #7d6b5a !important;
+  fill: #7d6b5a !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html body .aa-DetachedCancelButton,
+html body .aa-DetachedCancelButton:visited,
+html body .aa-DetachedCancelButton:hover,
+html body .aa-DetachedCancelButton:focus {
+  color: #7d6b5a !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* tiny pro-tool hint */
+html body .aa-DetachedCancelButton::after {
+  content: "  Esc";
+  font-size: 0.72em;
+  opacity: 0.72;
+  font-weight: 500;
+}
+
+html body .aa-SourceHeader,
+html body .aa-SourceHeaderLine,
+html body .aa-SourceHeaderTitle {
+  background: rgba(239, 232, 220, 0.76) !important;
+  color: #7d6b5a !important;
+  border-color: rgba(136, 84, 44, 0.10) !important;
+}
+
+html body .aa-List {
+  padding: 8px 10px 10px !important;
+  background: rgba(248, 245, 240, 0.72) !important;
+}
+
+html body .aa-Item,
+html body .aa-ItemLink,
+html body .aa-ItemContent,
+html body .aa-ItemContentTitle,
+html body .aa-ItemContentDescription,
+html body .search-item,
+html body .search-item .search-result-title-container,
+html body .search-item .search-result-text-container,
+html body .search-item .search-result-section,
+html body .search-item .search-result-text,
+html body .search-item .search-result-more {
+  background: var(--sys-card) !important;
+  color: #3f3328 !important;
+}
+
+html body .aa-Item {
+  border-radius: 10px !important;
+  margin: 6px 0 !important;
+  border: 1px solid rgba(196, 173, 150, 0.24) !important;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+html body .aa-Item:hover {
+  background: var(--sys-card-hover) !important;
+  border-color: rgba(175, 137, 104, 0.34) !important;
+  box-shadow: 0 0 0 1px rgba(240, 223, 207, 0.44), 0 6px 14px rgba(28, 20, 12, 0.10) !important;
+}
+
+html body .aa-Item .search-item {
+  padding: 12px 14px !important;
+}
+
+html body .aa-Item .search-item .search-result-title-container {
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+  color: #2d2218 !important;
+}
+
+html body .aa-Item .search-item .search-result-text,
+html body .aa-Item .search-item .search-result-text-container {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: #4a3b2f !important;
+}
+
+html body .aa-Item[aria-selected="true"],
+html body .aa-Item[aria-selected="true"] .aa-ItemLink,
+html body .aa-Item[aria-selected="true"] .aa-ItemContent,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+html body .aa-Item[aria-selected="true"] .search-item,
+html body .aa-Item[aria-selected="true"] .search-item *,
+html body .search-item.search-item-selected,
+html body .search-item.search-item-selected *,
+html body .search-item.selected,
+html body .search-item.selected * {
+  background: var(--sys-accent) !important;
+  background-color: var(--sys-accent) !important;
+  color: #2a1f15 !important;
+}
+
+html body .aa-Item[aria-selected="true"] {
+  border-color: rgba(170, 136, 104, 0.42) !important;
+  box-shadow: 0 6px 16px rgba(28, 20, 12, 0.10) !important;
+}
+
+html body .aa-Item mark,
+html body .search-item mark,
+html body mark {
+  background: var(--sys-accent) !important;
+  color: #2a1f15 !important;
+}
+
+@keyframes sysOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sysLayerIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
