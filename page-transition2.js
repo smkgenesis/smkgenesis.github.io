@@ -1,5 +1,5 @@
-﻿(() => {
-  // Force-inject critical styles — bypasses all external CSS caching
+(() => {
+  // Force-inject critical styles � bypasses all external CSS caching
   const _style = document.createElement("style");
   _style.textContent = `
     /* Search palette forced colors */
@@ -47,6 +47,39 @@
     }
   `;
   document.head.appendChild(_style);
+
+  // Detached modal hard lock: selected rows and source header colors
+  const _styleDetached = document.createElement("style");
+  _styleDetached.textContent = `
+    .aa-DetachedContainer .aa-SourceHeader,
+    .aa-DetachedContainer .aa-SourceHeaderLine,
+    .aa-DetachedContainer .aa-SourceHeaderTitle {
+      background: #0d1117 !important;
+      background-image: none !important;
+      border-color: #1e2a38 !important;
+      color: #aab6c7 !important;
+    }
+    .aa-DetachedContainer .aa-Item[aria-selected="true"],
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemLink,
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemContent,
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+    .aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item,
+    .aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-more,
+    .aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-section,
+    .aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-text,
+    .aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-title-container,
+    .aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-text-container,
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .search-result-doc,
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .search-result-more,
+    .aa-DetachedContainer .aa-Item[aria-selected="true"] .search-result-doc-section {
+      background: #26374c !important;
+      background-color: #26374c !important;
+      background-image: none !important;
+      color: #eef4ff !important;
+    }
+  `;
+  document.head.appendChild(_styleDetached);
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const supportsViewTransition = "startViewTransition" in document;
@@ -176,4 +209,5 @@
     }, 280);
   }, true);
 })();
+
 

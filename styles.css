@@ -643,3 +643,73 @@ body #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContentDescri
   color: #eef4ff !important;
 }
 
+
+/* Hard lock for detached search modal (scope-independent) */
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-DetachedContainer .aa-Panel,
+.aa-DetachedContainer .aa-PanelLayout,
+.aa-DetachedContainer .aa-PanelSections {
+  background: #0d1117 !important;
+  color: #cdd4de !important;
+}
+
+.aa-DetachedContainer .aa-Form,
+.aa-DetachedContainer .aa-Input,
+.aa-DetachedContainer .aa-InputWrapper,
+.aa-DetachedContainer .aa-InputWrapperPrefix,
+.aa-DetachedContainer .aa-InputWrapperSuffix,
+.aa-DetachedContainer input,
+.aa-DetachedContainer input[type="search"] {
+  background: #161e29 !important;
+  color: #cdd4de !important;
+  border: 1px solid #2b3a4d !important;
+  box-shadow: none !important;
+}
+
+.aa-DetachedContainer .aa-List,
+.aa-DetachedContainer .aa-Source,
+.aa-DetachedContainer .aa-Item,
+.aa-DetachedContainer .aa-ItemLink,
+.aa-DetachedContainer .aa-ItemContent,
+.aa-DetachedContainer .aa-ItemContentTitle,
+.aa-DetachedContainer .aa-ItemContentDescription,
+.aa-DetachedContainer .search-item,
+.aa-DetachedContainer .search-result-doc,
+.aa-DetachedContainer .search-result-more,
+.aa-DetachedContainer .search-result-doc-section,
+.aa-DetachedContainer .search-result-title,
+.aa-DetachedContainer .search-result-crumbs,
+.aa-DetachedContainer .search-result-section {
+  background: #111820 !important;
+  color: #cdd4de !important;
+}
+
+.aa-DetachedContainer .aa-SourceHeader,
+.aa-DetachedContainer .aa-SourceHeaderLine,
+.aa-DetachedContainer .aa-SourceHeaderTitle {
+  background: #0d1117 !important;
+  background-image: none !important;
+  border-color: #1e2a38 !important;
+  color: #aab6c7 !important;
+}
+
+.aa-DetachedContainer .aa-Item[aria-selected="true"],
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemLink,
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemContent,
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+.aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item,
+.aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-more,
+.aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-section,
+.aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-text,
+.aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-title-container,
+.aa-DetachedContainer li.aa-Item[aria-selected="true"] .search-item .search-result-text-container,
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .search-result-doc,
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .search-result-more,
+.aa-DetachedContainer .aa-Item[aria-selected="true"] .search-result-doc-section {
+  background: #26374c !important;
+  background-color: #26374c !important;
+  background-image: none !important;
+  color: #eef4ff !important;
+}
