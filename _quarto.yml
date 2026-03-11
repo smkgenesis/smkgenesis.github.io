@@ -7,8 +7,6 @@ website:
   site-url: https://smkgenesis.com
   navbar:
     left:
-      - href: index.qmd
-        text: Home
       - href: articles.qmd
         text: Articles
       - href: projects.qmd
@@ -22,4 +20,3 @@ format:
     include-in-header:
       - text: |
           <script src="page-transition.js" defer></script>
-

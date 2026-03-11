@@ -4,12 +4,23 @@
   const useFallbackAnimation = !prefersReduced && !supportsViewTransition;
   const prefetchSet = new Set();
   const maxPrefetch = 30;
+  const DIR_KEY = "page:dir";
 
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
 
   const scrollKey = `scroll:${location.pathname}`;
+
+  const routeRank = (url) => {
+    const p = url.pathname.toLowerCase();
+    if (p.endsWith("/index.html") || p === "/") return 0;
+    if (p.endsWith("/articles.html")) return 10;
+    if (p.includes("/articles/")) return 11;
+    if (p.endsWith("/projects.html")) return 20;
+    if (p.includes("/projects/")) return 21;
+    return 15;
+  };
 
   const saveScroll = () => {
     try {
@@ -23,9 +34,7 @@
       const raw = sessionStorage.getItem(scrollKey);
       if (raw === null) return;
       const y = Number(raw);
-      if (!Number.isNaN(y)) {
-        window.scrollTo(0, y);
-      }
+      if (!Number.isNaN(y)) window.scrollTo(0, y);
     } catch {}
   };
 
@@ -33,7 +42,6 @@
     if (!href) return false;
     if (href.startsWith("#")) return false;
     if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return false;
-
     const url = new URL(href, window.location.href);
     if (url.origin !== window.location.origin) return false;
     if (url.pathname === window.location.pathname && url.hash) return false;
@@ -44,16 +52,14 @@
     if (prefetchSet.size >= maxPrefetch) return;
     const href = link.getAttribute("href");
     if (!isInternalNavigable(href)) return;
-
-    const url = new URL(href, window.location.href);
-    const key = url.toString();
-    if (prefetchSet.has(key)) return;
-    prefetchSet.add(key);
+    const url = new URL(href, window.location.href).toString();
+    if (prefetchSet.has(url)) return;
+    prefetchSet.add(url);
 
     const el = document.createElement("link");
     el.rel = "prefetch";
     el.as = "document";
-    el.href = key;
+    el.href = url;
     document.head.appendChild(el);
   };
 
@@ -65,7 +71,18 @@
     });
   };
 
+  const applyEnterDirection = () => {
+    try {
+      const dir = sessionStorage.getItem(DIR_KEY);
+      if (dir === "left") {
+        document.body.classList.add("page-enter-from-left");
+      }
+      sessionStorage.removeItem(DIR_KEY);
+    } catch {}
+  };
+
   restoreScroll();
+  applyEnterDirection();
   requestAnimationFrame(() => document.body.classList.add("page-entered"));
   installPrefetch();
 
@@ -89,13 +106,25 @@
     const href = link.getAttribute("href");
     if (!isInternalNavigable(href)) return;
 
+    const to = new URL(href, window.location.href);
+    const from = new URL(window.location.href);
+    const dir = routeRank(to) >= routeRank(from) ? "right" : "left";
+
     event.preventDefault();
     saveScroll();
-    document.body.classList.add("page-leaving");
 
-    const url = new URL(href, window.location.href).toString();
+    try {
+      sessionStorage.setItem(DIR_KEY, dir === "right" ? "left" : "right");
+    } catch {}
+
+    document.body.classList.add("page-leaving");
+    if (dir === "right") {
+      document.body.classList.add("page-leave-right");
+    }
+
     window.setTimeout(() => {
-      window.location.href = url;
-    }, 230);
+      window.location.href = to.toString();
+    }, 460);
   }, true);
 })();
+
