@@ -1024,3 +1024,44 @@ html body .aa-DetachedContainer {
   border-radius: 14px !important;
   overflow: hidden !important;
 }
+
+/* Search results final polish: cleaner hit card hierarchy */
+html body .aa-List {
+  padding: 8px 10px 10px !important;
+}
+
+html body .aa-Item {
+  border-radius: 10px !important;
+  margin: 6px 0 !important;
+  border: 1px solid rgba(196, 173, 150, 0.28) !important;
+  transition: background-color 130ms ease, border-color 130ms ease, transform 130ms ease;
+}
+
+html body .aa-Item .search-item {
+  padding: 10px 12px !important;
+}
+
+html body .aa-Item .search-item .search-result-title-container {
+  font-size: 1.04rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.002em !important;
+}
+
+html body .aa-Item .search-item .search-result-text,
+html body .aa-Item .search-item .search-result-text-container {
+  font-size: 0.98rem !important;
+  line-height: 1.45 !important;
+  opacity: 0.93 !important;
+}
+
+html body .aa-Item .search-item i,
+html body .aa-Item .search-item svg {
+  opacity: 0.82 !important;
+  transform: translateY(1px);
+}
+
+html body .aa-Item[aria-selected="true"] {
+  border-color: rgba(170, 136, 104, 0.45) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(28, 20, 12, 0.10) !important;
+}
