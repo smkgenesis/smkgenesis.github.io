@@ -1995,3 +1995,109 @@ html body .aa-Item[aria-selected="true"] {
   border-color: rgba(170, 136, 104, 0.40) !important;
   box-shadow: 0 6px 16px rgba(8, 10, 15, 0.14) !important;
 }
+
+/* ==========================================================
+   MASTER FINISH LOCK v5 (ABSOLUTE)
+   Floating GNB + editorial titles + living dark
+   ========================================================== */
+:root {
+  --glass-border: rgba(253, 250, 245, 0.08);
+  --glass-bg: rgba(253, 250, 245, 0.05);
+}
+
+/* Floating capsule GNB */
+#quarto-header {
+  top: 0 !important;
+  padding-top: 0 !important;
+  pointer-events: none;
+}
+
+#quarto-header .navbar {
+  width: min(65vw, 980px) !important;
+  margin: 20px auto 0 !important;
+  border-radius: 9999px !important;
+  padding: 8px 16px !important;
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  backdrop-filter: blur(20px) saturate(120%);
+  box-shadow: 0 10px 26px rgba(6, 10, 18, 0.22) !important;
+  pointer-events: auto;
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+body.gnb-hidden #quarto-header .navbar {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+
+#quarto-header .navbar .navbar-brand,
+#quarto-header .navbar .nav-link {
+  font-size: 12px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: none !important;
+}
+
+/* Editorial title system */
+#title-block-header {
+  border-bottom: 0 !important;
+  margin-bottom: 2.9rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+.section-kicker {
+  margin: 0 0 0.8rem 0 !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  color: rgba(170, 184, 208, 0.82) !important;
+}
+
+.quarto-title h1.title {
+  position: relative;
+  padding-left: 18px !important;
+  margin-bottom: 2.3rem !important;
+  font-size: clamp(1.9rem, 5vw, 3.2rem) !important;
+}
+
+.quarto-title h1.title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 1px;
+  height: 1.35em;
+  background: rgba(233, 214, 194, 0.46);
+}
+
+/* Mobile exception */
+@media (max-width: 768px) {
+  #quarto-header .navbar {
+    width: 92vw !important;
+    margin-top: 10px !important;
+    padding: 8px 12px !important;
+  }
+
+  #quarto-header .navbar .navbar-brand,
+  #quarto-header .navbar .nav-link {
+    letter-spacing: 0.08em !important;
+  }
+}
+
+/* Living dark cursor glow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(420px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(245, 223, 207, 0.03), rgba(245, 223, 207, 0) 65%);
+  transition: background 140ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    display: none;
+  }
+}
