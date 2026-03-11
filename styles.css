@@ -45,7 +45,7 @@ body.page-leaving #quarto-content {
 #quarto-content {
   will-change: transform;
   transform: translateX(56px);
-  transition: transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 620ms cubic-bezier(0.16, 0.84, 0.32, 1);
 }
 
 body.page-enter-from-left #quarto-content {
@@ -331,11 +331,11 @@ pre,
 }
 
 ::view-transition-old(root) {
-  animation: vt-old 440ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: vt-old 620ms cubic-bezier(0.16, 0.84, 0.32, 1) both;
 }
 
 ::view-transition-new(root) {
-  animation: vt-new 440ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: vt-new 620ms cubic-bezier(0.16, 0.84, 0.32, 1) both;
 }
 
 @keyframes vt-old {
@@ -343,13 +343,13 @@ pre,
     transform: translateX(0);
   }
   to {
-    transform: translateX(-9vw);
+    transform: translateX(-11vw);
   }
 }
 
 @keyframes vt-new {
   from {
-    transform: translateX(9vw);
+    transform: translateX(11vw);
   }
   to {
     transform: translateX(0);
@@ -567,6 +567,43 @@ pre,
 #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContent,
 #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
 #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContentDescription {
+  background: #26374c !important;
+  color: #eef4ff !important;
+}
+
+/* Search palette hard lock (prevents fallback blue/gray) */
+html,
+body,
+#quarto-search-results,
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-Panel {
+  --aa-primary-color-rgb: 232, 237, 245 !important;
+  --aa-muted-color-rgb: 170, 182, 199 !important;
+  --aa-selected-color-rgb: 38, 55, 76 !important;
+  --aa-background-color-rgb: 17, 22, 30 !important;
+  --aa-input-background-color-rgb: 31, 39, 51 !important;
+  --aa-panel-border-color-rgb: 58, 70, 88 !important;
+}
+
+body #quarto-search-results .aa-SourceHeader,
+body #quarto-search-results .aa-SourceHeaderLine,
+body #quarto-search-results .aa-SourceHeaderTitle {
+  background: #161e29 !important;
+  color: #aab6c7 !important;
+  border-color: #3a4658 !important;
+}
+
+body #quarto-search-results .aa-List,
+body #quarto-search-results .aa-Item {
+  background: #161e29 !important;
+}
+
+body #quarto-search-results .aa-Item[aria-selected="true"],
+body #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemLink,
+body #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContent,
+body #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+body #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContentDescription {
   background: #26374c !important;
   color: #eef4ff !important;
 }
