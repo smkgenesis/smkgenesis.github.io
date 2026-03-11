@@ -416,3 +416,70 @@ body.is-pjax-transitioning {
 }
 
 
+
+/* Absolute final lock for Quarto/Algolia detached search (global scope) */
+:root {
+  --aa-primary-color-rgb: 31, 47, 69 !important;
+  --aa-muted-color-rgb: 93, 111, 136 !important;
+  --aa-selected-color-rgb: 214, 229, 246 !important;
+  --aa-background-color-rgb: 246, 249, 253 !important;
+  --aa-input-background-color-rgb: 255, 255, 255 !important;
+  --aa-panel-border-color-rgb: 195, 206, 221 !important;
+}
+
+.aa-Autocomplete,
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-Panel,
+.aa-DetachedFormContainer,
+.aa-PanelLayout,
+.aa-PanelSections {
+  --aa-primary-color-rgb: 31, 47, 69 !important;
+  --aa-muted-color-rgb: 93, 111, 136 !important;
+  --aa-selected-color-rgb: 214, 229, 246 !important;
+  --aa-background-color-rgb: 246, 249, 253 !important;
+  --aa-input-background-color-rgb: 255, 255, 255 !important;
+  --aa-panel-border-color-rgb: 195, 206, 221 !important;
+}
+
+.aa-DetachedCancelButton,
+.aa-DetachedCancelButton:visited,
+.aa-DetachedCancelButton:hover,
+.aa-DetachedCancelButton:focus {
+  color: #1f2f45 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+.aa-List,
+.aa-Item,
+.aa-ItemLink,
+.aa-ItemContent,
+.aa-ItemContentTitle,
+.aa-ItemContentDescription,
+.search-item,
+.search-item .search-result-title-container,
+.search-item .search-result-text-container,
+.search-item .search-result-section,
+.search-item .search-result-text,
+.search-item .search-result-more {
+  background: #f6f9fd !important;
+  background-color: #f6f9fd !important;
+  color: #1f2f45 !important;
+}
+
+.aa-Item[aria-selected="true"],
+.aa-Item[aria-selected="true"] .aa-ItemLink,
+.aa-Item[aria-selected="true"] .aa-ItemContent,
+.aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+.aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+.aa-Item[aria-selected="true"] .search-item,
+.aa-Item[aria-selected="true"] .search-item *,
+.search-item.search-item-selected,
+.search-item.search-item-selected *,
+.search-item.selected,
+.search-item.selected * {
+  background: #d6e5f6 !important;
+  background-color: #d6e5f6 !important;
+  color: #11253d !important;
+}
