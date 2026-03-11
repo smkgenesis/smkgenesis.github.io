@@ -3,7 +3,7 @@
   output-dir: _site
 
 website:
-  title: "smkgenesis"
+  title: "SMKgenesis"
   site-url: https://smkgenesis.com
   navbar:
     left:
@@ -19,3 +19,6 @@ format:
     theme: cosmo
     css: styles.css
     toc: false
+    include-in-header:
+      - text: |
+          <script src="page-transition.js" defer></script>
