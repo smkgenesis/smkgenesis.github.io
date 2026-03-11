@@ -358,7 +358,8 @@ pre,
 .aa-DetachedContainer,
 .aa-Panel,
 .aa-DetachedFormContainer {
-  background: rgba(19, 22, 28, 0.94) !important;
+  background: #11161e !important;
+  background-image: none !important;
   color: var(--text) !important;
 }
 
