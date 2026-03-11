@@ -19,4 +19,6 @@ format:
     toc: false
     include-in-header:
       - text: |
+          <meta name="theme-color" content="#12151e">
+          <link rel="icon" type="image/svg+xml" href="favicon.svg">
           <script src="page-transition.js" defer></script>

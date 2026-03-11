@@ -18,6 +18,14 @@
     return 15;
   };
 
+  const sectionLabel = (url) => {
+    const p = url.pathname.toLowerCase();
+    if (p.endsWith("/index.html") || p === "/") return "01 / HOME";
+    if (p.endsWith("/articles.html") || p.includes("/articles/")) return "02 / ARTICLES";
+    if (p.endsWith("/projects.html") || p.includes("/projects/")) return "03 / PROJECTS";
+    return "00 / PAGE";
+  };
+
   const keyOf = (url) => `${url.pathname}${url.search}`;
 
   const isInternalNavigable = (href) => {
@@ -34,6 +42,22 @@
   const closeSearchOverlay = () => {
     document.documentElement.classList.remove("aa-Detached");
     document.body.classList.remove("aa-Detached");
+  };
+
+  const applySectionKicker = (url) => {
+    const titleBlock = document.querySelector("#title-block-header .quarto-title");
+    if (!titleBlock) return;
+
+    const existing = titleBlock.querySelector(".section-kicker");
+    if (existing) existing.remove();
+
+    const h1 = titleBlock.querySelector("h1.title");
+    if (!h1) return;
+
+    const kicker = document.createElement("p");
+    kicker.className = "section-kicker";
+    kicker.textContent = sectionLabel(url);
+    titleBlock.insertBefore(kicker, h1);
   };
 
   const fetchHTML = async (url) => {
@@ -79,15 +103,8 @@
     content.getAnimations().forEach((a) => a.cancel());
 
     const anim = content.animate(
-      [
-        { transform: "translateY(0)" },
-        { transform: `translateY(${delta}px)` }
-      ],
-      {
-        duration: 320,
-        easing: "cubic-bezier(0.4, 0, 1, 1)",
-        fill: "forwards"
-      }
+      [{ transform: "translateY(0)" }, { transform: `translateY(${delta}px)` }],
+      { duration: 320, easing: "cubic-bezier(0.4, 0, 1, 1)", fill: "forwards" }
     );
 
     await anim.finished.catch(() => {});
@@ -102,15 +119,8 @@
     content.getAnimations().forEach((a) => a.cancel());
 
     const anim = content.animate(
-      [
-        { transform: `translateY(${delta}px)` },
-        { transform: "translateY(0)" }
-      ],
-      {
-        duration: 820,
-        easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-        fill: "both"
-      }
+      [{ transform: `translateY(${delta}px)` }, { transform: "translateY(0)" }],
+      { duration: 820, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "both" }
     );
 
     await anim.finished.catch(() => {});
@@ -155,6 +165,7 @@
       const nextDoc = parseDocument(html);
       swapContent(nextDoc);
       updateActiveNav(targetUrl);
+      applySectionKicker(targetUrl);
 
       if (mode === "push") {
         history.pushState({ url: targetUrl.toString() }, "", targetUrl.toString());
@@ -167,7 +178,7 @@
 
       currentUrl = new URL(targetUrl.toString());
       await animateIn(direction);
-    } catch (err) {
+    } catch {
       window.location.href = targetUrl.toString();
     } finally {
       document.documentElement.classList.remove("is-pjax-transitioning");
@@ -183,6 +194,51 @@
     const url = new URL(href, window.location.href);
     fetchHTML(url).catch(() => {});
   };
+
+  const initCursorGlow = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const onMove = (event) => {
+      const x = `${Math.round((event.clientX / window.innerWidth) * 100)}%`;
+      const y = `${Math.round((event.clientY / window.innerHeight) * 100)}%`;
+      document.body.style.setProperty("--cursor-x", x);
+      document.body.style.setProperty("--cursor-y", y);
+    };
+
+    window.addEventListener("pointermove", onMove, { passive: true });
+  };
+
+  const initScrollAwareGnb = () => {
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const delta = y - lastY;
+
+        if (document.documentElement.classList.contains("aa-Detached")) {
+          document.body.classList.remove("gnb-hidden");
+        } else if (y < 24 || delta < -2) {
+          document.body.classList.remove("gnb-hidden");
+        } else if (delta > 4) {
+          document.body.classList.add("gnb-hidden");
+        }
+
+        lastY = y;
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+  };
+
+  applySectionKicker(currentUrl);
+  initCursorGlow();
+  initScrollAwareGnb();
 
   document.addEventListener(
     "click",
