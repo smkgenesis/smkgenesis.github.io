@@ -295,10 +295,10 @@ body.is-pjax-transitioning {
   overflow: hidden !important;
 }
 
-/* Search overlay: keep as modal above current page (not full page replacement feel) */
+/* Search overlay: high-contrast modal card over the current page */
 .aa-DetachedOverlay {
-  background: rgba(10, 14, 22, 0.58) !important;
-  backdrop-filter: blur(3px) !important;
+  background: rgba(8, 12, 20, 0.56) !important;
+  backdrop-filter: blur(2px) !important;
 }
 
 #quarto-search-results .aa-DetachedContainer,
@@ -311,38 +311,55 @@ body.is-pjax-transitioning {
 #quarto-search-results .aa-DetachedFormContainer,
 #quarto-search-results .aa-PanelLayout,
 #quarto-search-results .aa-PanelSections {
-  background: #121a27 !important;
-  border: 1px solid #3f516a !important;
+  background: #edf3fb !important;
+  background-image: none !important;
+  border: 1px solid #8ea4bf !important;
   border-radius: 12px !important;
+  box-shadow: 0 14px 44px rgba(5, 10, 18, 0.45) !important;
 }
 
-/* Input contrast: bright but harmonious */
+/* Input area: bright and clearly separated from dark page */
 #quarto-search-results .aa-Form,
 #quarto-search-results .aa-Input,
 #quarto-search-results input[type="search"] {
-  background: #f2f6fb !important;
-  color: #1a2434 !important;
-  border: 1px solid #6b7f99 !important;
+  background: #ffffff !important;
+  color: #1b2a3d !important;
+  border: 1px solid #7e95b2 !important;
 }
 
 #quarto-search-results .aa-Input::placeholder {
-  color: #667b97 !important;
+  color: #6b7f98 !important;
 }
 
-/* Cancel must be visible */
+#quarto-search-results .aa-InputWrapperPrefix,
+#quarto-search-results .aa-InputWrapperSuffix,
+#quarto-search-results .aa-InputWrapperPrefix svg,
+#quarto-search-results .aa-InputWrapperSuffix svg {
+  background: transparent !important;
+  color: #667b97 !important;
+  fill: #667b97 !important;
+}
+
+/* Cancel must be readable */
 #quarto-search-results .aa-DetachedCancelButton,
 #quarto-search-results .aa-DetachedCancelButton:visited,
 #quarto-search-results .aa-DetachedCancelButton:hover,
 #quarto-search-results .aa-DetachedCancelButton:focus {
-  color: #e6eefc !important;
-  font-weight: 600 !important;
+  color: #223248 !important;
+  font-weight: 700 !important;
   opacity: 1 !important;
 }
 
-/* Results tones */
+/* Results tones: no gradient, clean neutral layers */
 #quarto-search-results .aa-SourceHeader,
 #quarto-search-results .aa-SourceHeaderLine,
-#quarto-search-results .aa-SourceHeaderTitle,
+#quarto-search-results .aa-SourceHeaderTitle {
+  background: #dfe8f3 !important;
+  background-image: none !important;
+  color: #536a87 !important;
+  border-color: #b7c8da !important;
+}
+
 #quarto-search-results .aa-List,
 #quarto-search-results .aa-Item,
 #quarto-search-results .aa-ItemLink,
@@ -355,11 +372,12 @@ body.is-pjax-transitioning {
 #quarto-search-results .search-item .search-result-text,
 #quarto-search-results .search-item .search-result-title-container,
 #quarto-search-results .search-item .search-result-text-container {
-  background: #172233 !important;
-  color: #e6eef9 !important;
+  background: #f6f9fd !important;
+  background-image: none !important;
+  color: #1f2f45 !important;
 }
 
-/* Kill default bootstrap blue selected state hard */
+/* Kill bootstrap blue selected state hard */
 #quarto-search-results .aa-Item[aria-selected="true"],
 #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemLink,
 #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContent,
@@ -373,6 +391,8 @@ body.is-pjax-transitioning {
 #quarto-search-results .aa-Item[aria-selected="true"] .search-item .search-result-text-container,
 #quarto-search-results .search-item.search-item-selected,
 #quarto-search-results .search-item.selected {
-  background: #2e445f !important;
-  color: #f3f8ff !important;
+  background: #d6e5f6 !important;
+  background-image: none !important;
+  color: #11253d !important;
 }
+
