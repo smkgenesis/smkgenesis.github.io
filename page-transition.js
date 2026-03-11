@@ -6,9 +6,7 @@
   const maxPrefetch = 30;
   const DIR_KEY = "page:dir";
 
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
   const scrollKey = `scroll:${location.pathname}`;
 
@@ -42,6 +40,7 @@
     if (!href) return false;
     if (href.startsWith("#")) return false;
     if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return false;
+
     const url = new URL(href, window.location.href);
     if (url.origin !== window.location.origin) return false;
     if (url.pathname === window.location.pathname && url.hash) return false;
@@ -50,8 +49,10 @@
 
   const prefetch = (link) => {
     if (prefetchSet.size >= maxPrefetch) return;
+
     const href = link.getAttribute("href");
     if (!isInternalNavigable(href)) return;
+
     const url = new URL(href, window.location.href).toString();
     if (prefetchSet.has(url)) return;
     prefetchSet.add(url);
@@ -74,9 +75,7 @@
   const applyEnterDirection = () => {
     try {
       const dir = sessionStorage.getItem(DIR_KEY);
-      if (dir === "left") {
-        document.body.classList.add("page-enter-from-left");
-      }
+      if (dir === "left") document.body.classList.add("page-enter-from-left");
       sessionStorage.removeItem(DIR_KEY);
     } catch {}
   };
@@ -87,44 +86,51 @@
   installPrefetch();
 
   let scrollTimer;
-  window.addEventListener("scroll", () => {
-    clearTimeout(scrollTimer);
-    scrollTimer = window.setTimeout(saveScroll, 120);
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(saveScroll, 120);
+    },
+    { passive: true }
+  );
   window.addEventListener("pagehide", saveScroll, { capture: true });
 
   if (!useFallbackAnimation) return;
 
-  document.addEventListener("click", (event) => {
-    if (event.defaultPrevented || event.button !== 0) return;
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  document.addEventListener(
+    "click",
+    (event) => {
+      if (event.defaultPrevented || event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
-    const link = event.target.closest("a[href]");
-    if (!link) return;
-    if (link.target && link.target !== "") return;
+      const link = event.target.closest("a[href]");
+      if (!link) return;
+      if (link.target && link.target !== "") return;
 
-    const href = link.getAttribute("href");
-    if (!isInternalNavigable(href)) return;
+      const href = link.getAttribute("href");
+      if (!isInternalNavigable(href)) return;
 
-    const to = new URL(href, window.location.href);
-    const from = new URL(window.location.href);
-    const dir = routeRank(to) >= routeRank(from) ? "right" : "left";
+      const to = new URL(href, window.location.href);
+      const from = new URL(window.location.href);
+      const dir = routeRank(to) >= routeRank(from) ? "right" : "left";
 
-    event.preventDefault();
-    saveScroll();
+      event.preventDefault();
+      saveScroll();
 
-    try {
-      sessionStorage.setItem(DIR_KEY, dir === "right" ? "left" : "right");
-    } catch {}
+      try {
+        sessionStorage.setItem(DIR_KEY, dir === "right" ? "left" : "right");
+      } catch {}
 
-    document.body.classList.add("page-leaving");
-    if (dir === "right") {
-      document.body.classList.add("page-leave-right");
-    }
+      document.documentElement.style.overflowX = "clip";
+      document.body.style.overflowX = "clip";
+      document.body.classList.add("page-leaving");
+      if (dir === "right") document.body.classList.add("page-leave-right");
 
-    window.setTimeout(() => {
-      window.location.href = to.toString();
-    }, 280);
-  }, true);
+      window.setTimeout(() => {
+        window.location.href = to.toString();
+      }, 420);
+    },
+    true
+  );
 })();
-
