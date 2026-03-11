@@ -143,6 +143,8 @@
     isNavigating = true;
 
     try {
+      document.documentElement.classList.add("is-pjax-transitioning");
+      document.body.classList.add("is-pjax-transitioning");
       closeSearchOverlay();
       scrollCache.set(keyOf(currentUrl), window.scrollY);
 
@@ -168,6 +170,8 @@
     } catch (err) {
       window.location.href = targetUrl.toString();
     } finally {
+      document.documentElement.classList.remove("is-pjax-transitioning");
+      document.body.classList.remove("is-pjax-transitioning");
       isNavigating = false;
     }
   };
@@ -199,11 +203,15 @@
     true
   );
 
-  document.addEventListener("pointerenter", (event) => {
-    const link = event.target.closest?.("a[href]");
-    if (!link) return;
-    prefetchFromLink(link);
-  }, true);
+  document.addEventListener(
+    "pointerenter",
+    (event) => {
+      const link = event.target.closest?.("a[href]");
+      if (!link) return;
+      prefetchFromLink(link);
+    },
+    true
+  );
 
   document.addEventListener("focusin", (event) => {
     const link = event.target.closest?.("a[href]");
