@@ -960,3 +960,12 @@ html body .aa-SourceHeaderLine,
 html body .aa-SourceHeaderTitle {
   color: #7d6b5a !important;
 }
+
+/* Search icon box cleanup: remove loupe wrapper border */
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperPrefix * {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
