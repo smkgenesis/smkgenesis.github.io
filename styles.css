@@ -33,7 +33,7 @@ body {
   line-height: 1.9;
   letter-spacing: 0;
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(26px);
   transition: opacity 280ms ease, transform 280ms ease;
 }
 
@@ -44,7 +44,7 @@ body.page-entered {
 
 body.page-leaving {
   opacity: 0;
-  transform: translateY(5px);
+  transform: translateY(-26px);
 }
 
 .navbar {
@@ -79,6 +79,23 @@ body.page-leaving {
 .nav-link:focus,
 .nav-link.active {
   color: var(--text) !important;
+}
+
+/* Remove square around top-right search icon */
+#quarto-search .aa-DetachedSearchButton {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0.2rem 0.3rem !important;
+}
+
+#quarto-search .aa-DetachedSearchButtonPlaceholder,
+#quarto-search .aa-DetachedSearchButtonQuery {
+  display: none !important;
+}
+
+#quarto-search .aa-DetachedSearchButtonIcon {
+  color: var(--muted) !important;
 }
 
 main.content {
@@ -176,17 +193,33 @@ select {
   border-color: var(--line);
 }
 
-/* Search overlay */
+/* Search overlay (opened search box) */
+#quarto-search-results,
+#quarto-search-results .aa-DetachedOverlay,
+#quarto-search-results .aa-DetachedContainer,
+#quarto-search-results .aa-Panel,
+#quarto-search-results .aa-DetachedFormContainer,
+#quarto-search-results .aa-DetachedFormContainer * {
+  color: var(--text) !important;
+}
+
 #quarto-search-results,
 #quarto-search-results .aa-DetachedOverlay,
 #quarto-search-results .aa-DetachedContainer,
 #quarto-search-results .aa-Panel,
 #quarto-search-results .aa-DetachedFormContainer {
-  background: rgba(19, 22, 28, 0.92) !important;
+  background: rgba(19, 22, 28, 0.94) !important;
 }
 
 #quarto-search-results .aa-Form,
 #quarto-search-results .aa-Input,
+#quarto-search-results .aa-InputWrapper,
+#quarto-search-results .aa-InputWrapperPrefix,
+#quarto-search-results .aa-DetachedSearchButton,
+#quarto-search-results .aa-DetachedSearchButtonQuery,
+#quarto-search-results .aa-DetachedSearchButtonIcon,
+#quarto-search-results .aa-DetachedSearchButtonPlaceholder,
+#quarto-search-results input,
 #quarto-search-results input[type="search"] {
   background: var(--surface) !important;
   color: var(--text) !important;
@@ -194,17 +227,10 @@ select {
   box-shadow: none !important;
 }
 
-#quarto-search-results .aa-Input::placeholder,
-#quarto-search-results .aa-Label,
-#quarto-search-results .aa-SubmitIcon,
-#quarto-search-results .aa-LoadingIndicator,
-#quarto-search-results .aa-ClearButton,
-#quarto-search-results .aa-DetachedCancelButton,
-#quarto-search-results .aa-ItemTitle,
-#quarto-search-results .aa-ItemContent,
-#quarto-search-results mark {
+#quarto-search-results .aa-DetachedCancelButton {
+  background: transparent !important;
   color: var(--text) !important;
-  fill: var(--text) !important;
+  border: 0 !important;
 }
 
 #quarto-search-results .aa-Item {
@@ -217,6 +243,36 @@ select {
 
 #quarto-search-results mark {
   background: rgba(143, 169, 255, 0.2) !important;
+  color: var(--text) !important;
+}
+
+.analytics-panel {
+  margin-top: 3rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(26, 31, 40, 0.66), rgba(24, 29, 37, 0.66));
+}
+
+.analytics-title {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.analytics-value {
+  margin: 0.5rem 0 0.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.analytics-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
 code,
@@ -255,33 +311,4 @@ pre,
     opacity: 1;
     transform: none;
   }
-}
-
-/* Strong overrides for Quarto search button/input */
-#quarto-search .aa-DetachedSearchButton,
-#quarto-search .aa-DetachedSearchButtonIcon,
-#quarto-search .aa-DetachedSearchButtonPlaceholder {
-  background: var(--surface) !important;
-  color: var(--text) !important;
-  border-color: var(--line) !important;
-}
-
-#quarto-search-results .aa-DetachedSearchButton,
-#quarto-search-results .aa-DetachedSearchButtonIcon,
-#quarto-search-results .aa-DetachedSearchButtonPlaceholder {
-  background: var(--surface) !important;
-  color: var(--text) !important;
-  border-color: var(--line) !important;
-}
-
-#quarto-search-results form,
-#quarto-search-results input,
-#quarto-search-results .aa-InputWrapper,
-#quarto-search-results .aa-DetachedSearchButton,
-#quarto-search-results .aa-DetachedSearchButtonQuery,
-#quarto-search-results .aa-DetachedSearchButtonIcon,
-#quarto-search-results .aa-DetachedSearchButtonPlaceholder {
-  background-color: var(--surface) !important;
-  color: var(--text) !important;
-  border-color: var(--line) !important;
 }
