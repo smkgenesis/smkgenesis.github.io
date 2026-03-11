@@ -1,4 +1,4 @@
-﻿html, body { overflow-x: clip !important; }
+html, body { overflow-x: clip !important; }
 /* Ink Lab: dark editorial research style */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
@@ -19,7 +19,7 @@
   --bs-border-color: var(--line);
 }
 
-html,`nbody,
+html, body,
 #quarto-content,
 .quarto-container,
 .page-layout-article {
@@ -642,3 +642,4 @@ body #quarto-search-results .aa-Item[aria-selected="true"] .aa-ItemContentDescri
   background: #26374c !important;
   color: #eef4ff !important;
 }
+
