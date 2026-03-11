@@ -811,3 +811,94 @@ mark {
   background: #fae8d9 !important;
   color: #2a1f15 !important;
 }
+
+/* SEARCH UI GLOBAL HARD LOCK v3 (absolute priority) */
+html body .aa-DetachedOverlay,
+html body .aa-DetachedContainer,
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  background: #fcf8f2 !important;
+  background-image: none !important;
+  border-color: rgba(216, 198, 181, 0.9) !important;
+}
+
+html body .aa-DetachedOverlay {
+  background: rgba(8, 12, 20, 0.66) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+html body .aa-Form,
+html body .aa-Input,
+html body .aa-InputWrapper,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body input[type="search"] {
+  background: #fffaf4 !important;
+  color: #241e18 !important;
+  border: 1px solid #d8c6b5 !important;
+  box-shadow: none !important;
+}
+
+html body .aa-Input::placeholder,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body .aa-InputWrapperPrefix svg,
+html body .aa-InputWrapperSuffix svg,
+html body .aa-ClearButton,
+html body .aa-ClearButton svg {
+  color: #7d6b5a !important;
+  fill: #7d6b5a !important;
+  background: transparent !important;
+}
+
+html body .aa-DetachedCancelButton,
+html body .aa-DetachedCancelButton:visited,
+html body .aa-DetachedCancelButton:hover,
+html body .aa-DetachedCancelButton:focus {
+  color: #f4dfcb !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+html body .aa-SourceHeader,
+html body .aa-SourceHeaderLine,
+html body .aa-SourceHeaderTitle {
+  background: #f3e7dc !important;
+  color: #7d6b5a !important;
+  border-color: #e2d0bf !important;
+}
+
+html body .aa-List,
+html body .aa-Item,
+html body .aa-ItemLink,
+html body .aa-ItemContent,
+html body .aa-ItemContentTitle,
+html body .aa-ItemContentDescription,
+html body .search-item,
+html body .search-item .search-result-title-container,
+html body .search-item .search-result-text-container,
+html body .search-item .search-result-section,
+html body .search-item .search-result-text,
+html body .search-item .search-result-more {
+  background: #fffaf4 !important;
+  background-color: #fffaf4 !important;
+  color: #2e241b !important;
+}
+
+html body .aa-Item[aria-selected="true"],
+html body .aa-Item[aria-selected="true"] .aa-ItemLink,
+html body .aa-Item[aria-selected="true"] .aa-ItemContent,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+html body .aa-Item[aria-selected="true"] .search-item,
+html body .aa-Item[aria-selected="true"] .search-item *,
+html body .search-item.search-item-selected,
+html body .search-item.search-item-selected *,
+html body .search-item.selected,
+html body .search-item.selected * {
+  background: #fae8d9 !important;
+  background-color: #fae8d9 !important;
+  color: #2a1f15 !important;
+}
