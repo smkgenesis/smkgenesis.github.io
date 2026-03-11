@@ -902,3 +902,19 @@ html body .search-item.selected * {
   background-color: #fae8d9 !important;
   color: #2a1f15 !important;
 }
+
+/* Search modal motion: subtle fade-in only */
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-Panel {
+  animation: searchFadeIn 140ms ease-out both;
+}
+
+@keyframes searchFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
