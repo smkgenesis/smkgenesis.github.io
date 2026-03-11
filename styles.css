@@ -32,19 +32,16 @@ body {
   font-family: "IBM Plex Serif", "Noto Serif KR", serif;
   line-height: 1.9;
   letter-spacing: 0;
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 280ms ease, transform 280ms ease;
+  transform: translateX(46px);
+  transition: transform 340ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 body.page-entered {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 body.page-leaving {
-  opacity: 0;
-  transform: translateY(-26px);
+  transform: translateX(-46px);
 }
 
 .navbar {
@@ -302,13 +299,11 @@ pre,
 
 @media (prefers-reduced-motion: reduce) {
   body {
-    opacity: 1;
     transform: none;
     transition: none;
   }
 
   body.page-leaving {
-    opacity: 1;
     transform: none;
   }
 }
@@ -319,32 +314,28 @@ pre,
 }
 
 ::view-transition-old(root) {
-  animation: vt-old 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: vt-old 360ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 ::view-transition-new(root) {
-  animation: vt-new 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: vt-new 360ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 @keyframes vt-old {
   from {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
   to {
-    opacity: 0.32;
-    transform: translateY(-24px);
+    transform: translateX(-42px);
   }
 }
 
 @keyframes vt-new {
   from {
-    opacity: 0.32;
-    transform: translateY(24px);
+    transform: translateX(42px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 /* Global search overlay override (covers all .aa-* containers) */
@@ -384,3 +375,93 @@ pre,
   background: transparent !important;
   border: 0 !important;
 }
+
+/* Search results palette tune */
+.aa-PanelLayout,
+.aa-PanelSections,
+.aa-Source,
+.aa-List,
+.aa-ItemContent,
+.aa-ItemContentBody,
+.aa-ItemContentTitle,
+.aa-ItemContentDescription,
+.aa-ItemLink,
+.aa-SourceHeader,
+.aa-SourceHeaderTitle,
+.aa-SourceHeaderLine {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+.aa-SourceHeader {
+  background: #161e29 !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+.aa-SourceHeaderTitle {
+  color: var(--muted) !important;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: 0.88rem;
+}
+
+.aa-List {
+  background: #161e29 !important;
+}
+
+.aa-Item {
+  background: #161e29 !important;
+  border-bottom: 1px solid rgba(58, 70, 88, 0.35) !important;
+}
+
+.aa-ItemLink {
+  color: var(--text) !important;
+}
+
+.aa-ItemContentTitle,
+.aa-ItemContentDescription {
+  color: var(--text) !important;
+}
+
+.aa-Item mark,
+.aa-ItemContent mark {
+  background: rgba(143, 169, 255, 0.2) !important;
+  color: #f2f5fa !important;
+}
+
+.aa-Item[aria-selected="true"],
+.aa-Item[aria-selected="true"] .aa-ItemLink,
+.aa-Item[aria-selected="true"] .aa-ItemContent,
+.aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+.aa-Item[aria-selected="true"] .aa-ItemContentDescription {
+  background: #26374c !important;
+  color: #eef4ff !important;
+}
+
+.aa-ItemIcon,
+.aa-ItemIcon svg {
+  color: #b8c8e2 !important;
+  fill: #b8c8e2 !important;
+}
+
+/* Final override: make navbar search icon area fully transparent */
+#quarto-search,
+#quarto-search .aa-Autocomplete,
+#quarto-search .aa-DetachedSearchButton,
+#quarto-search .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButtonPlaceholder,
+#quarto-search .aa-DetachedSearchButtonQuery {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#quarto-search .aa-DetachedSearchButton {
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+
+#quarto-search .aa-DetachedSearchButtonIcon {
+  color: var(--muted) !important;
+  fill: var(--muted) !important;
+}
+
