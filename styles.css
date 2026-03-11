@@ -1065,3 +1065,256 @@ html body .aa-Item[aria-selected="true"] {
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(28, 20, 12, 0.10) !important;
 }
+
+/* ==========================================================
+   MASTER FINISH LOCK v1
+   Premium dark backdrop + warm search modal
+   ========================================================== */
+:root {
+  --ink-bg: #12151d;
+  --ink-bg-2: #0f1219;
+  --ink-text: #e7ecf6;
+
+  --search-ivory: #fcf8f2;
+  --search-ivory-2: #fffaf4;
+  --search-peach: #fae8d9;
+  --search-border-soft: rgba(136, 84, 44, 0.10);
+  --search-border-mid: rgba(170, 132, 98, 0.28);
+  --search-title: #2d2218;
+  --search-body: #3f3328;
+  --search-muted: #7d6b5a;
+}
+
+html,
+body {
+  background-color: var(--ink-bg) !important;
+}
+
+/* Deep background with vignette + ultra-subtle texture */
+body {
+  color: var(--ink-text) !important;
+  background-image:
+    radial-gradient(120% 90% at 50% 44%, rgba(20, 28, 40, 0.16) 0%, rgba(10, 14, 22, 0.52) 72%, rgba(8, 10, 16, 0.82) 100%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.010) 0px, rgba(255, 255, 255, 0.010) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.008) 0px, rgba(255, 255, 255, 0.008) 1px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px) !important;
+  background-attachment: fixed !important;
+  background-blend-mode: normal !important;
+}
+
+/* Header search icon refinement */
+#quarto-search .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButtonIcon svg {
+  color: rgba(243, 225, 206, 0.82) !important;
+  fill: rgba(243, 225, 206, 0.82) !important;
+  transition: color 160ms ease, fill 160ms ease, transform 160ms ease;
+}
+
+#quarto-search .aa-DetachedSearchButton:hover .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButton:hover .aa-DetachedSearchButtonIcon svg {
+  color: rgba(255, 239, 220, 0.96) !important;
+  fill: rgba(255, 239, 220, 0.96) !important;
+  transform: translateY(-0.5px);
+}
+
+/* Global Algolia palette lock */
+html body .aa-Autocomplete,
+html body .aa-DetachedOverlay,
+html body .aa-DetachedContainer,
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  --aa-primary-color-rgb: 45, 34, 24 !important;
+  --aa-muted-color-rgb: 125, 107, 90 !important;
+  --aa-selected-color-rgb: 250, 232, 217 !important;
+  --aa-background-color-rgb: 252, 248, 242 !important;
+  --aa-input-background-color-rgb: 255, 250, 244 !important;
+  --aa-panel-border-color-rgb: 170, 132, 98 !important;
+}
+
+/* Floating layer effect */
+html body .aa-DetachedOverlay {
+  background: rgba(8, 12, 20, 0.62) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(115%);
+  backdrop-filter: blur(8px) saturate(115%);
+  animation: searchOverlayFade 220ms ease-out both;
+}
+
+html body .aa-DetachedContainer {
+  margin-top: 26px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  animation: searchLayerIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  background: var(--search-ivory) !important;
+  background-image: none !important;
+  border: 1px solid var(--search-border-soft) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.10),
+    0 10px 18px rgba(0, 0, 0, 0.14),
+    0 28px 48px rgba(0, 0, 0, 0.20) !important;
+}
+
+/* Smooth input bar */
+html body .aa-Form {
+  border-radius: 9999px !important;
+  padding: 0 10px !important;
+  background: var(--search-ivory-2) !important;
+  border: 1px solid var(--search-border-mid) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 1px 2px rgba(22, 18, 14, 0.10) !important;
+}
+
+html body .aa-Input,
+html body .aa-InputWrapper,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body input[type="search"] {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--search-title) !important;
+}
+
+html body .aa-Input::placeholder {
+  color: var(--search-muted) !important;
+}
+
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body .aa-InputWrapperPrefix *,
+html body .aa-InputWrapperSuffix *,
+html body .aa-ClearButton,
+html body .aa-ClearButton * {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--search-muted) !important;
+  fill: var(--search-muted) !important;
+  opacity: 0.82;
+}
+
+/* Cancel legibility aligned with metadata text */
+html body .aa-DetachedCancelButton,
+html body .aa-DetachedCancelButton:visited,
+html body .aa-DetachedCancelButton:hover,
+html body .aa-DetachedCancelButton:focus {
+  color: var(--search-muted) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Header meta row */
+html body .aa-SourceHeader,
+html body .aa-SourceHeaderLine,
+html body .aa-SourceHeaderTitle {
+  background: #f2e9de !important;
+  color: var(--search-muted) !important;
+  border-color: rgba(170, 132, 98, 0.16) !important;
+}
+
+/* Result cards */
+html body .aa-List {
+  padding: 8px 10px 10px !important;
+  background: var(--search-ivory) !important;
+}
+
+html body .aa-Item,
+html body .aa-ItemLink,
+html body .aa-ItemContent,
+html body .aa-ItemContentTitle,
+html body .aa-ItemContentDescription,
+html body .search-item,
+html body .search-item .search-result-title-container,
+html body .search-item .search-result-text-container,
+html body .search-item .search-result-section,
+html body .search-item .search-result-text,
+html body .search-item .search-result-more {
+  background: var(--search-ivory-2) !important;
+  background-image: none !important;
+  color: var(--search-body) !important;
+}
+
+html body .aa-Item {
+  border-radius: 10px !important;
+  margin: 6px 0 !important;
+  border: 1px solid rgba(196, 173, 150, 0.26) !important;
+  transition: background-color 130ms ease, border-color 130ms ease, transform 130ms ease;
+}
+
+html body .aa-Item .search-item {
+  padding: 10px 12px !important;
+}
+
+html body .aa-Item .search-item .search-result-title-container {
+  font-size: 1.04rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.002em !important;
+  color: var(--search-title) !important;
+}
+
+html body .aa-Item .search-item .search-result-text,
+html body .aa-Item .search-item .search-result-text-container {
+  font-size: 0.98rem !important;
+  line-height: 1.45 !important;
+  color: var(--search-body) !important;
+  opacity: 0.93 !important;
+}
+
+/* Selected result refinement */
+html body .aa-Item[aria-selected="true"],
+html body .aa-Item[aria-selected="true"] .aa-ItemLink,
+html body .aa-Item[aria-selected="true"] .aa-ItemContent,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+html body .aa-Item[aria-selected="true"] .search-item,
+html body .aa-Item[aria-selected="true"] .search-item *,
+html body .search-item.search-item-selected,
+html body .search-item.search-item-selected *,
+html body .search-item.selected,
+html body .search-item.selected * {
+  background: var(--search-peach) !important;
+  background-color: var(--search-peach) !important;
+  color: #2a1f15 !important;
+}
+
+html body .aa-Item[aria-selected="true"] {
+  border-color: rgba(170, 136, 104, 0.44) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(28, 20, 12, 0.10) !important;
+}
+
+html body .aa-Item mark,
+html body .search-item mark,
+html body mark {
+  background: var(--search-peach) !important;
+  color: #2a1f15 !important;
+}
+
+@keyframes searchOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes searchLayerIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
