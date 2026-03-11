@@ -54,7 +54,7 @@ body {
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .nav-link {
@@ -71,18 +71,6 @@ body {
 
 .nav-link.active {
   color: var(--text) !important;
-}
-
-.nav-link[href$="index.html"] .menu-text::before {
-  content: "\2302 ";
-}
-
-.nav-link[href$="articles.html"] .menu-text::before {
-  content: "\25A4 ";
-}
-
-.nav-link[href$="projects.html"] .menu-text::before {
-  content: "\25C6 ";
 }
 
 main.content {
@@ -230,4 +218,41 @@ table {
   background: transparent !important;
   color: var(--text) !important;
   border-color: var(--line) !important;
+}
+
+/* Search Overlay */
+#quarto-search-results {
+  background: rgba(19, 22, 28, 0.9) !important;
+}
+
+#quarto-search-results .aa-DetachedOverlay,
+#quarto-search-results .aa-DetachedContainer,
+#quarto-search-results .aa-Panel {
+  background: transparent !important;
+}
+
+#quarto-search-results .aa-Form {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+#quarto-search-results .aa-Input,
+#quarto-search-results .aa-Input::placeholder,
+#quarto-search-results .aa-Label,
+#quarto-search-results .aa-SubmitIcon,
+#quarto-search-results .aa-LoadingIndicator,
+#quarto-search-results .aa-ClearButton,
+#quarto-search-results .aa-DetachedCancelButton {
+  color: var(--text) !important;
+  fill: var(--text) !important;
+}
+
+#quarto-search-results .aa-Input {
+  background: transparent !important;
+}
+
+#quarto-search-results .aa-DetachedCancelButton {
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  background: transparent !important;
 }
