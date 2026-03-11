@@ -685,3 +685,129 @@ input[type="search"] {
   background-color: #cdddf0 !important;
   color: #10243c !important;
 }
+
+/* SEARCH UI FINAL LOCK v2: dark background + warm peach/ivory contrast */
+:root {
+  --aa-primary-color-rgb: 36, 30, 24 !important;
+  --aa-muted-color-rgb: 120, 103, 88 !important;
+  --aa-selected-color-rgb: 250, 232, 217 !important;
+  --aa-background-color-rgb: 252, 248, 242 !important;
+  --aa-input-background-color-rgb: 255, 252, 248 !important;
+  --aa-panel-border-color-rgb: 216, 198, 181 !important;
+}
+
+.aa-Autocomplete,
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-Panel,
+.aa-DetachedFormContainer,
+.aa-PanelLayout,
+.aa-PanelSections {
+  --aa-primary-color-rgb: 36, 30, 24 !important;
+  --aa-muted-color-rgb: 120, 103, 88 !important;
+  --aa-selected-color-rgb: 250, 232, 217 !important;
+  --aa-background-color-rgb: 252, 248, 242 !important;
+  --aa-input-background-color-rgb: 255, 252, 248 !important;
+  --aa-panel-border-color-rgb: 216, 198, 181 !important;
+}
+
+.aa-DetachedOverlay {
+  background: rgba(8, 12, 20, 0.66) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.aa-Panel,
+.aa-DetachedFormContainer,
+.aa-PanelLayout,
+.aa-PanelSections {
+  background: #fcf8f2 !important;
+  background-image: none !important;
+  border: 1px solid rgba(216, 198, 181, 0.9) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 54px rgba(4, 8, 16, 0.58) !important;
+}
+
+.aa-Form,
+.aa-Input,
+.aa-InputWrapper,
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix,
+input[type="search"] {
+  background: #fffaf4 !important;
+  color: #241e18 !important;
+  border: 1px solid #d8c6b5 !important;
+  box-shadow: none !important;
+}
+
+.aa-Input::placeholder {
+  color: #7d6b5a !important;
+}
+
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix,
+.aa-InputWrapperPrefix svg,
+.aa-InputWrapperSuffix svg,
+.aa-ClearButton,
+.aa-ClearButton svg {
+  background: transparent !important;
+  color: #7d6b5a !important;
+  fill: #7d6b5a !important;
+}
+
+.aa-DetachedCancelButton,
+.aa-DetachedCancelButton:visited,
+.aa-DetachedCancelButton:hover,
+.aa-DetachedCancelButton:focus {
+  color: #f4dfcb !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.aa-SourceHeader,
+.aa-SourceHeaderLine,
+.aa-SourceHeaderTitle {
+  background: #f3e7dc !important;
+  color: #7d6b5a !important;
+  border-color: #e2d0bf !important;
+}
+
+.aa-List,
+.aa-Item,
+.aa-ItemLink,
+.aa-ItemContent,
+.aa-ItemContentTitle,
+.aa-ItemContentDescription,
+.search-item,
+.search-item .search-result-title-container,
+.search-item .search-result-text-container,
+.search-item .search-result-section,
+.search-item .search-result-text,
+.search-item .search-result-more {
+  background: #fffaf4 !important;
+  background-color: #fffaf4 !important;
+  color: #2e241b !important;
+}
+
+.aa-Item[aria-selected="true"],
+.aa-Item[aria-selected="true"] .aa-ItemLink,
+.aa-Item[aria-selected="true"] .aa-ItemContent,
+.aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+.aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+.aa-Item[aria-selected="true"] .search-item,
+.aa-Item[aria-selected="true"] .search-item *,
+.search-item.search-item-selected,
+.search-item.search-item-selected *,
+.search-item.selected,
+.search-item.selected * {
+  background: #fae8d9 !important;
+  background-color: #fae8d9 !important;
+  color: #2a1f15 !important;
+}
+
+.aa-Item mark,
+.search-item mark,
+mark {
+  background: #fae8d9 !important;
+  color: #2a1f15 !important;
+}
