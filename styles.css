@@ -483,3 +483,76 @@ body.is-pjax-transitioning {
   background-color: #d6e5f6 !important;
   color: #11253d !important;
 }
+
+/* Accessibility tune: clearer separation between search modal and page background */
+.aa-DetachedOverlay {
+  background: rgba(6, 10, 18, 0.72) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.aa-DetachedContainer {
+  margin-top: 28px !important;
+}
+
+.aa-Panel,
+.aa-DetachedFormContainer,
+.aa-PanelLayout,
+.aa-PanelSections {
+  background: #f3f6fb !important;
+  border: 1px solid rgba(31, 47, 69, 0.22) !important;
+  box-shadow: 0 20px 56px rgba(4, 8, 16, 0.56) !important;
+}
+
+.aa-Form,
+.aa-Input,
+.aa-InputWrapper,
+input[type="search"] {
+  background: #ffffff !important;
+  border: 2px solid #9fb1c9 !important;
+  box-shadow: 0 0 0 3px rgba(133, 154, 181, 0.18) !important;
+}
+
+.aa-DetachedCancelButton,
+.aa-DetachedCancelButton:visited,
+.aa-DetachedCancelButton:hover,
+.aa-DetachedCancelButton:focus {
+  color: #dbe7f9 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.aa-SourceHeader,
+.aa-SourceHeaderLine,
+.aa-SourceHeaderTitle {
+  background: #d8e2ef !important;
+  color: #4f6480 !important;
+}
+
+.aa-Item,
+.aa-ItemLink,
+.aa-ItemContent,
+.aa-ItemContentTitle,
+.aa-ItemContentDescription,
+.search-item,
+.search-item .search-result-title-container,
+.search-item .search-result-text-container,
+.search-item .search-result-section,
+.search-item .search-result-text,
+.search-item .search-result-more {
+  background: #eef3fa !important;
+  color: #1b2c44 !important;
+}
+
+.aa-Item[aria-selected="true"],
+.aa-Item[aria-selected="true"] .aa-ItemLink,
+.aa-Item[aria-selected="true"] .aa-ItemContent,
+.aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+.aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+.aa-Item[aria-selected="true"] .search-item,
+.aa-Item[aria-selected="true"] .search-item *,
+.search-item.search-item-selected,
+.search-item.search-item-selected *,
+.search-item.selected,
+.search-item.selected * {
+  background: #c5d7ec !important;
+  color: #10243c !important;
+}
