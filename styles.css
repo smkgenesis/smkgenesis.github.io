@@ -312,3 +312,75 @@ pre,
     transform: none;
   }
 }
+
+/* Cross-document transitions (supported browsers) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: vt-old 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+::view-transition-new(root) {
+  animation: vt-new 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes vt-old {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.32;
+    transform: translateY(-24px);
+  }
+}
+
+@keyframes vt-new {
+  from {
+    opacity: 0.32;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Global search overlay override (covers all .aa-* containers) */
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-Panel,
+.aa-DetachedFormContainer {
+  background: rgba(19, 22, 28, 0.94) !important;
+  color: var(--text) !important;
+}
+
+.aa-Form,
+.aa-Input,
+.aa-InputWrapper,
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix,
+.aa-DetachedSearchButton,
+.aa-DetachedSearchButtonQuery,
+.aa-DetachedSearchButtonPlaceholder,
+.aa-DetachedSearchButtonIcon,
+.aa-DetachedSearchButtonCancel,
+.aa-DetachedCancelButton,
+.aa-DetachedCancelButton svg,
+.aa-Input::placeholder,
+.aa-Label,
+.aa-SubmitIcon,
+.aa-LoadingIndicator,
+.aa-ClearButton {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  fill: var(--text) !important;
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+
+.aa-DetachedCancelButton {
+  background: transparent !important;
+  border: 0 !important;
+}
