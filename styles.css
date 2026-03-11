@@ -1318,3 +1318,229 @@ html body mark {
     transform: translateY(0) scale(1);
   }
 }
+
+/* ==========================================================
+   MASTER FINISH LOCK v2 (final)
+   Midnight Graphite + warm glass search modal
+   ========================================================== */
+:root {
+  --mg-bg: #12151e;
+  --mg-bg-deep: #111319;
+  --mg-title: #f1f2f6;
+  --mg-body: #a4abbd;
+  --mg-search-icon: #e5dfd3;
+
+  --mg-glass: rgba(253, 250, 245, 0.86);
+  --mg-glass-soft: rgba(240, 233, 217, 0.42);
+  --mg-border: rgba(136, 84, 44, 0.10);
+  --mg-shadow: 0 20px 50px -10px rgba(18, 21, 30, 0.5);
+}
+
+html,
+body {
+  background-color: var(--mg-bg) !important;
+}
+
+/* Deep midnight backdrop + micro grain + subtle vignette */
+body {
+  color: var(--mg-body) !important;
+  background-image:
+    radial-gradient(120% 88% at 50% 45%, rgba(28, 34, 48, 0.20) 0%, rgba(14, 18, 27, 0.56) 72%, rgba(10, 12, 19, 0.82) 100%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.010) 0px, rgba(255, 255, 255, 0.010) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.008) 0px, rgba(255, 255, 255, 0.008) 1px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px) !important;
+  background-attachment: fixed !important;
+}
+
+.quarto-title h1.title,
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+.navbar-title {
+  color: var(--mg-title) !important;
+}
+
+p,
+li,
+.analytics-note,
+.analytics-value {
+  color: var(--mg-body) !important;
+}
+
+#quarto-search .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButtonIcon svg {
+  color: var(--mg-search-icon) !important;
+  fill: var(--mg-search-icon) !important;
+}
+
+#quarto-search .aa-DetachedSearchButton:hover .aa-DetachedSearchButtonIcon,
+#quarto-search .aa-DetachedSearchButton:hover .aa-DetachedSearchButtonIcon svg {
+  color: #f4ecde !important;
+  fill: #f4ecde !important;
+}
+
+/* Global hard lock for Algolia detached search */
+html body .aa-Autocomplete,
+html body .aa-DetachedOverlay,
+html body .aa-DetachedContainer,
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  --aa-primary-color-rgb: 45, 34, 24 !important;
+  --aa-muted-color-rgb: 125, 107, 90 !important;
+  --aa-selected-color-rgb: 250, 232, 217 !important;
+  --aa-background-color-rgb: 253, 250, 245 !important;
+  --aa-input-background-color-rgb: 255, 252, 248 !important;
+  --aa-panel-border-color-rgb: 136, 84, 44 !important;
+}
+
+html body .aa-DetachedOverlay {
+  background: rgba(8, 12, 20, 0.58) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(112%);
+  backdrop-filter: blur(12px) saturate(112%);
+}
+
+html body .aa-DetachedContainer {
+  margin-top: 24px !important;
+}
+
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  background-color: var(--mg-glass) !important;
+  background-image: none !important;
+  border: 1px solid var(--mg-border) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: var(--mg-shadow) !important;
+}
+
+/* Search input */
+html body .aa-Form {
+  border-radius: 9999px !important;
+  padding: 0 10px !important;
+  background: rgba(255, 252, 248, 0.92) !important;
+  border: 1px solid rgba(136, 84, 44, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88), 0 1px 2px rgba(22, 18, 14, 0.08) !important;
+}
+
+html body .aa-Input,
+html body .aa-InputWrapper,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body input[type="search"] {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: #2d2218 !important;
+}
+
+html body .aa-Input::placeholder,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body .aa-InputWrapperPrefix *,
+html body .aa-InputWrapperSuffix *,
+html body .aa-ClearButton,
+html body .aa-ClearButton * {
+  color: #7d6b5a !important;
+  fill: #7d6b5a !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Cancel readability aligned with metadata tone */
+html body .aa-DetachedCancelButton,
+html body .aa-DetachedCancelButton:visited,
+html body .aa-DetachedCancelButton:hover,
+html body .aa-DetachedCancelButton:focus {
+  color: #7d6b5a !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Results hierarchy */
+html body .aa-SourceHeader,
+html body .aa-SourceHeaderLine,
+html body .aa-SourceHeaderTitle {
+  background: rgba(239, 232, 220, 0.86) !important;
+  color: #7d6b5a !important;
+  border-color: rgba(136, 84, 44, 0.10) !important;
+}
+
+html body .aa-List {
+  padding: 8px 10px 10px !important;
+  background: rgba(253, 250, 245, 0.85) !important;
+}
+
+html body .aa-Item,
+html body .aa-ItemLink,
+html body .aa-ItemContent,
+html body .aa-ItemContentTitle,
+html body .aa-ItemContentDescription,
+html body .search-item,
+html body .search-item .search-result-title-container,
+html body .search-item .search-result-text-container,
+html body .search-item .search-result-section,
+html body .search-item .search-result-text,
+html body .search-item .search-result-more {
+  background: rgba(240, 233, 217, 0.50) !important;
+  color: #3f3328 !important;
+}
+
+html body .aa-Item {
+  border-radius: 10px !important;
+  margin: 6px 0 !important;
+  border: 1px solid rgba(196, 173, 150, 0.24) !important;
+}
+
+html body .aa-Item .search-item {
+  padding: 11px 14px !important;
+}
+
+html body .aa-Item .search-item .search-result-title-container {
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+  color: #2d2218 !important;
+}
+
+html body .aa-Item .search-item .search-result-text,
+html body .aa-Item .search-item .search-result-text-container {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: #4a3b2f !important;
+}
+
+html body .aa-Item[aria-selected="true"],
+html body .aa-Item[aria-selected="true"] .aa-ItemLink,
+html body .aa-Item[aria-selected="true"] .aa-ItemContent,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+html body .aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+html body .aa-Item[aria-selected="true"] .search-item,
+html body .aa-Item[aria-selected="true"] .search-item *,
+html body .search-item.search-item-selected,
+html body .search-item.search-item-selected *,
+html body .search-item.selected,
+html body .search-item.selected * {
+  background: #fae8d9 !important;
+  background-color: #fae8d9 !important;
+  color: #2a1f15 !important;
+}
+
+html body .aa-Item[aria-selected="true"] {
+  border-color: rgba(170, 136, 104, 0.42) !important;
+  box-shadow: 0 6px 16px rgba(28, 20, 12, 0.10) !important;
+}
+
+html body .aa-Item mark,
+html body .search-item mark,
+html body mark {
+  background: #fae8d9 !important;
+  color: #2a1f15 !important;
+}
