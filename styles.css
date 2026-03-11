@@ -358,7 +358,8 @@ pre,
 .aa-DetachedContainer,
 .aa-Panel,
 .aa-DetachedFormContainer {
-  background: rgba(19, 22, 28, 0.94) !important;
+  background: #11161e !important;
+  background-image: none !important;
   color: var(--text) !important;
 }
 
@@ -609,6 +610,28 @@ body #quarto-search-results .aa-SourceHeaderTitle {
 body #quarto-search-results .aa-List,
 body #quarto-search-results .aa-Item {
   background: #161e29 !important;
+}
+
+/* Override Quarto Bootstrap: .search-item children (unselected = white by default) */
+#quarto-search-results li.aa-Item[aria-selected="false"] .search-item,
+#quarto-search-results li.aa-Item[aria-selected="false"] .search-item .search-result-more,
+#quarto-search-results li.aa-Item[aria-selected="false"] .search-item .search-result-section,
+#quarto-search-results li.aa-Item[aria-selected="false"] .search-item .search-result-text,
+#quarto-search-results li.aa-Item[aria-selected="false"] .search-item .search-result-title-container,
+#quarto-search-results li.aa-Item[aria-selected="false"] .search-item .search-result-text-container {
+  background-color: #161e29 !important;
+  color: #e8edf5 !important;
+}
+
+/* Override Quarto Bootstrap: .search-item children (selected = #2780e3 by default) */
+#quarto-search-results li.aa-Item[aria-selected="true"] .search-item,
+#quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-more,
+#quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-section,
+#quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-text,
+#quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-title-container,
+#quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-text-container {
+  background-color: #26374c !important;
+  color: #eef4ff !important;
 }
 
 body #quarto-search-results .aa-Item[aria-selected="true"],
