@@ -345,7 +345,7 @@ body.is-pjax-transitioning {
 #quarto-search-results .aa-DetachedCancelButton:visited,
 #quarto-search-results .aa-DetachedCancelButton:hover,
 #quarto-search-results .aa-DetachedCancelButton:focus {
-  color: #1a2a40 !important;
+  color: #d5e2f5 !important;
   font-weight: 700 !important;
   opacity: 1 !important;
 }
@@ -414,4 +414,5 @@ body.is-pjax-transitioning {
   background-color: #d6e5f6 !important;
   color: #11253d !important;
 }
+
 
