@@ -159,11 +159,11 @@ body,
 .aa-DetachedContainer,
 .aa-Panel {
   --aa-primary-color-rgb: 232, 237, 245 !important;
-  --aa-muted-color-rgb: 170, 182, 199 !important;
-  --aa-selected-color-rgb: 38, 55, 76 !important;
-  --aa-background-color-rgb: 17, 22, 30 !important;
-  --aa-input-background-color-rgb: 27, 34, 48 !important;
-  --aa-panel-border-color-rgb: 58, 70, 88 !important;
+  --aa-muted-color-rgb: 159, 176, 197 !important;
+  --aa-selected-color-rgb: 43, 63, 87 !important;
+  --aa-background-color-rgb: 15, 21, 32 !important;
+  --aa-input-background-color-rgb: 232, 237, 245 !important;
+  --aa-panel-border-color-rgb: 50, 65, 84 !important;
 }
 
 #quarto-search-results,
@@ -173,9 +173,9 @@ body,
 .aa-DetachedFormContainer,
 .aa-PanelLayout,
 .aa-PanelSections {
-  background: #11161e !important;
+  background: #0f1520 !important;
   color: var(--text) !important;
-  border-color: var(--line) !important;
+  border-color: #324154 !important;
 }
 
 #quarto-search-results .aa-Form,
@@ -185,24 +185,40 @@ body,
 #quarto-search-results .aa-InputWrapperSuffix,
 #quarto-search-results input,
 #quarto-search-results input[type="search"] {
-  background: var(--surface) !important;
-  color: var(--text) !important;
-  border: 1px solid var(--line) !important;
+  background: #e8edf5 !important;
+  color: #1a2230 !important;
+  border: 1px solid #4f6077 !important;
   box-shadow: none !important;
+}
+
+#quarto-search-results .aa-Input::placeholder {
+  color: #5d6f88 !important;
+}
+
+#quarto-search-results .aa-InputWrapperPrefix,
+#quarto-search-results .aa-InputWrapperSuffix {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+#quarto-search-results .aa-InputWrapperPrefix svg,
+#quarto-search-results .aa-InputWrapperSuffix svg {
+  color: #5d6f88 !important;
+  fill: #5d6f88 !important;
 }
 
 #quarto-search-results .aa-DetachedCancelButton {
   background: transparent !important;
   border: 0 !important;
-  color: var(--muted) !important;
+  color: #b9c8dc !important;
 }
 
 #quarto-search-results .aa-SourceHeader,
 #quarto-search-results .aa-SourceHeaderLine,
 #quarto-search-results .aa-SourceHeaderTitle {
-  background: var(--surface-2) !important;
-  color: var(--muted) !important;
-  border-color: var(--line) !important;
+  background: #151f2d !important;
+  color: #9fb0c5 !important;
+  border-color: #324154 !important;
 }
 
 #quarto-search-results .aa-List,
@@ -211,7 +227,7 @@ body,
 #quarto-search-results .aa-ItemContent,
 #quarto-search-results .aa-ItemContentTitle,
 #quarto-search-results .aa-ItemContentDescription {
-  background: var(--surface-2) !important;
+  background: #151f2d !important;
   color: var(--text) !important;
 }
 
@@ -221,7 +237,7 @@ body,
 #quarto-search-results .search-item .search-result-text,
 #quarto-search-results .search-item .search-result-title-container,
 #quarto-search-results .search-item .search-result-text-container {
-  background: var(--surface-2) !important;
+  background: #151f2d !important;
   color: var(--text) !important;
 }
 
@@ -236,14 +252,14 @@ body,
 #quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-text,
 #quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-title-container,
 #quarto-search-results li.aa-Item[aria-selected="true"] .search-item .search-result-text-container {
-  background: var(--surface-3) !important;
+  background: #2b3f57 !important;
   color: #eef4ff !important;
 }
 
 #quarto-search-results mark,
 #quarto-search-results .aa-Item mark {
-  background: rgba(143, 169, 255, 0.22) !important;
-  color: #f1f5ff !important;
+  background: rgba(142, 191, 210, 0.24) !important;
+  color: inherit !important;
 }
 
 #quarto-content {
@@ -268,6 +284,7 @@ pre,
 .quarto-code {
   font-family: "JetBrains Mono", monospace;
 }
+
 
 
 
