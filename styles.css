@@ -1001,3 +1001,26 @@ html body .aa-ClearButton {
   border-radius: 9999px !important;
   padding: 2px !important;
 }
+
+/* Corner artifact fix: ensure inner layers are clipped to rounded panel */
+html body .aa-Panel,
+html body .aa-DetachedFormContainer,
+html body .aa-PanelLayout,
+html body .aa-PanelSections {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background-clip: padding-box !important;
+}
+
+html body .aa-Form,
+html body .aa-SourceHeader,
+html body .aa-List,
+html body .aa-Item,
+html body .search-item {
+  background-clip: padding-box !important;
+}
+
+html body .aa-DetachedContainer {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+}
