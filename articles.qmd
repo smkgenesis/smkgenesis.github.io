@@ -1,0 +1,9 @@
+﻿---
+title: "Articles"
+listing:
+  contents: articles
+  sort: "date desc"
+  type: default
+  fields: [title, date, description]
+  categories: false
+---

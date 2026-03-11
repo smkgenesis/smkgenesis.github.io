@@ -1,21 +1,21 @@
-project:
+﻿project:
   type: website
+  output-dir: _site
 
 website:
-  title: "Home"
+  title: "smkgenesis"
+  site-url: https://smkgenesis.com
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: articles.qmd
+        text: Articles
+      - href: projects.qmd
+        text: Projects
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
-    toc: true
-
-
-
+    toc: false
