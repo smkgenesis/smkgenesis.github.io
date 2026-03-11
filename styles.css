@@ -969,3 +969,35 @@ html body .aa-InputWrapperPrefix * {
   box-shadow: none !important;
   background-image: none !important;
 }
+
+/* Search input smoothing: Google-like pill field */
+html body .aa-Form {
+  border-radius: 9999px !important;
+  padding: 0 10px !important;
+  background: #fffaf4 !important;
+  border: 1px solid rgba(154, 133, 113, 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 1px 2px rgba(22, 18, 14, 0.10) !important;
+}
+
+html body .aa-Input,
+html body .aa-InputWrapper,
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix,
+html body input[type="search"] {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+html body .aa-InputWrapperPrefix,
+html body .aa-InputWrapperSuffix {
+  opacity: 0.78;
+}
+
+html body .aa-ClearButton {
+  border-radius: 9999px !important;
+  padding: 2px !important;
+}
