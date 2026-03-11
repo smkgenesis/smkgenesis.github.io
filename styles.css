@@ -556,3 +556,132 @@ input[type="search"] {
   background: #c5d7ec !important;
   color: #10243c !important;
 }
+
+/* ==========================================================
+   SEARCH UI FINAL LOCK (single source of truth)
+   Purpose: keep search modal clearly separated from dark page,
+   readable, and immune to bootstrap/algolia default blue.
+   ========================================================== */
+:root {
+  --aa-primary-color-rgb: 27, 44, 68 !important;
+  --aa-muted-color-rgb: 95, 115, 143 !important;
+  --aa-selected-color-rgb: 205, 221, 240 !important;
+  --aa-background-color-rgb: 238, 243, 250 !important;
+  --aa-input-background-color-rgb: 255, 255, 255 !important;
+  --aa-panel-border-color-rgb: 168, 183, 204 !important;
+}
+
+.aa-Autocomplete,
+.aa-DetachedOverlay,
+.aa-DetachedContainer,
+.aa-Panel,
+.aa-DetachedFormContainer,
+.aa-PanelLayout,
+.aa-PanelSections {
+  --aa-primary-color-rgb: 27, 44, 68 !important;
+  --aa-muted-color-rgb: 95, 115, 143 !important;
+  --aa-selected-color-rgb: 205, 221, 240 !important;
+  --aa-background-color-rgb: 238, 243, 250 !important;
+  --aa-input-background-color-rgb: 255, 255, 255 !important;
+  --aa-panel-border-color-rgb: 168, 183, 204 !important;
+}
+
+.aa-DetachedOverlay {
+  background: rgba(8, 12, 20, 0.62) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.aa-DetachedContainer {
+  margin-top: 26px !important;
+}
+
+.aa-Panel,
+.aa-DetachedFormContainer,
+.aa-PanelLayout,
+.aa-PanelSections {
+  background: #eef3fa !important;
+  background-image: none !important;
+  border: 1px solid rgba(27, 44, 68, 0.22) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 56px rgba(4, 8, 16, 0.56) !important;
+}
+
+.aa-Form,
+.aa-Input,
+.aa-InputWrapper,
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix,
+input[type="search"] {
+  background: #ffffff !important;
+  color: #1b2c44 !important;
+  border: 1px solid #a8b7cc !important;
+  box-shadow: none !important;
+}
+
+.aa-Input::placeholder {
+  color: #5f738f !important;
+}
+
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix,
+.aa-InputWrapperPrefix svg,
+.aa-InputWrapperSuffix svg,
+.aa-ClearButton,
+.aa-ClearButton svg {
+  background: transparent !important;
+  color: #5f738f !important;
+  fill: #5f738f !important;
+}
+
+.aa-DetachedCancelButton,
+.aa-DetachedCancelButton:visited,
+.aa-DetachedCancelButton:hover,
+.aa-DetachedCancelButton:focus {
+  color: #d7e4f7 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.aa-SourceHeader,
+.aa-SourceHeaderLine,
+.aa-SourceHeaderTitle {
+  background: #dbe5f2 !important;
+  background-image: none !important;
+  color: #5f738f !important;
+  border-color: #bdccde !important;
+}
+
+.aa-List,
+.aa-Item,
+.aa-ItemLink,
+.aa-ItemContent,
+.aa-ItemContentTitle,
+.aa-ItemContentDescription,
+.search-item,
+.search-item .search-result-title-container,
+.search-item .search-result-text-container,
+.search-item .search-result-section,
+.search-item .search-result-text,
+.search-item .search-result-more {
+  background: #f4f8fd !important;
+  background-color: #f4f8fd !important;
+  background-image: none !important;
+  color: #1b2c44 !important;
+}
+
+.aa-Item[aria-selected="true"],
+.aa-Item[aria-selected="true"] .aa-ItemLink,
+.aa-Item[aria-selected="true"] .aa-ItemContent,
+.aa-Item[aria-selected="true"] .aa-ItemContentTitle,
+.aa-Item[aria-selected="true"] .aa-ItemContentDescription,
+.aa-Item[aria-selected="true"] .search-item,
+.aa-Item[aria-selected="true"] .search-item *,
+.search-item.search-item-selected,
+.search-item.search-item-selected *,
+.search-item.selected,
+.search-item.selected * {
+  background: #cdddf0 !important;
+  background-color: #cdddf0 !important;
+  color: #10243c !important;
+}
