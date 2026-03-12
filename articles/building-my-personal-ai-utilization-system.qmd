@@ -13,7 +13,7 @@ AI tools are powerful, but using them independently often leads to messy workflo
 
 A typical workflow might look like this:
 
-`Ask ChatGPT -> open Perplexity -> upload to NotebookLM -> copy results to Drive -> repeat`
+Ask ChatGPT -> open Perplexity -> upload to NotebookLM -> copy results to Drive -> repeat
 
 Over time, several problems appear:
 
@@ -71,47 +71,35 @@ The main operational interface to this layer is Gemini CLI, which interacts with
 
 Pattern:
 
-`Inputs -> Gemini CLI -> Google Drive -> AI tools -> Outputs`
-
-`                                 \-> GitHub (code state)`
+- Inputs -> Gemini CLI -> Google Drive -> AI tools -> Outputs
+- GitHub keeps code state in parallel with the Drive memory flow
 
 Raw materials enter the system, Gemini organizes them, AI tools consume the organized state, and outputs are written back into the system.
 
 ## Architecture Diagram
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {
-  'background': '#13161c',
-  'primaryColor': '#1f2a3a',
-  'primaryTextColor': '#e8edf5',
-  'primaryBorderColor': '#5a6f8c',
-  'lineColor': '#8ebfd2',
-  'secondaryColor': '#1a2433',
-  'tertiaryColor': '#1b2230',
-  'fontFamily': 'IBM Plex Sans'
-}}}%%
-flowchart TB
+```{mermaid}
+flowchart LR
   classDef data fill:#1d2736,stroke:#5a6f8c,color:#e8edf5;
   classDef core fill:#243247,stroke:#8ebfd2,color:#eef4ff;
   classDef state fill:#2d2a3f,stroke:#9f90d8,color:#f1ecff;
   classDef output fill:#2b3a33,stroke:#9bc7ae,color:#ebf8f0;
 
-  subgraph IN["INPUTS"]
-    A["LearnUS files"]
-    B["Research papers"]
-    C["Notes / Manuals"]
-    D["Drafts / Outputs"]
+  subgraph IN[INPUTS]
+    A[LearnUS files]
+    B[Research papers]
+    C[Notes and manuals]
+    D[Drafts and outputs]
   end
 
-  IN --> GCLI["Gemini CLI + gws\nclassify / rename / route / update context"]
-  GCLI --> GD["Google Drive\nShared Memory Layer"]
+  IN --> GCLI[Gemini CLI plus gws\nclassify, rename, route, update context]
+  GCLI --> GD[Google Drive\nshared memory layer]
 
-  GD --> KT["Knowledge Tools\nNotebookLM / Perplexity / Zotero(manual)"]
-  GD --> ET["Execution Tools\nClaude / ChatGPT-Codex / Claude Code"]
+  GD --> KT[Knowledge tools\nNotebookLM, Perplexity, Zotero manual]
+  GD --> ET[Execution tools\nClaude, ChatGPT/Codex, Claude Code]
+  GD --> GH[GitHub\ncode state]
 
-  ET --> OUT1["Design & Implementation"]
-  KT --> OUT2["Research & Analysis"]
-
-  GD --> GH["GitHub\nCode State"]
+  KT --> OUT2[Research and analysis]
+  ET --> OUT1[Design and implementation]
 
   class A,B,C,D data;
   class GCLI,GD core;
@@ -146,7 +134,7 @@ All AI tools interact with this layer either directly or indirectly.
 
 ### Root Structure
 ::: {.columns}
-::: {.column width="50%"}
+::: {.column width="48%"}
 ```text
 AI_OS/
 ├── University/
@@ -154,16 +142,16 @@ AI_OS/
 └── Librarian/
 ```
 :::
-::: {.column width="50%"}
-- `University`: academic course materials
-- `Projects`: personal and development projects
-- `Librarian`: global AI system documentation
+::: {.column width="52%"}
+- **University**: academic course materials
+- **Projects**: personal and development projects
+- **Librarian**: global AI system documentation
 :::
 :::
 
 ### Librarian (Global Context)
 ::: {.columns}
-::: {.column width="50%"}
+::: {.column width="48%"}
 ```text
 Librarian/
 ├── architecture.md
@@ -171,16 +159,16 @@ Librarian/
 └── decisions.md
 ```
 :::
-::: {.column width="50%"}
-- `architecture.md`: overall system architecture
-- `routing.md`: AI tool selection rules
-- `decisions.md`: important conventions and design choices
+::: {.column width="52%"}
+- **architecture.md**: overall system architecture
+- **routing.md**: AI tool selection rules
+- **decisions.md**: important conventions and design choices
 :::
 :::
 
-### Local `librarian_memory`
+### Local librarian_memory
 ::: {.columns}
-::: {.column width="50%"}
+::: {.column width="48%"}
 ```text
 University/
 └── 2026_Spring/
@@ -188,7 +176,7 @@ University/
         └── librarian_memory/
 ```
 :::
-::: {.column width="50%"}
+::: {.column width="52%"}
 ```text
 Projects/
 └── Personal_Website/
@@ -199,11 +187,11 @@ Projects/
 
 Local folders store current task, progress state, notes, and handoff context.
 
-- Global context -> `Librarian/`
-- Local context -> `librarian_memory/`
+- Global context -> Librarian
+- Local context -> librarian_memory
 
 ## Gemini-Managed Memory
-Both `Librarian/` and local `librarian_memory/` folders are strongly recommended to be managed automatically by Gemini.
+Both Librarian and local librarian_memory folders are strongly recommended to be managed automatically by Gemini.
 
 Through Gemini CLI + gws, Gemini can:
 
@@ -237,7 +225,7 @@ Projects/
     └── librarian_memory/
 ```
 
-Each workspace is intentionally flexible, but should include `librarian_memory/`.
+Each workspace is intentionally flexible, but should include librarian_memory.
 
 ## Example Workflows
 ### Scenario 1 - Automatic Course Material Organization
@@ -252,13 +240,12 @@ Gemini:
 
 Example:
 
-`00. Course Introduction.pdf`
-
--> `CAS2101_L00_Course_Introduction.pdf`
+00. Course Introduction.pdf
+-> CAS2101_L00_Course_Introduction.pdf
 
 Stored in:
 
-`University/2026_Spring/CAS2101_Discrete_Mathematics/lectures/`
+University/2026_Spring/CAS2101_Discrete_Mathematics/lectures/
 
 ### Scenario 2 - Project Documentation Management
 Code is managed in GitHub.
@@ -272,7 +259,7 @@ Non-code outputs are managed in Drive:
 ### Scenario 3 - Research Workflow
 Pipeline:
 
-`Perplexity -> Zotero -> NotebookLM -> Claude`
+Perplexity -> Zotero -> NotebookLM -> Claude
 
 1. Discover papers with Perplexity
 2. Store original PDFs in Zotero
@@ -284,11 +271,11 @@ Important distinction:
 Zotero is the authoritative paper archive and is managed manually by the user.
 
 ### Scenario 4 - Shared Context Across AI Tools
-Store cross-session context files in `librarian_memory/`:
+Store cross-session context files in librarian_memory:
 
-- `current_task.md`
-- `handoff.md`
-- `brief.md`
+- current_task.md
+- handoff.md
+- brief.md
 
 Multiple tools can read these files to restore context.
 
@@ -344,7 +331,7 @@ Recommended order:
 
 Result:
 
-`Gemini CLI -> gws -> Google Drive`
+Gemini CLI -> gws -> Google Drive
 
 ### Step 4 - AI Tools
 Web tools:
@@ -370,7 +357,7 @@ App/Web tools:
 
 Setup philosophy:
 
-Use loosely connected components through shared resources (`Google Drive`, `GitHub`, local files), rather than tightly coupling all tools.
+Use loosely connected components through shared resources (Google Drive, GitHub, local files), rather than tightly coupling all tools.
 
 ## Conclusion
 AI tools are powerful, but independent use often leads to fragmented workflows and lost context.
