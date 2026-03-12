@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 <p>AI tools are powerful, but using them independently often leads to messy workflows.</p>
 <p>A typical workflow might look like this:</p>
-<p><code>Ask ChatGPT -&gt; open Perplexity -&gt; upload to NotebookLM -&gt; copy results to Drive -&gt; repeat</code></p>
+<p>Ask ChatGPT -&gt; open Perplexity -&gt; upload to NotebookLM -&gt; copy results to Drive -&gt; repeat</p>
 <p>Over time, several problems appear:</p>
 <ul>
 <li>context becomes fragmented</li>
@@ -243,45 +243,36 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="architecture-overview">Architecture Overview</h2>
 <p>The system is centered around Google Drive as a shared knowledge and memory layer. The main operational interface to this layer is Gemini CLI, which interacts with Google Drive through gws.</p>
 <p>Pattern:</p>
-<p><code>Inputs -&gt; Gemini CLI -&gt; Google Drive -&gt; AI tools -&gt; Outputs</code></p>
-<p><code>\-&gt; GitHub (code state)</code></p>
+<ul>
+<li>Inputs -&gt; Gemini CLI -&gt; Google Drive -&gt; AI tools -&gt; Outputs</li>
+<li>GitHub keeps code state in parallel with the Drive memory flow</li>
+</ul>
 <p>Raw materials enter the system, Gemini organizes them, AI tools consume the organized state, and outputs are written back into the system.</p>
 </section>
 <section id="architecture-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="architecture-diagram">Architecture Diagram</h2>
-<pre class="mermaid"><code>%%{init: {'theme': 'base', 'themeVariables': {
-  'background': '#13161c',
-  'primaryColor': '#1f2a3a',
-  'primaryTextColor': '#e8edf5',
-  'primaryBorderColor': '#5a6f8c',
-  'lineColor': '#8ebfd2',
-  'secondaryColor': '#1a2433',
-  'tertiaryColor': '#1b2230',
-  'fontFamily': 'IBM Plex Sans'
-}}}%%
-flowchart TB
+<pre class="{mermaid}"><code>flowchart LR
   classDef data fill:#1d2736,stroke:#5a6f8c,color:#e8edf5;
   classDef core fill:#243247,stroke:#8ebfd2,color:#eef4ff;
   classDef state fill:#2d2a3f,stroke:#9f90d8,color:#f1ecff;
   classDef output fill:#2b3a33,stroke:#9bc7ae,color:#ebf8f0;
 
-  subgraph IN["INPUTS"]
-    A["LearnUS files"]
-    B["Research papers"]
-    C["Notes / Manuals"]
-    D["Drafts / Outputs"]
+  subgraph IN[INPUTS]
+    A[LearnUS files]
+    B[Research papers]
+    C[Notes and manuals]
+    D[Drafts and outputs]
   end
 
-  IN --&gt; GCLI["Gemini CLI + gws\nclassify / rename / route / update context"]
-  GCLI --&gt; GD["Google Drive\nShared Memory Layer"]
+  IN --&gt; GCLI[Gemini CLI plus gws\nclassify, rename, route, update context]
+  GCLI --&gt; GD[Google Drive\nshared memory layer]
 
-  GD --&gt; KT["Knowledge Tools\nNotebookLM / Perplexity / Zotero(manual)"]
-  GD --&gt; ET["Execution Tools\nClaude / ChatGPT-Codex / Claude Code"]
+  GD --&gt; KT[Knowledge tools\nNotebookLM, Perplexity, Zotero manual]
+  GD --&gt; ET[Execution tools\nClaude, ChatGPT/Codex, Claude Code]
+  GD --&gt; GH[GitHub\ncode state]
 
-  ET --&gt; OUT1["Design &amp; Implementation"]
-  KT --&gt; OUT2["Research &amp; Analysis"]
-
-  GD --&gt; GH["GitHub\nCode State"]
+  KT --&gt; OUT2[Research and analysis]
+  ET --&gt; OUT1[Design and implementation]
 
   class A,B,C,D data;
   class GCLI,GD core;
@@ -319,16 +310,16 @@ flowchart TB
 <section id="root-structure" class="level3">
 <h3 class="anchored" data-anchor-id="root-structure">Root Structure</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:48%;">
 <pre class="text"><code>AI_OS/
 ├── University/
 ├── Projects/
 └── Librarian/</code></pre>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:52%;">
 <ul>
-<li><code>University</code>: academic course materials</li>
-<li><code>Projects</code>: personal and development projects</li>
-<li><code>Librarian</code>: global AI system documentation</li>
+<li><strong>University</strong>: academic course materials</li>
+<li><strong>Projects</strong>: personal and development projects</li>
+<li><strong>Librarian</strong>: global AI system documentation</li>
 </ul>
 </div>
 </div>
@@ -336,29 +327,29 @@ flowchart TB
 <section id="librarian-global-context" class="level3">
 <h3 class="anchored" data-anchor-id="librarian-global-context">Librarian (Global Context)</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:48%;">
 <pre class="text"><code>Librarian/
 ├── architecture.md
 ├── routing.md
 └── decisions.md</code></pre>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:52%;">
 <ul>
-<li><code>architecture.md</code>: overall system architecture</li>
-<li><code>routing.md</code>: AI tool selection rules</li>
-<li><code>decisions.md</code>: important conventions and design choices</li>
+<li><strong>architecture.md</strong>: overall system architecture</li>
+<li><strong>routing.md</strong>: AI tool selection rules</li>
+<li><strong>decisions.md</strong>: important conventions and design choices</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="local-librarian_memory" class="level3">
-<h3 class="anchored" data-anchor-id="local-librarian_memory">Local <code>librarian_memory</code></h3>
+<h3 class="anchored" data-anchor-id="local-librarian_memory">Local librarian_memory</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:48%;">
 <pre class="text"><code>University/
 └── 2026_Spring/
     └── CAS2101_Discrete_Mathematics/
         └── librarian_memory/</code></pre>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:52%;">
 <pre class="text"><code>Projects/
 └── Personal_Website/
     └── librarian_memory/</code></pre>
@@ -366,14 +357,14 @@ flowchart TB
 </div>
 <p>Local folders store current task, progress state, notes, and handoff context.</p>
 <ul>
-<li>Global context -&gt; <code>Librarian/</code></li>
-<li>Local context -&gt; <code>librarian_memory/</code></li>
+<li>Global context -&gt; Librarian</li>
+<li>Local context -&gt; librarian_memory</li>
 </ul>
 </section>
 </section>
 <section id="gemini-managed-memory" class="level2">
 <h2 class="anchored" data-anchor-id="gemini-managed-memory">Gemini-Managed Memory</h2>
-<p>Both <code>Librarian/</code> and local <code>librarian_memory/</code> folders are strongly recommended to be managed automatically by Gemini.</p>
+<p>Both Librarian and local librarian_memory folders are strongly recommended to be managed automatically by Gemini.</p>
 <p>Through Gemini CLI + gws, Gemini can:</p>
 <ul>
 <li>organize files</li>
@@ -404,7 +395,7 @@ flowchart TB
 │   └── librarian_memory/
 └── AI_Research_OS/
     └── librarian_memory/</code></pre>
-<p>Each workspace is intentionally flexible, but should include <code>librarian_memory/</code>.</p>
+<p>Each workspace is intentionally flexible, but should include librarian_memory.</p>
 </section>
 </section>
 <section id="example-workflows" class="level2">
@@ -420,10 +411,11 @@ flowchart TB
 <li>updates local context</li>
 </ul>
 <p>Example:</p>
-<p><code>00. Course Introduction.pdf</code></p>
-<p>-&gt; <code>CAS2101_L00_Course_Introduction.pdf</code></p>
+<ol start="0" type="1">
+<li>Course Introduction.pdf -&gt; CAS2101_L00_Course_Introduction.pdf</li>
+</ol>
 <p>Stored in:</p>
-<p><code>University/2026_Spring/CAS2101_Discrete_Mathematics/lectures/</code></p>
+<p>University/2026_Spring/CAS2101_Discrete_Mathematics/lectures/</p>
 </section>
 <section id="scenario-2---project-documentation-management" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-2---project-documentation-management">Scenario 2 - Project Documentation Management</h3>
@@ -438,7 +430,7 @@ flowchart TB
 <section id="scenario-3---research-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-3---research-workflow">Scenario 3 - Research Workflow</h3>
 <p>Pipeline:</p>
-<p><code>Perplexity -&gt; Zotero -&gt; NotebookLM -&gt; Claude</code></p>
+<p>Perplexity -&gt; Zotero -&gt; NotebookLM -&gt; Claude</p>
 <ol type="1">
 <li>Discover papers with Perplexity</li>
 <li>Store original PDFs in Zotero</li>
@@ -450,11 +442,11 @@ flowchart TB
 </section>
 <section id="scenario-4---shared-context-across-ai-tools" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-4---shared-context-across-ai-tools">Scenario 4 - Shared Context Across AI Tools</h3>
-<p>Store cross-session context files in <code>librarian_memory/</code>:</p>
+<p>Store cross-session context files in librarian_memory:</p>
 <ul>
-<li><code>current_task.md</code></li>
-<li><code>handoff.md</code></li>
-<li><code>brief.md</code></li>
+<li>current_task.md</li>
+<li>handoff.md</li>
+<li>brief.md</li>
 </ul>
 <p>Multiple tools can read these files to restore context.</p>
 </section>
@@ -516,7 +508,7 @@ flowchart TB
 <li>Install Gemini CLI</li>
 </ol>
 <p>Result:</p>
-<p><code>Gemini CLI -&gt; gws -&gt; Google Drive</code></p>
+<p>Gemini CLI -&gt; gws -&gt; Google Drive</p>
 </section>
 <section id="step-4---ai-tools" class="level3">
 <h3 class="anchored" data-anchor-id="step-4---ai-tools">Step 4 - AI Tools</h3>
@@ -545,7 +537,7 @@ flowchart TB
 <li>GoodNotes: handwritten notes</li>
 </ul>
 <p>Setup philosophy:</p>
-<p>Use loosely connected components through shared resources (<code>Google Drive</code>, <code>GitHub</code>, local files), rather than tightly coupling all tools.</p>
+<p>Use loosely connected components through shared resources (Google Drive, GitHub, local files), rather than tightly coupling all tools.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
