@@ -90,6 +90,18 @@
   --article-list-item-gap: 0.42rem;
   --article-list-nested-gap: 0.22rem;
 
+  --article-table-border: rgba(124, 143, 170, 0.28);
+  --article-table-header-bg: rgba(237, 224, 208, 0.10);
+  --article-table-row-bg: rgba(255, 255, 255, 0.015);
+  --article-table-row-alt-bg: rgba(255, 255, 255, 0.035);
+  --article-table-header-color: #edf3fb;
+  --article-table-body-color: #d7deea;
+  --article-table-muted-color: #b8c4d6;
+  --article-table-shadow: 0 10px 26px rgba(8, 12, 20, 0.18);
+  --article-table-radius: 0.9rem;
+  --article-table-cell-y: 0.82rem;
+  --article-table-cell-x: 1rem;
+
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
   --bs-border-color: var(--line);

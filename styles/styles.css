@@ -9,6 +9,7 @@
 @import url("./article/heading.css");
 @import url("./article/body-text.css");
 @import url("./article/list.css");
+@import url("./article/table.css");
 @import url("./article/code.css");
 @import url("./feature/page-transition.css");
 @import url("./feature/search-overlay.css");
