@@ -80,6 +80,16 @@
   --article-body-letter-spacing: 0.002em;
   --article-body-paragraph-margin: 1.22rem;
 
+  --article-list-color: #d9e1ec;
+  --article-list-marker: #e4cab3;
+  --article-list-size: 1.03rem;
+  --article-list-line-height: 1.82;
+  --article-list-letter-spacing: 0.002em;
+  --article-list-indent: 1.55rem;
+  --article-list-margin-bottom: 1.4rem;
+  --article-list-item-gap: 0.42rem;
+  --article-list-nested-gap: 0.22rem;
+
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
   --bs-border-color: var(--line);
