@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Article Title"
 date: 2026-03-14
 description: "One-sentence summary of the article."
@@ -7,12 +7,70 @@ toc: true
 ---
 
 ::: {.article-subtitle}
-A short subtitle or framing sentence for the article.
+A short subtitle that frames the article in one or two sentences.
 :::
 
-## Section Title
-Lead paragraph.
+## Problem
+State the problem clearly. Explain why it matters and what is broken, missing, or worth understanding.
 
-## Another Section
-Body paragraph.
+## Context
+Add the minimum background needed for the reader to follow the article.
 
+> Use a `blockquote` when you want to emphasize a claim, quote, or short framing sentence.
+
+## Core Idea
+Explain the central idea in plain language first.
+
+- Use a list when you need direct structure.
+- Keep each bullet focused on one point.
+- Convert repeated patterns into lists instead of dense paragraphs.
+
+## Architecture
+Use a diagram when the reader needs system structure, flow, or relationships.
+
+```{mermaid fig-cap="Replace with a caption that explains what the diagram shows."}
+flowchart LR
+  A[Input] --> B[Process]
+  B --> C[Output]
+```
+
+## Structure
+Use file-tree blocks for folder structures, pipeline layouts, or internal organization.
+
+```{.text .file-tree-block}
+Project/
+|-- app/
+|-- docs/
+`-- tests/
+```
+
+## Example
+Use inline code like `gemini`, `gws`, or `librarian_memory` for exact terms.
+Use code blocks for runnable examples.
+
+```python
+from pathlib import Path
+
+root = Path("AI_OS")
+print(root.exists())
+```
+
+## Comparison
+Use a table when readers need direct comparison.
+
+| Function | Tool |
+|---|---|
+| Search | Perplexity |
+| Build | ChatGPT / Codex |
+
+## References
+Use a repository or reference card for links that deserve dedicated attention.
+
+::: {.repository-card}
+[project-name](https://example.com)
+
+Short explanation of why this repository, paper, or document matters.
+:::
+
+## Conclusion
+Summarize the article in a few lines. End with the main takeaway, not a vague recap.
