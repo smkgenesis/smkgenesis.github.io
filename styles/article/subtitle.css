@@ -1,0 +1,16 @@
+/* Article subtitle */
+.article-subtitle {
+  max-width: var(--article-subtitle-max-width);
+  margin: var(--article-subtitle-margin-top) 0 var(--article-subtitle-margin-bottom) 0 !important;
+  color: var(--article-subtitle-color) !important;
+  font-family: var(--article-subtitle-font);
+  font-size: var(--article-subtitle-size);
+  line-height: var(--article-subtitle-line-height);
+  letter-spacing: -0.01em;
+}
+
+.article-subtitle p {
+  margin: 0 !important;
+  color: inherit !important;
+  font: inherit;
+}

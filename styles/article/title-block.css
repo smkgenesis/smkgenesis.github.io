@@ -1,0 +1,15 @@
+/* Shared title-block frame */
+#title-block-header {
+  border-bottom: 0 !important;
+  margin-bottom: 2.9rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+.section-kicker {
+  margin: 0 0 0.8rem 0 !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  color: rgba(170, 184, 208, 0.82) !important;
+}
