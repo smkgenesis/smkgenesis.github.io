@@ -1,0 +1,16 @@
+﻿/* Living dark cursor glow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(420px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(245, 223, 207, 0.03), rgba(245, 223, 207, 0) 65%);
+  transition: background 140ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    display: none;
+  }
+}

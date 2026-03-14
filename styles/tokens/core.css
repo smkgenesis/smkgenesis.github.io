@@ -1,0 +1,43 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg: #13161c;
+  --bg-top: #1a2030;
+  --bg-bottom: #11141a;
+  --surface: #1b2230;
+  --surface-2: #161e29;
+  --surface-3: #26374c;
+  --line: #3a4658;
+  --text: #e8edf5;
+  --muted: #aab6c7;
+  --link: #8ebfd2;
+  --link-hover: #b2d5e1;
+  --article-title-color: #f1f2f6;
+  --article-title-size: clamp(2.4rem, 5vw, 4rem);
+  --article-title-weight: 600;
+  --article-title-letter-spacing: -0.022em;
+  --article-title-line-height: 1.08;
+  --article-title-max-width: 14ch;
+  --article-title-accent-offset: 18px;
+  --article-title-accent-color: rgba(233, 214, 194, 0.46);
+  --article-title-accent-width: 1px;
+  --article-title-accent-height: 1.35em;
+  --article-title-accent-top: 0.2em;
+  --article-title-margin-bottom: 2.3rem;
+  --article-subtitle-color: rgba(214, 223, 236, 0.82);
+  --article-subtitle-size: clamp(1.05rem, 1.2vw + 0.9rem, 1.28rem);
+  --article-subtitle-line-height: 1.72;
+  --article-subtitle-max-width: 48rem;
+  --article-subtitle-margin-top: -0.2rem;
+  --article-subtitle-margin-bottom: 2.4rem;
+  --article-subtitle-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  --article-date-color: rgba(162, 176, 198, 0.8);
+  --article-date-label-color: rgba(125, 143, 168, 0.72);
+  --article-date-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  --article-date-size: 0.78rem;
+  --article-date-letter-spacing: 0.12em;
+  --article-date-margin-top: -1.1rem;
+  --article-date-margin-bottom: 2.8rem;
+
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);

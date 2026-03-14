@@ -18,7 +18,8 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css:
+      - styles/styles.css
     toc: false
     include-in-header:
       - text: |

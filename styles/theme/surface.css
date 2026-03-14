@@ -1,0 +1,149 @@
+﻿/* ==========================================================
+   MASTER FINISH LOCK v1
+   Premium dark backdrop + warm search modal
+   ========================================================== */
+:root {
+  --ink-bg: #12151d;
+  --ink-bg-2: #0f1219;
+  --ink-text: #e7ecf6;
+
+  --search-ivory: #fcf8f2;
+  --search-ivory-2: #fffaf4;
+  --search-peach: #fae8d9;
+  --search-border-soft: rgba(136, 84, 44, 0.10);
+  --search-border-mid: rgba(170, 132, 98, 0.28);
+  --search-title: #2d2218;
+  --search-body: #3f3328;
+  --search-muted: #7d6b5a;
+}
+
+html,
+body {
+  background-color: var(--ink-bg) !important;
+}
+
+/* Deep background with vignette + ultra-subtle texture */
+body {
+  color: var(--ink-text) !important;
+  background-image:
+    radial-gradient(120% 90% at 50% 44%, rgba(20, 28, 40, 0.16) 0%, rgba(10, 14, 22, 0.52) 72%, rgba(8, 10, 16, 0.82) 100%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.010) 0px, rgba(255, 255, 255, 0.010) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.008) 0px, rgba(255, 255, 255, 0.008) 1px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px) !important;
+  background-attachment: fixed !important;
+  background-blend-mode: normal !important;
+}
+
+
+/* ==========================================================
+   MASTER FINISH LOCK v2 (final)
+   Midnight Graphite + warm glass search modal
+   ========================================================== */
+:root {
+  --mg-bg: #12151e;
+  --mg-bg-deep: #111319;
+  --mg-title: #f1f2f6;
+  --mg-body: #a4abbd;
+  --mg-search-icon: #e5dfd3;
+
+  --mg-glass: rgba(253, 250, 245, 0.86);
+  --mg-glass-soft: rgba(240, 233, 217, 0.42);
+  --mg-border: rgba(136, 84, 44, 0.10);
+  --mg-shadow: 0 20px 50px -10px rgba(18, 21, 30, 0.5);
+}
+
+html,
+body {
+  background-color: var(--mg-bg) !important;
+}
+
+/* Deep midnight backdrop + micro grain + subtle vignette */
+body {
+  color: var(--mg-body) !important;
+  background-image:
+    radial-gradient(120% 88% at 50% 45%, rgba(28, 34, 48, 0.20) 0%, rgba(14, 18, 27, 0.56) 72%, rgba(10, 12, 19, 0.82) 100%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.010) 0px, rgba(255, 255, 255, 0.010) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.008) 0px, rgba(255, 255, 255, 0.008) 1px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 6px) !important;
+  background-attachment: fixed !important;
+}
+
+.quarto-title h1.title,
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+.navbar-title {
+  color: var(--mg-title) !important;
+}
+
+p,
+li,
+.analytics-note,
+.analytics-value {
+  color: var(--mg-body) !important;
+}
+
+/* ==========================================================
+   MASTER FINISH LOCK v3 (SYSTEM FINAL)
+   Unified premium system: stained-glass + light design
+   ========================================================== */
+:root {
+  --sys-bg: #12151e;
+  --sys-bg-2: #111319;
+  --sys-grid: rgba(199, 211, 230, 0.012);
+
+  --sys-title: #f1f2f6;
+  --sys-body: #a4abbd;
+  --sys-muted: #7f8da5;
+  --sys-icon: #d6deec;
+
+  --sys-glass: rgba(245, 243, 239, 0.82); /* #F5F3EF + alpha */
+  --sys-glass-2: rgba(248, 246, 242, 0.86);
+  --sys-border-top: rgba(255, 255, 255, 0.46);
+  --sys-border-bottom: rgba(84, 64, 46, 0.18);
+  --sys-card: rgba(240, 233, 222, 0.58);
+  --sys-card-hover: rgba(244, 236, 224, 0.72);
+  --sys-accent: #f0dfcf;
+  --sys-ink: #2d261f;
+}
+
+html,
+body {
+  background: var(--sys-bg) !important;
+}
+
+body {
+  color: var(--sys-body) !important;
+  background-image:
+    radial-gradient(120% 90% at 50% 45%, rgba(27, 36, 52, 0.18) 0%, rgba(14, 19, 29, 0.54) 72%, rgba(10, 13, 20, 0.82) 100%),
+    repeating-linear-gradient(0deg, var(--sys-grid) 0px, var(--sys-grid) 1px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 5px),
+    repeating-linear-gradient(90deg, rgba(192, 208, 232, 0.010) 0px, rgba(192, 208, 232, 0.010) 1px, rgba(0, 0, 0, 0) 3px, rgba(0, 0, 0, 0) 7px) !important;
+  background-attachment: fixed !important;
+}
+
+.quarto-title h1.title,
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+.navbar-title {
+  color: var(--sys-title) !important;
+}
+
+p,
+li,
+.analytics-note,
+.analytics-value {
+  color: var(--sys-body) !important;
+}
+
+/* ==========================================================
+   MASTER FINISH LOCK v5 (ABSOLUTE)
+   Floating GNB + editorial titles + living dark
+   ========================================================== */
+:root {
+  --glass-border: rgba(253, 250, 245, 0.08);
+  --glass-bg: rgba(253, 250, 245, 0.05);
+}
+

@@ -1,0 +1,81 @@
+﻿/* Editorial title system */
+#title-block-header {
+  border-bottom: 0 !important;
+  margin-bottom: 2.9rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+.section-kicker {
+  margin: 0 0 0.8rem 0 !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  color: rgba(170, 184, 208, 0.82) !important;
+}
+
+.quarto-title h1.title {
+  position: relative;
+  max-width: var(--article-title-max-width);
+  padding-left: var(--article-title-accent-offset) !important;
+  margin-bottom: var(--article-title-margin-bottom) !important;
+  color: var(--article-title-color) !important;
+  font-size: var(--article-title-size) !important;
+  font-weight: var(--article-title-weight) !important;
+  letter-spacing: var(--article-title-letter-spacing) !important;
+  line-height: var(--article-title-line-height) !important;
+}
+
+.quarto-title h1.title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--article-title-accent-top);
+  width: var(--article-title-accent-width);
+  height: var(--article-title-accent-height);
+  background: var(--article-title-accent-color);
+}
+
+.article-subtitle {
+  max-width: var(--article-subtitle-max-width);
+  margin: var(--article-subtitle-margin-top) 0 var(--article-subtitle-margin-bottom) 0 !important;
+  color: var(--article-subtitle-color) !important;
+  font-family: var(--article-subtitle-font);
+  font-size: var(--article-subtitle-size);
+  line-height: var(--article-subtitle-line-height);
+  letter-spacing: -0.01em;
+}
+
+.article-subtitle p {
+  margin: 0 !important;
+  color: inherit !important;
+  font: inherit;
+}
+
+#title-block-header .quarto-title-meta {
+  display: block !important;
+  margin-top: var(--article-date-margin-top) !important;
+  margin-bottom: var(--article-date-margin-bottom) !important;
+}
+
+#title-block-header .quarto-title-meta-heading {
+  display: inline-block !important;
+  margin: 0 0 0.28rem 0 !important;
+  color: var(--article-date-label-color) !important;
+  font-family: var(--article-date-font) !important;
+  font-size: var(--article-date-size) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--article-date-letter-spacing) !important;
+  text-transform: uppercase !important;
+}
+
+#title-block-header .quarto-title-meta-contents,
+#title-block-header .quarto-title-meta-contents p,
+#title-block-header .quarto-title-meta-contents time {
+  margin: 0 !important;
+  color: var(--article-date-color) !important;
+  font-family: var(--article-date-font) !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+}
