@@ -10,6 +10,11 @@ toc: true
 A practical architecture for using AI tools in research, learning, and software development.
 :::
 
+<div class="language-toggle" role="group" aria-label="Language switch">
+  <a class="language-toggle__link is-active" href="/articles/building-my-personal-ai-utilization-system.html" lang="en">EN</a>
+  <a class="language-toggle__link" href="/articles/building-my-personal-ai-utilization-system-ko.html" lang="ko">KO</a>
+</div>
+
 ## Motivation
 AI tools are powerful, but using them independently often leads to messy workflows.
 

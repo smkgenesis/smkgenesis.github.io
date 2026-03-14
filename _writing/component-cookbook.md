@@ -95,3 +95,7 @@ Use for folder structures, hierarchies, or artifact layouts.
 5. Turn important links into repository/reference cards.
 6. Turn folder layouts into file-tree blocks.
 7. Use callouts only when the reader needs a strong side-channel warning or note.
+
+### Language toggle
+Use at the top of every article.
+Rule: each article is treated as an EN/KO pair, and both links must be explicit.

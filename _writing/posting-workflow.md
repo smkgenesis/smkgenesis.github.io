@@ -44,8 +44,9 @@ Rewrite for:
 - reader-first ordering
 
 ## Step 4. Build article draft
-Start from `main/articles/_template.qmd`.
+Start from main/articles/_template.qmd.
 Then fill sections with the chosen components.
+Every article must be published as an EN/KO pair, with the language toggle links filled before publish.
 
 ## Step 5. Review for overuse
 Check that the article is not overloaded with decoration.

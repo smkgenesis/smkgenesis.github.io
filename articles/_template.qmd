@@ -10,6 +10,11 @@ toc: true
 A short subtitle that frames the article in one or two sentences.
 :::
 
+<div class="language-toggle" role="group" aria-label="Language switch">
+  <a class="language-toggle__link is-active" href="/articles/article-slug-en.html" lang="en">EN</a>
+  <a class="language-toggle__link" href="/articles/article-slug-ko.html" lang="ko">KO</a>
+</div>
+
 ## Problem
 State the problem clearly. Explain why it matters and what is broken, missing, or worth understanding.
 
