@@ -1,0 +1,16 @@
+/* Section conclusion */
+.section-conclusion {
+  margin: 1.55rem 0 2rem;
+  padding: 0.9rem 1rem;
+  border-left: 1px solid var(--article-conclusion-border);
+  background: var(--article-conclusion-bg);
+  border-radius: 0 0.65rem 0.65rem 0;
+}
+
+.section-conclusion p {
+  margin: 0;
+  color: var(--article-conclusion-text) !important;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}

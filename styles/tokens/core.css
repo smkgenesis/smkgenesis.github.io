@@ -80,6 +80,16 @@
   --article-body-line-height: 1.9;
   --article-body-letter-spacing: 0.002em;
   --article-body-paragraph-margin: 1.22rem;
+  --article-lead-color: #e3ebf6;
+  --article-lead-size: clamp(1.14rem, 0.9vw + 1rem, 1.34rem);
+  --article-lead-line-height: 1.68;
+  --article-symptom-label-color: rgba(180, 193, 210, 0.78);
+  --article-symptom-label-size: 0.76rem;
+  --article-symptom-label-letter-spacing: 0.12em;
+  --article-symptom-block-gap: 0.9rem;
+  --article-conclusion-bg: rgba(255, 255, 255, 0.035);
+  --article-conclusion-border: rgba(226, 200, 176, 0.24);
+  --article-conclusion-text: #eef3fb;
 
   --article-list-color: #d9e1ec;
   --article-list-marker: #e4cab3;
@@ -114,17 +124,17 @@
   --article-table-hover-bg: rgba(255, 255, 255, 0.03);
   --article-table-tool-color: #edf3fb;
 
-  --article-inline-code-bg: #f2e5d6;
-  --article-inline-code-color: #5a3220;
-  --article-inline-code-border: #c7a588;
-  --article-inline-code-radius: 0.38rem;
-  --article-inline-code-padding-y: 0.08rem;
-  --article-inline-code-padding-x: 0.42rem;
+  --article-inline-code-bg: rgba(255, 255, 255, 0.08);
+  --article-inline-code-color: #9fc7f8;
+  --article-inline-code-border: rgba(255, 255, 255, 0.08);
+  --article-inline-code-radius: 0.3rem;
+  --article-inline-code-padding-y: 0.08em;
+  --article-inline-code-padding-x: 0.32em;
 
   --article-code-bg: #111a28;
   --article-code-color: #e9f0fb;
-  --article-code-border: #33465f;
-  --article-code-radius: 0.78rem;
+  --article-code-border: rgba(255, 255, 255, 0.1);
+  --article-code-radius: 0.5rem;
   --article-code-shadow: 0 10px 22px rgba(9, 14, 24, 0.34);
   --article-code-comment: #9fb1ca;
 
@@ -133,19 +143,20 @@
   --article-diagram-shadow: 0 12px 28px rgba(7, 12, 20, 0.24);
   --article-diagram-radius: 1rem;
   --article-diagram-caption: #b8c4d6;
+  --article-diagram-max-width: 62rem;
 
   --article-link-block-bg: rgba(237, 224, 208, 0.08);
   --article-link-block-border: rgba(226, 200, 176, 0.22);
   --article-link-block-title: #f1f2f6;
   --article-link-block-body: #d6deea;
 
-  --article-workflow-bg: rgba(255, 255, 255, 0.045);
-  --article-workflow-border: rgba(139, 160, 187, 0.22);
+  --article-workflow-bg: rgba(255, 255, 255, 0.03);
+  --article-workflow-border: rgba(255, 255, 255, 0.08);
   --article-workflow-shadow: 0 12px 28px rgba(8, 12, 20, 0.2);
   --article-workflow-text: #e7edf7;
-  --article-workflow-arrow: #8ebfd2;
-  --article-workflow-step-bg: rgba(17, 24, 36, 0.42);
-  --article-workflow-step-border: rgba(226, 200, 176, 0.16);
+  --article-workflow-arrow: rgba(255, 255, 255, 0.34);
+  --article-workflow-step-bg: rgba(255, 255, 255, 0.05);
+  --article-workflow-step-border: rgba(255, 255, 255, 0.1);
 
   --article-quote-border: rgba(233, 214, 194, 0.46);
   --article-quote-bg: rgba(237, 224, 208, 0.06);
@@ -180,6 +191,10 @@
   --article-timeline-dot: #e4cab3;
   --article-file-tree-bg: rgba(17, 24, 36, 0.62);
   --article-file-tree-border: rgba(139, 160, 187, 0.22);
+  --article-file-tree-row-hover: rgba(255, 255, 255, 0.05);
+  --article-file-tree-guide: rgba(255, 255, 255, 0.06);
+  --article-file-tree-icon: rgba(196, 207, 222, 0.8);
+  --article-file-tree-chevron: rgba(255, 255, 255, 0.34);
 
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);

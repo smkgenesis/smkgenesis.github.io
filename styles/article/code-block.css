@@ -13,6 +13,7 @@ div.sourceCode,
   border: 1px solid var(--article-code-border) !important;
   border-radius: var(--article-code-radius) !important;
   box-shadow: var(--article-code-shadow) !important;
+  padding: 1rem 1.1rem !important;
 }
 
 pre code,

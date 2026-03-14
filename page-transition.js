@@ -70,6 +70,23 @@
     }
   };
 
+  const initFileTrees = () => {
+    document.querySelectorAll(".file-tree__toggle").forEach((button) => {
+      if (button.dataset.treeBound === "true") return;
+      button.dataset.treeBound = "true";
+
+      button.addEventListener("click", () => {
+        const folder = button.closest(".file-tree__folder");
+        if (!folder) return;
+
+        const willOpen = folder.classList.contains("is-collapsed");
+        folder.classList.toggle("is-open", willOpen);
+        folder.classList.toggle("is-collapsed", !willOpen);
+        button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+    });
+  };
+
   const fetchHTML = async (url) => {
     const key = url.toString();
     if (prefetchCache.has(key)) return prefetchCache.get(key);
@@ -176,6 +193,7 @@
       swapContent(nextDoc);
       updateActiveNav(targetUrl);
       applySectionKicker(targetUrl);
+      initFileTrees();
 
       if (mode === "push") {
         history.pushState({ url: targetUrl.toString() }, "", targetUrl.toString());
@@ -247,6 +265,7 @@
   };
 
   applySectionKicker(currentUrl);
+  initFileTrees();
   initCursorGlow();
   initScrollAwareGnb();
 
