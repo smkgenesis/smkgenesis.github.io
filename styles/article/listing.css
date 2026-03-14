@@ -1,0 +1,100 @@
+/* Article listing cards */
+.quarto-listing-container-default {
+  margin-top: 0.8rem;
+}
+
+.quarto-listing-container-default .list {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.quarto-listing-container-default .quarto-post {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  padding: 1.35rem 1.5rem 1.45rem;
+  border: 1px solid var(--article-listing-border);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.02)), var(--article-listing-bg);
+  box-shadow: var(--article-listing-shadow);
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.quarto-listing-container-default .quarto-post:hover {
+  border-color: var(--article-listing-border-hover);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03)), var(--article-listing-bg-hover);
+  transform: translateY(-1px);
+}
+
+.quarto-listing-container-default .metadata {
+  min-width: 0;
+  padding-top: 0.2rem;
+}
+
+.quarto-listing-container-default .metadata a {
+  display: block;
+  border-bottom: 0;
+}
+
+.quarto-listing-container-default .listing-date {
+  display: inline-block;
+  width: 100%;
+  padding-top: 0.1rem;
+  border-top: 1px solid rgba(180, 194, 214, 0.22);
+  color: var(--article-listing-date);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quarto-listing-container-default .body {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.quarto-listing-container-default .listing-title {
+  margin: 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(180, 194, 214, 0.22);
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: clamp(1.5rem, 2.3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.quarto-listing-container-default .listing-title a {
+  color: var(--article-listing-title);
+  border-bottom: 0;
+}
+
+.quarto-listing-container-default .listing-description,
+.quarto-listing-container-default .listing-description a,
+.quarto-listing-container-default .listing-description p {
+  margin: 0;
+  color: var(--article-listing-body);
+  border-bottom: 0;
+  font-family: "IBM Plex Serif", "Noto Serif KR", serif;
+  font-size: clamp(1.1rem, 1vw + 0.92rem, 1.3rem);
+  line-height: 1.72;
+}
+
+@media (max-width: 900px) {
+  .quarto-listing-container-default .quarto-post {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .quarto-listing-container-default .metadata {
+    order: -1;
+  }
+
+  .quarto-listing-container-default .listing-date {
+    width: auto;
+    padding-top: 0;
+    border-top: 0;
+  }
+}

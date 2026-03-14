@@ -1,15 +1,3 @@
-﻿---
+---
 title: "Home"
 ---
-
-# Minkyu Song
-
-Computer Science undergraduate at Yonsei University.
-
-## Site Metrics
-
-<div id="analytics-panel" class="analytics-panel">
-  <p class="analytics-title">Cloudflare Analytics</p>
-  <p class="analytics-value" id="analytics-value">Pending setup</p>
-  <p class="analytics-note">This space is reserved for public traffic metrics after Cloudflare Web Analytics integration.</p>
-</div>
