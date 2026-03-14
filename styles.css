@@ -31,6 +31,13 @@
   --article-subtitle-margin-top: -0.2rem;
   --article-subtitle-margin-bottom: 2.4rem;
   --article-subtitle-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  --article-date-color: rgba(162, 176, 198, 0.8);
+  --article-date-label-color: rgba(125, 143, 168, 0.72);
+  --article-date-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  --article-date-size: 0.78rem;
+  --article-date-letter-spacing: 0.12em;
+  --article-date-margin-top: -1.1rem;
+  --article-date-margin-bottom: 2.8rem;
 
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
@@ -2111,6 +2118,34 @@ body.gnb-hidden #quarto-header .navbar {
   font: inherit;
 }
 
+#title-block-header .quarto-title-meta {
+  display: block !important;
+  margin-top: var(--article-date-margin-top) !important;
+  margin-bottom: var(--article-date-margin-bottom) !important;
+}
+
+#title-block-header .quarto-title-meta-heading {
+  display: inline-block !important;
+  margin: 0 0 0.28rem 0 !important;
+  color: var(--article-date-label-color) !important;
+  font-family: var(--article-date-font) !important;
+  font-size: var(--article-date-size) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--article-date-letter-spacing) !important;
+  text-transform: uppercase !important;
+}
+
+#title-block-header .quarto-title-meta-contents,
+#title-block-header .quarto-title-meta-contents p,
+#title-block-header .quarto-title-meta-contents time {
+  margin: 0 !important;
+  color: var(--article-date-color) !important;
+  font-family: var(--article-date-font) !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+}
+
 /* Mobile exception */
 @media (max-width: 768px) {
   #quarto-header .navbar {
@@ -2183,5 +2218,6 @@ pre .co,
 .sourceCode .co {
   color: #9fb1ca !important;
 }
+
 
 
