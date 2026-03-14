@@ -1,8 +1,9 @@
-﻿---
+---
 title: "Articles"
 listing:
   contents:
     - "articles/*.qmd"
+    - "articles/*/en.qmd"
   sort: "date desc"
   type: default
   fields: [title, date, description]

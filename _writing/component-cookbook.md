@@ -96,6 +96,4 @@ Use for folder structures, hierarchies, or artifact layouts.
 6. Turn folder layouts into file-tree blocks.
 7. Use callouts only when the reader needs a strong side-channel warning or note.
 
-### Language toggle
-Use at the top of every article.
-Rule: each article is treated as an EN/KO pair, and both links must be explicit.
+### Language toggle`r`nUse at the top of every article.`r`nRule: each article is treated as an EN/KO pair inside one slug directory, and both links must be explicit.
