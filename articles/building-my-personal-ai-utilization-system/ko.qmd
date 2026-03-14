@@ -1,0 +1,19 @@
+---
+title: "Building My Personal AI Utilization System"
+date: 2026-03-12
+description: "AI ??? ??, ??, ????? ??? ???? ?? ??? ????."
+categories: [AI Workflow, Architecture, Productivity]
+toc: true
+---
+
+::: {.article-subtitle}
+Korean version in progress.
+:::
+
+<div class="language-toggle" role="group" aria-label="Language switch">
+  <a class="language-toggle__link" href="/articles/building-my-personal-ai-utilization-system/en.html" lang="en">EN</a>
+  <a class="language-toggle__link is-active" href="/articles/building-my-personal-ai-utilization-system/ko.html" lang="ko">KO</a>
+</div>
+
+## Notice
+This Korean article is being prepared.
