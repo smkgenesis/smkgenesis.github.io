@@ -1,0 +1,13 @@
+/* File tree blocks */
+.file-tree-block,
+pre code.language-text,
+pre code.text {
+  font-family: "JetBrains Mono", monospace;
+}
+
+pre:has(code.language-text),
+pre:has(code.text),
+.file-tree-block {
+  background: var(--article-file-tree-bg) !important;
+  border: 1px solid var(--article-file-tree-border) !important;
+}

@@ -1,0 +1,14 @@
+/* Footnotes */
+.footnotes,
+.footnotes p,
+.footnotes li {
+  color: var(--article-footnote-color) !important;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.footnotes {
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--article-divider);
+}

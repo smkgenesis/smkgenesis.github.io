@@ -1,0 +1,27 @@
+/* Diagrams */
+.mermaid,
+.cell-output-display:has(.mermaid),
+div.cell-output-display > .mermaid {
+  margin: 1.7rem 0;
+}
+
+main.content .mermaid,
+main.content .cell-output-display > .mermaid,
+main.content .quarto-figure:has(.mermaid) {
+  padding: 1.1rem;
+  border: 1px solid var(--article-diagram-border);
+  border-radius: var(--article-diagram-radius);
+  background: var(--article-diagram-bg);
+  box-shadow: var(--article-diagram-shadow);
+}
+
+main.content .cell-output-display svg,
+main.content .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+main.content .cell-output-display + p em,
+main.content .quarto-figure figcaption {
+  color: var(--article-diagram-caption) !important;
+}

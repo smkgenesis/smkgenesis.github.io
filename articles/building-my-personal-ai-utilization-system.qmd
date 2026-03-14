@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Building My Personal AI Utilization System"
 date: 2026-03-12
 description: "A practical architecture for using AI tools in research, learning, and software development."
@@ -79,7 +79,7 @@ Pattern:
 Raw materials enter the system, Gemini organizes them, AI tools consume the organized state, and outputs are written back into the system.
 
 ## Architecture Diagram
-```{mermaid}
+```{mermaid fig-cap="System-level flow of inputs, memory, tools, and outputs."}
 flowchart LR
   classDef data fill:#1d2736,stroke:#5a6f8c,color:#e8edf5;
   classDef core fill:#243247,stroke:#8ebfd2,color:#eef4ff;
@@ -137,11 +137,11 @@ All AI tools interact with this layer either directly or indirectly.
 ### Root Structure
 ::: {.columns}
 ::: {.column width="48%"}
-```text
+```{.text .file-tree-block}
 AI_OS/
-├── University/
-├── Projects/
-└── Librarian/
++-- University/
++-- Projects/
++-- Librarian/
 ```
 :::
 ::: {.column width="52%"}
@@ -150,15 +150,14 @@ AI_OS/
 - **Librarian**: global AI system documentation
 :::
 :::
-
 ### Librarian (Global Context)
 ::: {.columns}
 ::: {.column width="48%"}
-```text
+```{.text .file-tree-block}
 Librarian/
-├── architecture.md
-├── routing.md
-└── decisions.md
++-- architecture.md
++-- routing.md
++-- decisions.md
 ```
 :::
 ::: {.column width="52%"}
@@ -167,26 +166,24 @@ Librarian/
 - **decisions.md**: important conventions and design choices
 :::
 :::
-
 ### Local librarian_memory
 ::: {.columns}
 ::: {.column width="48%"}
-```text
+```{.text .file-tree-block}
 University/
-└── 2026_Spring/
-    └── CAS2101_Discrete_Mathematics/
-        └── librarian_memory/
++-- 2026_Spring/
+    +-- CAS2101_Discrete_Mathematics/
+        +-- librarian_memory/
 ```
 :::
 ::: {.column width="52%"}
-```text
+```{.text .file-tree-block}
 Projects/
-└── Personal_Website/
-    └── librarian_memory/
++-- Personal_Website/
+    +-- librarian_memory/
 ```
 :::
 :::
-
 Local folders store current task, progress state, notes, and handoff context.
 
 - Global context -> Librarian
@@ -207,26 +204,25 @@ In this architecture, Gemini acts as the system librarian.
 
 ## Workspaces
 ### University Workspace
-```text
+```{.text .file-tree-block}
 University/
-└── 2026_Spring/
-    └── CAS2101_Discrete_Mathematics/
-        ├── lectures/
-        ├── assignments/
-        ├── announcements/
-        ├── outputs/
-        └── librarian_memory/
++-- 2026_Spring/
+    +-- CAS2101_Discrete_Mathematics/
+        +-- lectures/
+        +-- assignments/
+        +-- announcements/
+        +-- outputs/
+        +-- librarian_memory/
 ```
 
 ### Project Workspace
-```text
+```{.text .file-tree-block}
 Projects/
-├── Personal_Website/
-│   └── librarian_memory/
-└── AI_Research_OS/
-    └── librarian_memory/
++-- Personal_Website/
+�   +-- librarian_memory/
++-- AI_Research_OS/
+    +-- librarian_memory/
 ```
-
 Each workspace is intentionally flexible, but should include librarian_memory.
 
 ## Example Workflows
@@ -376,8 +372,9 @@ The goal is simple:
 Turn a collection of AI tools into a structured working system.
 
 ## Repository
-Reference implementation:
+::: {.repository-card}
+[ai-utilization-system](https://github.com/smkgenesis/ai-utilization-system)
 
-[https://github.com/smkgenesis/ai-utilization-system](https://github.com/smkgenesis/ai-utilization-system)
-
+Reference implementation of the architecture, including setup notes, example folder structures, and system documentation.
+:::
 
