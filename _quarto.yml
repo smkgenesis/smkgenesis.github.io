@@ -1,6 +1,9 @@
 ﻿project:
   type: website
   output-dir: _site
+  resources:
+    - CNAME
+    - .nojekyll
 
 website:
   title: "Minkyu's Tech Blog"
