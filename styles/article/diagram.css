@@ -1,4 +1,8 @@
 /* Diagrams */
+main.content section#architecture-diagram {
+  max-width: min(100%, var(--article-diagram-max-width));
+}
+
 .mermaid,
 .cell-output-display:has(.mermaid),
 div.cell-output-display > .mermaid {
@@ -8,17 +12,26 @@ div.cell-output-display > .mermaid {
 main.content .mermaid,
 main.content .cell-output-display > .mermaid,
 main.content .quarto-figure:has(.mermaid) {
-  padding: 1.1rem;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 1.35rem;
   border: 1px solid var(--article-diagram-border);
   border-radius: var(--article-diagram-radius);
   background: var(--article-diagram-bg);
   box-shadow: var(--article-diagram-shadow);
 }
 
+main.content .cell-output-display,
+main.content .quarto-figure:has(.mermaid) {
+  width: 100%;
+  max-width: 100%;
+}
+
 main.content .cell-output-display svg,
 main.content .mermaid svg {
-  max-width: 100%;
-  height: auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 main.content .cell-output-display + p em,

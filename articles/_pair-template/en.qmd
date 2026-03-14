@@ -5,23 +5,59 @@ description: "One-sentence summary of the article."
 toc: true
 ---
 
-
 <div class="language-toggle" role="group" aria-label="Language switch"><a class="language-toggle__link is-active" href="/articles/article-slug/en.html" lang="en">EN</a><a class="language-toggle__link" href="/articles/article-slug/ko.html" lang="ko">KO</a></div>
 
 ## Problem
-State the problem clearly. Explain why it matters and what is broken, missing, or worth understanding.
+::: {.section-lead}
+State the problem clearly in one sentence before expanding it.
+:::
+
+Add the minimum explanation needed to establish why the problem matters.
+
+::: {.section-conclusion}
+Use a short closing sentence when the section needs a clear takeaway.
+:::
 
 ## Context
+::: {.section-lead}
 Add the minimum background needed for the reader to follow the article.
+:::
+
+::: {.symptom-block}
+<p class="symptom-block__label">What breaks over time</p>
+
+- Use a symptom block when the reader should quickly scan consequences or failure modes.
+- Keep the label short and analytical.
+:::
+
+::: {.section-conclusion}
+Close the section with a single sentence that names the real problem or takeaway.
+:::
 
 > Use a `blockquote` when you want to emphasize a claim, quote, or short framing sentence.
 
 ## Core Idea
+::: {.section-lead}
 Explain the central idea in plain language first.
+:::
 
 - Use a list when you need direct structure.
 - Keep each bullet focused on one point.
 - Convert repeated patterns into lists instead of dense paragraphs.
+
+| Function | Tool |
+|---|---|
+| Search | Perplexity |
+| Build | ChatGPT / Codex |
+
+::: {.section-conclusion}
+End the section by stating what the structure achieves, not just what it contains.
+:::
+
+## Principles
+::: {.section-lead}
+Use an ordered list when principles or steps need visible hierarchy.
+:::
 
 <ol class="ordered-list">
   <li>
@@ -33,8 +69,19 @@ Explain the central idea in plain language first.
     <span class="ordered-list__body">Use this component when a numbered sequence needs hierarchy rather than a flat procedural list.</span>
   </li>
 </ol>
+
 ## Architecture
+::: {.section-lead}
 Use a diagram when the reader needs system structure, flow, or relationships.
+:::
+
+::: {.workflow-pipeline}
+<span class="workflow-pipeline__step">Input</span>
+<span class="workflow-pipeline__arrow" aria-hidden="true">&rarr;</span>
+<span class="workflow-pipeline__step">Process</span>
+<span class="workflow-pipeline__arrow" aria-hidden="true">&rarr;</span>
+<span class="workflow-pipeline__step">Output</span>
+:::
 
 ```{mermaid fig-cap="Replace with a caption that explains what the diagram shows."}
 flowchart LR
@@ -43,17 +90,30 @@ flowchart LR
 ```
 
 ## Structure
+::: {.section-lead}
 Use file-tree blocks for folder structures, pipeline layouts, or internal organization.
+:::
 
-```{.text .file-tree-block}
-Project/
-|-- app/
-|-- docs/
-`-- tests/
-```
+<div class="file-tree" aria-label="Example project structure">
+  <ul class="file-tree__root">
+    <li class="file-tree__item">
+      <div class="file-tree__folder is-open">
+        <button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"><span class="file-tree__chevron" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">Project</span></button>
+        <ul class="file-tree__children">
+          <li class="file-tree__item file-tree__item--folder"><div class="file-tree__row"><span class="file-tree__chevron-spacer" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">app</span></div></li>
+          <li class="file-tree__item file-tree__item--folder"><div class="file-tree__row"><span class="file-tree__chevron-spacer" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">docs</span></div></li>
+          <li class="file-tree__item file-tree__item--folder"><div class="file-tree__row"><span class="file-tree__chevron-spacer" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">tests</span></div></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
 
 ## Example
+::: {.section-lead}
 Use inline code like `gemini`, `gws`, or `librarian_memory` for exact terms.
+:::
+
 Use code blocks for runnable examples.
 
 ```python
@@ -63,16 +123,10 @@ root = Path("AI_OS")
 print(root.exists())
 ```
 
-## Comparison
-Use a table when readers need direct comparison.
-
-| Function | Tool |
-|---|---|
-| Search | Perplexity |
-| Build | ChatGPT / Codex |
-
 ## References
+::: {.section-lead}
 Use a repository or reference card for links that deserve dedicated attention.
+:::
 
 ::: {.repository-card}
 [project-name](https://example.com)
@@ -81,4 +135,8 @@ Short explanation of why this repository, paper, or document matters.
 :::
 
 ## Conclusion
-Summarize the article in a few lines. End with the main takeaway, not a vague recap.
+::: {.section-lead}
+Summarize the article in a few lines.
+:::
+
+End with the main takeaway, not a vague recap.

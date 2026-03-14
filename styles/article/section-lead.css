@@ -1,0 +1,14 @@
+/* Section lead */
+.section-lead {
+  max-width: 42rem;
+  margin: 0 0 1.45rem;
+  color: var(--article-lead-color) !important;
+  font-size: var(--article-lead-size);
+  line-height: var(--article-lead-line-height);
+  letter-spacing: -0.01em;
+}
+
+.section-lead p {
+  margin: 0;
+  color: inherit !important;
+}

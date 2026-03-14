@@ -1,0 +1,26 @@
+/* Symptom block */
+.symptom-block {
+  margin: 1.6rem 0 1.7rem;
+}
+
+.symptom-block__label {
+  margin: 0 0 var(--article-symptom-block-gap) 0;
+  color: var(--article-symptom-label-color) !important;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: var(--article-symptom-label-size);
+  font-weight: 600;
+  letter-spacing: var(--article-symptom-label-letter-spacing);
+  text-transform: uppercase;
+}
+
+.symptom-block ul {
+  margin-bottom: 0;
+}
+
+.symptom-block ul > li {
+  margin-bottom: 0.58rem;
+}
+
+.symptom-block ul > li::before {
+  color: rgba(255, 255, 255, 0.3);
+}
