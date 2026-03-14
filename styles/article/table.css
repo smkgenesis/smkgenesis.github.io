@@ -9,22 +9,25 @@ main.content table {
   border: 1px solid var(--article-table-border);
   border-radius: var(--article-table-radius);
   box-shadow: var(--article-table-shadow);
-  background: rgba(17, 24, 36, 0.34);
+  background: rgba(17, 24, 36, 0.18);
 }
 
 main.content thead th {
   background: var(--article-table-header-bg);
   color: var(--article-table-header-color) !important;
   font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 main.content th,
 main.content td {
   padding: var(--article-table-cell-y) var(--article-table-cell-x);
   border-bottom: 1px solid var(--article-table-border);
+  border-left: 0;
+  border-right: 0;
   text-align: left;
   vertical-align: top;
 }
@@ -35,12 +38,23 @@ main.content tbody td {
   line-height: 1.72;
 }
 
+main.content tbody td:nth-child(2) {
+  color: var(--article-table-tool-color) !important;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+}
+
 main.content tbody tr {
   background: var(--article-table-row-bg);
+  transition: background-color 160ms ease;
 }
 
 main.content tbody tr:nth-child(even) {
   background: var(--article-table-row-alt-bg);
+}
+
+main.content tbody tr:hover {
+  background: var(--article-table-hover-bg);
 }
 
 main.content tbody tr:last-child td,

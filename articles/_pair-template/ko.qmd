@@ -2,18 +2,11 @@
 title: "?? ??"
 date: 2026-03-14
 description: "? ?? ? ???? ??? ?????."
-categories: [Category, Topic]
 toc: true
 ---
 
-::: {.article-subtitle}
-? ?? ??? ??? ?? ???? ???? ???.
-:::
 
-<div class="language-toggle" role="group" aria-label="Language switch">
-  <a class="language-toggle__link" href="/articles/article-slug/en.html" lang="en">EN</a>
-  <a class="language-toggle__link is-active" href="/articles/article-slug/ko.html" lang="ko">KO</a>
-</div>
+<div class="language-toggle" role="group" aria-label="Language switch"><a class="language-toggle__link" href="/articles/article-slug/en.html" lang="en">EN</a><a class="language-toggle__link is-active" href="/articles/article-slug/ko.html" lang="ko">KO</a></div>
 
 ## ??
 ??? ????, ? ????, ??? ???? ???? ???.

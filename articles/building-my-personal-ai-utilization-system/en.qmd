@@ -2,25 +2,28 @@
 title: "Building My Personal AI Utilization System"
 date: 2026-03-12
 description: "A practical architecture for using AI tools in research, learning, and software development."
-categories: [AI Workflow, Architecture, Productivity]
 toc: true
 ---
 
-::: {.article-subtitle}
-A practical architecture for using AI tools in research, learning, and software development.
-:::
 
-<div class="language-toggle" role="group" aria-label="Language switch">
-  <a class="language-toggle__link is-active" href="/articles/building-my-personal-ai-utilization-system/en.html" lang="en">EN</a>
-  <a class="language-toggle__link" href="/articles/building-my-personal-ai-utilization-system/ko.html" lang="ko">KO</a>
-</div>
+<div class="language-toggle" role="group" aria-label="Language switch"><a class="language-toggle__link is-active" href="/articles/building-my-personal-ai-utilization-system/en.html" lang="en">EN</a><a class="language-toggle__link" href="/articles/building-my-personal-ai-utilization-system/ko.html" lang="ko">KO</a></div>
 
 ## Motivation
 AI tools are powerful, but using them independently often leads to messy workflows.
 
 A typical workflow might look like this:
 
-Ask ChatGPT -> open Perplexity -> upload to NotebookLM -> copy results to Drive -> repeat
+::: {.workflow-pipeline}
+<span class="workflow-pipeline__step">Ask ChatGPT</span>
+<span class="workflow-pipeline__arrow">-&gt;</span>
+<span class="workflow-pipeline__step">Open Perplexity</span>
+<span class="workflow-pipeline__arrow">-&gt;</span>
+<span class="workflow-pipeline__step">Upload to NotebookLM</span>
+<span class="workflow-pipeline__arrow">-&gt;</span>
+<span class="workflow-pipeline__step">Copy to Drive</span>
+<span class="workflow-pipeline__arrow">-&gt;</span>
+<span class="workflow-pipeline__step">Repeat</span>
+:::
 
 Over time, several problems appear:
 
@@ -72,18 +75,20 @@ The result is a simple but structured AI working environment.
 ## Philosophy
 The system follows three basic principles.
 
-1. AI assists thinking - it does not replace it
-
-Human judgment remains central.
-
-2. AI is a cognitive tool
-
-AI extends research, coding, and learning workflows.
-
-3. Working systems > perfect systems
-
-A simple system that works consistently is better than a perfect design that is never used.
-
+<ol class="ordered-list">
+  <li>
+    <span class="ordered-list__title">AI assists thinking - it does not replace it</span>
+    <span class="ordered-list__body">Human judgment remains central.</span>
+  </li>
+  <li>
+    <span class="ordered-list__title">AI is a cognitive tool</span>
+    <span class="ordered-list__body">AI extends research, coding, and learning workflows.</span>
+  </li>
+  <li>
+    <span class="ordered-list__title">Working systems &gt; perfect systems</span>
+    <span class="ordered-list__body">A simple system that works consistently is better than a perfect design that is never used.</span>
+  </li>
+</ol>
 ## Architecture Overview
 The system is centered around Google Drive as a shared knowledge and memory layer.
 
@@ -97,53 +102,47 @@ The architecture follows a simple pattern:
 Raw materials enter the system, Gemini organizes them, AI tools consume the organized state, and the resulting outputs are written back into the system.
 
 ## Architecture Diagram
-```{.text .file-tree-block}
-                           INPUTS
-    +-----------------------------------------------------+
-    |                                                     |
-    |  LearnUS files   Research papers   Notes   Manuals  |
-    |  Course PDFs     Project docs      Drafts  Outputs  |
-    |                                                     |
-    +--------------------------+--------------------------+
-                               |
-                               v
-                    +-------------------------+
-                    |       Gemini CLI        |
-                    |   + gws integration     |
-                    |                         |
-                    | - file classification   |
-                    | - renaming              |
-                    | - folder routing        |
-                    | - context updates       |
-                    | - schedule extraction   |
-                    +------------+------------+
-                                 |
-                                 v
-                    +-------------------------+
-                    |      Google Drive       |
-                    |   Shared Memory Layer   |
-                    |                         |
-                    | University/             |
-                    | Projects/               |
-                    | Librarian/              |
-                    | librarian_memory/       |
-                    +--------+--------+-------+
-                             |        |
-               +-------------+        +-------------+
-               v                                    v
+```{mermaid fig-cap="System flow from raw inputs to shared memory, specialized AI tools, and final outputs."}
+flowchart TD
+    classDef default fill:#1E293B,stroke:#475569,stroke-width:1px,color:#F8FAFC,rx:8px,ry:8px;
+    classDef coreBox fill:#0F172A,stroke:#94A3B8,stroke-width:2px,color:#FFFFFF,font-weight:bold;
+    classDef endPoint fill:none,stroke:none,color:#94A3B8,font-size:16px,font-weight:bold;
 
-     +----------------------+             +----------------------+
-     |   Knowledge Tools    |             |   Execution Tools    |
-     |                      |             |                      |
-     | NotebookLM           |             | Claude               |
-     | Perplexity           |             | ChatGPT / Codex      |
-     | Zotero (manual)      |             | Claude Code          |
-     +----------------------+             +----------------------+
-               |                                    |
-               v                                    v
-       Research & Analysis                Design & Implementation
+    INPUTS["<b>INPUTS</b><br/><br/>LearnUS files &nbsp;|&nbsp; Research papers &nbsp;|&nbsp; Notes &nbsp;|&nbsp; Manuals<br/>Course PDFs &nbsp;|&nbsp; Project docs &nbsp;|&nbsp; Drafts &nbsp;|&nbsp; Outputs"]
+
+    CLI["<b>Gemini CLI + gws integration</b><br/><br/>- file classification<br/>- renaming<br/>- folder routing<br/>- context updates<br/>- schedule extraction"]:::coreBox
+
+    DRIVE["<b>Google Drive</b><br/>(Shared Memory Layer)<br/><br/>University/<br/>Projects/<br/>Librarian/<br/>librarian_memory/"]:::coreBox
+
+    INPUTS --> CLI
+    CLI --> DRIVE
+
+    subgraph K_Tools ["Knowledge Tools"]
+        direction TB
+        N["NotebookLM"]
+        P["Perplexity"]
+        Z["Zotero - manual"]
+    end
+
+    subgraph E_Tools ["Execution Tools"]
+        direction TB
+        C["Claude"]
+        GPT["ChatGPT / Codex"]
+        CC["Claude Code"]
+    end
+
+    DRIVE --> K_Tools
+    DRIVE --> E_Tools
+
+    RA["Research & Analysis"]:::endPoint
+    DI["Design & Implementation"]:::endPoint
+
+    K_Tools --> RA
+    E_Tools --> DI
+
+    style K_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px
+    style E_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px
 ```
-
 ## Core Architectural Principle
 The system separates two types of state.
 
