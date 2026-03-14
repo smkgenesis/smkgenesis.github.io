@@ -196,6 +196,15 @@
   --article-file-tree-icon: rgba(196, 207, 222, 0.8);
   --article-file-tree-chevron: rgba(255, 255, 255, 0.34);
 
+  --article-listing-bg: rgba(17, 24, 36, 0.34);
+  --article-listing-bg-hover: rgba(24, 34, 49, 0.62);
+  --article-listing-border: rgba(139, 160, 187, 0.18);
+  --article-listing-border-hover: rgba(172, 191, 214, 0.26);
+  --article-listing-date: rgba(156, 170, 191, 0.72);
+  --article-listing-title: #eef3fb;
+  --article-listing-body: rgba(212, 221, 234, 0.86);
+  --article-listing-shadow: 0 18px 40px rgba(6, 10, 18, 0.16);
+
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
   --bs-border-color: var(--line);

@@ -18,14 +18,6 @@
     return 15;
   };
 
-  const sectionLabel = (url) => {
-    const p = url.pathname.toLowerCase();
-    if (p.endsWith("/index.html") || p === "/") return "01 / HOME";
-    if (p.endsWith("/articles.html") || p.includes("/articles/")) return "02 / ARTICLES";
-    if (p.endsWith("/projects.html") || p.includes("/projects/")) return "03 / PROJECTS";
-    return "00 / PAGE";
-  };
-
   const keyOf = (url) => `${url.pathname}${url.search}`;
 
   const isInternalNavigable = (href) => {
@@ -44,10 +36,11 @@
     document.body.classList.remove("aa-Detached");
   };
 
-  const applySectionKicker = (url) => {
+  const applySectionKicker = () => {
     const titleHeader = document.querySelector("#title-block-header");
     const titleBlock = document.querySelector("#title-block-header .quarto-title");
-    if (!titleHeader || !titleBlock) return;
+    const toggle = document.querySelector(".language-toggle");
+    if (!titleHeader || !titleBlock || !toggle) return;
 
     let topRow = titleHeader.querySelector(".article-header-top");
     if (!topRow) {
@@ -56,18 +49,7 @@
       titleHeader.insertBefore(topRow, titleHeader.firstChild);
     }
 
-    const existing = topRow.querySelector(".section-kicker");
-    if (existing) existing.remove();
-
-    const kicker = document.createElement("p");
-    kicker.className = "section-kicker";
-    kicker.textContent = sectionLabel(url);
-    topRow.prepend(kicker);
-
-    const toggle = document.querySelector(".language-toggle");
-    if (toggle) {
-      topRow.appendChild(toggle);
-    }
+    topRow.appendChild(toggle);
   };
 
   const initFileTrees = () => {
@@ -192,7 +174,7 @@
       const nextDoc = parseDocument(html);
       swapContent(nextDoc);
       updateActiveNav(targetUrl);
-      applySectionKicker(targetUrl);
+      applySectionKicker();
       initFileTrees();
 
       if (mode === "push") {
@@ -264,7 +246,7 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   };
 
-  applySectionKicker(currentUrl);
+  applySectionKicker();
   initFileTrees();
   initCursorGlow();
   initScrollAwareGnb();
