@@ -73,6 +73,13 @@
   --article-h4-margin-bottom: 0.75rem;
   --article-h4-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
 
+  --article-body-color: #d7deea;
+  --article-body-strong-color: #eef3fb;
+  --article-body-size: 1.04rem;
+  --article-body-line-height: 1.9;
+  --article-body-letter-spacing: 0.002em;
+  --article-body-paragraph-margin: 1.22rem;
+
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
   --bs-border-color: var(--line);
