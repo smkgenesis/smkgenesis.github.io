@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Articles – Minkyu’s Tech Blog</title>
+<title>source.en – Minkyu's Tech Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,70 +70,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <meta name="theme-color" content="#12151e">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="page-transition.js" defer=""></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="../../styles/styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -145,7 +85,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Minkyu’s Tech Blog</span>
     </a>
   </div>
@@ -156,11 +96,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./articles.html" aria-current="page"> 
+    <a class="nav-link" href="../../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -176,53 +116,80 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Articles</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QUklMjBXb3JrZmxvdyUyQ0FyY2hpdGVjdHVyZSUyQ1Byb2R1Y3Rpdml0eQ==" data-listing-date-sort="1773241200000" data-listing-file-modified-sort="1773461616528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2776">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./articles/building-my-personal-ai-utilization-system/en.html" class="no-external">Building My Personal AI Utilization System</a>
-</h3>
-<div class="delink listing-description"><a href="./articles/building-my-personal-ai-utilization-system/en.html" class="no-external">
+<p>Building My Personal AI Utilization System</p>
 <p>A practical architecture for using AI tools in research, learning, and software development.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./articles/building-my-personal-ai-utilization-system/en.html" class="no-external">
-<div class="listing-date">
-Mar 12, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<p>Motivation</p>
+<p>AI tools are powerful, but using them independently often leads to messy workflows.</p>
+<p>A typical workflow might look like this:</p>
+<p>Ask ChatGPT -&gt; open Perplexity -&gt; upload to NotebookLM -&gt; copy results to Drive -&gt; repeat</p>
+<p>Over time, several problems appear:</p>
+<p>context becomes fragmented</p>
+<p>knowledge spreads across multiple tools</p>
+<p>switching between AIs creates friction</p>
+<p>long-term work lacks a persistent structure</p>
+<p>The limitation is not the capability of AI models.</p>
+<p>The real problem is the lack of a clear architecture for using them together.</p>
+<p>Goal</p>
+<p>The goal of this project is simple:</p>
+<p>Design a system where multiple AI tools cooperate instead of being used independently.</p>
+<p>The system should support:</p>
+<p>studying university courses</p>
+<p>managing research materials</p>
+<p>writing long documents</p>
+<p>building software projects</p>
+<p>organizing knowledge over time</p>
+<p>The focus is practical workflow, not theoretical design.</p>
+<p>Key Idea</p>
+<p>Instead of relying on a single AI tool for everything, the system assigns specific roles to different tools.</p>
+<p>Example role distribution:</p>
+<p>Search -&gt; Perplexity Store -&gt; Zotero Analyze -&gt; NotebookLM Organize -&gt; Gemini Design -&gt; Claude Build -&gt; ChatGPT / Codex Code State -&gt; GitHub Memory -&gt; Google Drive Control -&gt; gws CLI</p>
+<p>Each tool is used for what it does best.</p>
+<p>The result is a simple but structured AI working environment.</p>
+<p>Philosophy</p>
+<p>The system follows three basic principles.</p>
+<ol type="1">
+<li>AI assists thinking - it does not replace it</li>
+</ol>
+<p>Human judgment remains central.</p>
+<ol start="2" type="1">
+<li>AI is a cognitive tool</li>
+</ol>
+<p>AI extends research, coding, and learning workflows.</p>
+<ol start="3" type="1">
+<li>Working systems &gt; perfect systems</li>
+</ol>
+<p>A simple system that works consistently is better than a perfect design that is never used.</p>
+<p>Architecture Overview</p>
+<p>The system is centered around Google Drive as a shared knowledge and memory layer.</p>
+<p>The main operational interface to this layer is Gemini CLI, which interacts with Google Drive through gws.</p>
+<p>The architecture follows a simple pattern:</p>
+<p>Inputs -&gt; Gemini CLI -&gt; Google Drive -&gt; AI tools -&gt; Outputs -&gt; GitHub (code state)</p>
+<p>Raw materials enter the system, Gemini organizes them, AI tools consume the organized state, and the resulting outputs are written back into the system.</p>
+<p>Architecture Diagram</p>
+<p>INPUTS - LearnUS files - Research papers - Notes - Manuals - Course PDFs - Project docs - Drafts - Outputs</p>
+<p>Gemini CLI + gws integration - file classification - renaming - folder routing - context updates - schedule extraction</p>
+<p>Google Drive Shared Memory Layer - University/ - Projects/ - Librarian/ - librarian_memory/</p>
+<p>Knowledge Tools - NotebookLM - Perplexity - Zotero (manual)</p>
+<p>Execution Tools - Claude - ChatGPT / Codex - Claude Code</p>
+<p>Outputs - Research &amp; Analysis - Design &amp; Implementation</p>
+<p>Core Architectural Principle</p>
+<p>The system separates two types of state.</p>
+<p>Knowledge State</p>
+<p>Stored in Google Drive</p>
+<p>Includes: - course materials - research summaries - documentation - project notes - shared AI context</p>
+<p>Code State</p>
+<p>Stored in GitHub</p>
+<p>Includes: - source code - version history - software projects</p>
+<p>This separation keeps research workflows and development workflows clean.</p>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
