@@ -1,4 +1,4 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
   --bg: #13161c;
@@ -12,6 +12,7 @@
   --muted: #aab6c7;
   --link: #8ebfd2;
   --link-hover: #b2d5e1;
+
   --article-title-color: #f1f2f6;
   --article-title-size: clamp(2.4rem, 5vw, 4rem);
   --article-title-weight: 600;
@@ -24,6 +25,7 @@
   --article-title-accent-height: 1.35em;
   --article-title-accent-top: 0.2em;
   --article-title-margin-bottom: 2.3rem;
+
   --article-subtitle-color: rgba(214, 223, 236, 0.82);
   --article-subtitle-size: clamp(1.05rem, 1.2vw + 0.9rem, 1.28rem);
   --article-subtitle-line-height: 1.72;
@@ -31,6 +33,7 @@
   --article-subtitle-margin-top: -0.2rem;
   --article-subtitle-margin-bottom: 2.4rem;
   --article-subtitle-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+
   --article-date-color: rgba(162, 176, 198, 0.8);
   --article-date-label-color: rgba(125, 143, 168, 0.72);
   --article-date-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
@@ -39,5 +42,38 @@
   --article-date-margin-top: -1.1rem;
   --article-date-margin-bottom: 2.8rem;
 
+  --article-heading-color: #f1f2f6;
+  --article-h2-size: clamp(1.72rem, 1.9vw + 1.1rem, 2.3rem);
+  --article-h2-weight: 600;
+  --article-h2-letter-spacing: -0.018em;
+  --article-h2-line-height: 1.18;
+  --article-h2-margin-top: 4.3rem;
+  --article-h2-margin-bottom: 1.35rem;
+  --article-h2-accent-offset: 14px;
+  --article-h2-accent-width: 1px;
+  --article-h2-accent-height: 1.08em;
+  --article-h2-accent-top: 0.18em;
+  --article-h2-accent-color: rgba(233, 214, 194, 0.36);
+
+  --article-h3-color: rgba(232, 237, 245, 0.92);
+  --article-h3-size: clamp(1.1rem, 0.75vw + 0.95rem, 1.34rem);
+  --article-h3-weight: 600;
+  --article-h3-letter-spacing: 0.01em;
+  --article-h3-line-height: 1.42;
+  --article-h3-margin-top: 2.7rem;
+  --article-h3-margin-bottom: 0.9rem;
+  --article-h3-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+
+  --article-h4-color: rgba(214, 223, 236, 0.88);
+  --article-h4-size: 1rem;
+  --article-h4-weight: 600;
+  --article-h4-letter-spacing: 0.04em;
+  --article-h4-line-height: 1.5;
+  --article-h4-margin-top: 2rem;
+  --article-h4-margin-bottom: 0.75rem;
+  --article-h4-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
+  --bs-border-color: var(--line);
+}
