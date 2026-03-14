@@ -1,0 +1,10 @@
+/* Equation blocks */
+main.content .math.display,
+main.content .quarto-display-math {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--article-equation-border);
+  border-radius: 0.9rem;
+  background: var(--article-equation-bg);
+  overflow-x: auto;
+}

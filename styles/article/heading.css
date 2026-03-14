@@ -1,0 +1,62 @@
+/* Article sectional headings */
+main.content h2,
+main.content h3,
+main.content h4 {
+  scroll-margin-top: 7rem;
+}
+
+main.content h2 {
+  position: relative;
+  margin-top: var(--article-h2-margin-top);
+  margin-bottom: var(--article-h2-margin-bottom);
+  padding-left: var(--article-h2-accent-offset);
+  color: var(--article-heading-color) !important;
+  font-family: "IBM Plex Serif", "Noto Serif KR", serif;
+  font-size: var(--article-h2-size);
+  font-weight: var(--article-h2-weight);
+  letter-spacing: var(--article-h2-letter-spacing);
+  line-height: var(--article-h2-line-height);
+}
+
+main.content h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--article-h2-accent-top);
+  width: var(--article-h2-accent-width);
+  height: var(--article-h2-accent-height);
+  background: var(--article-h2-accent-color);
+}
+
+main.content h3 {
+  margin-top: var(--article-h3-margin-top);
+  margin-bottom: var(--article-h3-margin-bottom);
+  color: var(--article-h3-color) !important;
+  font-family: var(--article-h3-font);
+  font-size: var(--article-h3-size);
+  font-weight: var(--article-h3-weight);
+  letter-spacing: var(--article-h3-letter-spacing);
+  line-height: var(--article-h3-line-height);
+}
+
+main.content h4 {
+  margin-top: var(--article-h4-margin-top);
+  margin-bottom: var(--article-h4-margin-bottom);
+  color: var(--article-h4-color) !important;
+  font-family: var(--article-h4-font);
+  font-size: var(--article-h4-size);
+  font-weight: var(--article-h4-weight);
+  letter-spacing: var(--article-h4-letter-spacing);
+  line-height: var(--article-h4-line-height);
+  text-transform: uppercase;
+}
+
+main.content .anchored {
+  border-bottom: 0 !important;
+}
+
+main.content h2 + p,
+main.content h3 + p,
+main.content h4 + p {
+  margin-top: 0.15rem;
+}

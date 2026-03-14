@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg: #13161c;
+  --bg-top: #1a2030;
+  --bg-bottom: #11141a;
+  --surface: #1b2230;
+  --surface-2: #161e29;
+  --surface-3: #26374c;
+  --line: #3a4658;
+  --text: #e8edf5;
+  --muted: #aab6c7;
+  --link: #8ebfd2;
+  --link-hover: #b2d5e1;
+
+  --article-title-color: #f1f2f6;
+  --article-title-size: clamp(2.4rem, 5vw, 4rem);
+  --article-title-weight: 600;
+  --article-title-letter-spacing: -0.022em;
+  --article-title-line-height: 1.08;
+  --article-title-max-width: 14ch;
+  --article-title-accent-offset: 18px;
+  --article-title-accent-color: rgba(233, 214, 194, 0.46);
+  --article-title-accent-width: 1px;
+  --article-title-accent-height: 1.35em;
+  --article-title-accent-top: 0.2em;
+  --article-title-margin-bottom: 2.3rem;
+
+  --article-subtitle-color: rgba(214, 223, 236, 0.82);
+  --article-subtitle-size: clamp(1.05rem, 1.2vw + 0.9rem, 1.28rem);
+  --article-subtitle-line-height: 1.72;
+  --article-subtitle-max-width: 48rem;
+  --article-subtitle-margin-top: -0.2rem;
+  --article-subtitle-margin-bottom: 2.4rem;
+  --article-subtitle-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+
+  --article-date-color: rgba(162, 176, 198, 0.8);
+  --article-date-label-color: rgba(125, 143, 168, 0.72);
+  --article-date-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  --article-date-size: 0.78rem;
+  --article-date-letter-spacing: 0.12em;
+  --article-date-margin-top: -1.1rem;
+  --article-date-margin-bottom: 2.8rem;
+
+  --article-heading-color: #f1f2f6;
+  --article-h2-size: clamp(1.72rem, 1.9vw + 1.1rem, 2.3rem);
+  --article-h2-weight: 600;
+  --article-h2-letter-spacing: -0.018em;
+  --article-h2-line-height: 1.18;
+  --article-h2-margin-top: 4.3rem;
+  --article-h2-margin-bottom: 1.35rem;
+  --article-h2-accent-offset: 14px;
+  --article-h2-accent-width: 1px;
+  --article-h2-accent-height: 1.08em;
+  --article-h2-accent-top: 0.18em;
+  --article-h2-accent-color: rgba(233, 214, 194, 0.36);
+
+  --article-h3-color: rgba(232, 237, 245, 0.92);
+  --article-h3-size: clamp(1.1rem, 0.75vw + 0.95rem, 1.34rem);
+  --article-h3-weight: 600;
+  --article-h3-letter-spacing: 0.01em;
+  --article-h3-line-height: 1.42;
+  --article-h3-margin-top: 2.7rem;
+  --article-h3-margin-bottom: 0.9rem;
+  --article-h3-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+
+  --article-h4-color: rgba(214, 223, 236, 0.88);
+  --article-h4-size: 1rem;
+  --article-h4-weight: 600;
+  --article-h4-letter-spacing: 0.04em;
+  --article-h4-line-height: 1.5;
+  --article-h4-margin-top: 2rem;
+  --article-h4-margin-bottom: 0.75rem;
+  --article-h4-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+
+  --article-body-color: #d7deea;
+  --article-body-strong-color: #eef3fb;
+  --article-body-size: 1.04rem;
+  --article-body-line-height: 1.9;
+  --article-body-letter-spacing: 0.002em;
+  --article-body-paragraph-margin: 1.22rem;
+
+  --article-list-color: #d9e1ec;
+  --article-list-marker: #e4cab3;
+  --article-list-size: 1.03rem;
+  --article-list-line-height: 1.82;
+  --article-list-letter-spacing: 0.002em;
+  --article-list-indent: 1.55rem;
+  --article-list-margin-bottom: 1.4rem;
+  --article-list-item-gap: 0.42rem;
+  --article-list-nested-gap: 0.22rem;
+
+  --article-table-border: rgba(124, 143, 170, 0.28);
+  --article-table-header-bg: rgba(237, 224, 208, 0.10);
+  --article-table-row-bg: rgba(255, 255, 255, 0.015);
+  --article-table-row-alt-bg: rgba(255, 255, 255, 0.035);
+  --article-table-header-color: #edf3fb;
+  --article-table-body-color: #d7deea;
+  --article-table-muted-color: #b8c4d6;
+  --article-table-shadow: 0 10px 26px rgba(8, 12, 20, 0.18);
+  --article-table-radius: 0.9rem;
+  --article-table-cell-y: 0.82rem;
+  --article-table-cell-x: 1rem;
+
+  --article-inline-code-bg: #f2e5d6;
+  --article-inline-code-color: #5a3220;
+  --article-inline-code-border: #c7a588;
+  --article-inline-code-radius: 0.38rem;
+  --article-inline-code-padding-y: 0.08rem;
+  --article-inline-code-padding-x: 0.42rem;
+
+  --article-code-bg: #111a28;
+  --article-code-color: #e9f0fb;
+  --article-code-border: #33465f;
+  --article-code-radius: 0.78rem;
+  --article-code-shadow: 0 10px 22px rgba(9, 14, 24, 0.34);
+  --article-code-comment: #9fb1ca;
+
+  --article-diagram-bg: rgba(18, 25, 38, 0.72);
+  --article-diagram-border: rgba(139, 160, 187, 0.24);
+  --article-diagram-shadow: 0 12px 28px rgba(7, 12, 20, 0.24);
+  --article-diagram-radius: 1rem;
+  --article-diagram-caption: #b8c4d6;
+
+  --article-link-block-bg: rgba(237, 224, 208, 0.08);
+  --article-link-block-border: rgba(226, 200, 176, 0.22);
+  --article-link-block-title: #f1f2f6;
+  --article-link-block-body: #d6deea;
+
+  --article-quote-border: rgba(233, 214, 194, 0.46);
+  --article-quote-bg: rgba(237, 224, 208, 0.06);
+  --article-quote-color: #dbe4f0;
+
+  --article-callout-note-bg: rgba(142, 191, 210, 0.08);
+  --article-callout-note-border: rgba(142, 191, 210, 0.28);
+  --article-callout-warn-bg: rgba(228, 202, 179, 0.08);
+  --article-callout-warn-border: rgba(228, 202, 179, 0.28);
+
+  --article-figure-caption-color: #b8c4d6;
+  --article-footnote-color: #aebaca;
+  --article-divider: rgba(124, 143, 170, 0.22);
+
+  --article-chip-bg: rgba(237, 224, 208, 0.10);
+  --article-chip-border: rgba(226, 200, 176, 0.22);
+  --article-chip-color: #dbe4f0;
+
+  --article-card-bg: rgba(17, 24, 36, 0.5);
+  --article-card-border: rgba(139, 160, 187, 0.24);
+  --article-card-title: #eef3fb;
+  --article-card-body: #d7deea;
+
+  --article-equation-bg: rgba(17, 24, 36, 0.55);
+  --article-equation-border: rgba(139, 160, 187, 0.2);
+
+  --article-definition-bg: rgba(237, 224, 208, 0.06);
+  --article-definition-border: rgba(226, 200, 176, 0.22);
+
+  --article-comparison-gap: 1rem;
+  --article-timeline-line: rgba(226, 200, 176, 0.3);
+  --article-timeline-dot: #e4cab3;
+  --article-file-tree-bg: rgba(17, 24, 36, 0.62);
+  --article-file-tree-border: rgba(139, 160, 187, 0.22);
+
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-border-color: var(--line);
+}

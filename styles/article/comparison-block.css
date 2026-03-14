@@ -1,0 +1,20 @@
+/* Comparison blocks */
+.comparison-block {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--article-comparison-gap);
+  margin: 1.6rem 0 1.9rem;
+}
+
+.comparison-block > * {
+  padding: 1rem;
+  border: 1px solid var(--article-card-border);
+  border-radius: 0.95rem;
+  background: var(--article-card-bg);
+}
+
+@media (max-width: 768px) {
+  .comparison-block {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,38 @@
+/* Article lists */
+main.content ul,
+main.content ol {
+  margin: 0 0 var(--article-list-margin-bottom);
+  padding-left: var(--article-list-indent);
+}
+
+main.content li {
+  color: var(--article-list-color) !important;
+  font-size: var(--article-list-size);
+  line-height: var(--article-list-line-height);
+  letter-spacing: var(--article-list-letter-spacing);
+  margin-bottom: var(--article-list-item-gap);
+  padding-left: 0.1rem;
+}
+
+main.content li::marker {
+  color: var(--article-list-marker);
+}
+
+main.content ul ul,
+main.content ul ol,
+main.content ol ul,
+main.content ol ol {
+  margin-top: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+
+main.content ul ul > li,
+main.content ul ol > li,
+main.content ol ul > li,
+main.content ol ol > li {
+  margin-bottom: var(--article-list-nested-gap);
+}
+
+main.content li > p {
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,18 @@
+/* Callouts */
+.callout {
+  border-radius: 0.95rem !important;
+  border-width: 1px !important;
+  box-shadow: 0 10px 24px rgba(8, 12, 20, 0.16);
+}
+
+.callout.callout-note {
+  background: var(--article-callout-note-bg) !important;
+  border-color: var(--article-callout-note-border) !important;
+}
+
+.callout.callout-warning,
+.callout.callout-important,
+.callout.callout-caution {
+  background: var(--article-callout-warn-bg) !important;
+  border-color: var(--article-callout-warn-border) !important;
+}

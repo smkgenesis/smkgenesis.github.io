@@ -1,0 +1,36 @@
+/* Timeline and process blocks */
+.timeline-block,
+.process-block {
+  position: relative;
+  margin: 1.6rem 0 1.9rem;
+  padding-left: 1.4rem;
+}
+
+.timeline-block::before,
+.process-block::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  width: 1px;
+  background: var(--article-timeline-line);
+}
+
+.timeline-block > *,
+.process-block > * {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.timeline-block > *::before,
+.process-block > *::before {
+  content: "";
+  position: absolute;
+  left: -1.16rem;
+  top: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--article-timeline-dot);
+}

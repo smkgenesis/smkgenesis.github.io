@@ -1,0 +1,54 @@
+html,
+body {
+  overflow-x: clip !important;
+  background: var(--bg) !important;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg) !important;
+  font-family: "IBM Plex Serif", "Noto Serif KR", serif;
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#quarto-content,
+.quarto-container,
+.page-layout-article {
+  background: transparent !important;
+}
+
+main.content {
+  max-width: 72ch;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.quarto-title h1.title,
+h1 {
+  color: var(--text);
+  font-family: "IBM Plex Serif", "Noto Serif KR", serif;
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(142, 191, 210, 0.26);
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  border-bottom-color: rgba(178, 213, 225, 0.54);
+}

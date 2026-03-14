@@ -1,0 +1,28 @@
+/* Published date metadata */
+#title-block-header .quarto-title-meta {
+  display: block !important;
+  margin-top: var(--article-date-margin-top) !important;
+  margin-bottom: var(--article-date-margin-bottom) !important;
+}
+
+#title-block-header .quarto-title-meta-heading {
+  display: inline-block !important;
+  margin: 0 0 0.28rem 0 !important;
+  color: var(--article-date-label-color) !important;
+  font-family: var(--article-date-font) !important;
+  font-size: var(--article-date-size) !important;
+  font-weight: 600 !important;
+  letter-spacing: var(--article-date-letter-spacing) !important;
+  text-transform: uppercase !important;
+}
+
+#title-block-header .quarto-title-meta-contents,
+#title-block-header .quarto-title-meta-contents p,
+#title-block-header .quarto-title-meta-contents time {
+  margin: 0 !important;
+  color: var(--article-date-color) !important;
+  font-family: var(--article-date-font) !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+}

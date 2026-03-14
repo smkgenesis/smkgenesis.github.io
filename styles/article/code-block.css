@@ -1,0 +1,31 @@
+/* Code blocks */
+.quarto-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+pre,
+div.sourceCode,
+.sourceCode,
+.quarto-code-block,
+.cell-output pre {
+  background: var(--article-code-bg) !important;
+  color: var(--article-code-color) !important;
+  border: 1px solid var(--article-code-border) !important;
+  border-radius: var(--article-code-radius) !important;
+  box-shadow: var(--article-code-shadow) !important;
+}
+
+pre code,
+div.sourceCode code,
+.sourceCode code,
+.quarto-code-block code {
+  background: transparent !important;
+  color: var(--article-code-color) !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+pre .co,
+.sourceCode .co {
+  color: var(--article-code-comment) !important;
+}

@@ -1,0 +1,15 @@
+/* Definition blocks */
+.definition-block,
+dl.definition-block {
+  margin: 1.5rem 0 1.8rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--article-definition-border);
+  border-radius: 0.95rem;
+  background: var(--article-definition-bg);
+}
+
+.definition-block dt,
+dl.definition-block dt {
+  color: var(--article-card-title) !important;
+  font-weight: 600;
+}

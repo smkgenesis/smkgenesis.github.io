@@ -1,0 +1,35 @@
+/* Article body copy */
+main.content p,
+main.content dt,
+main.content dd,
+main.content blockquote,
+main.content figcaption {
+  color: var(--article-body-color) !important;
+}
+
+main.content p,
+main.content dt,
+main.content dd {
+  font-size: var(--article-body-size);
+  line-height: var(--article-body-line-height);
+  letter-spacing: var(--article-body-letter-spacing);
+}
+
+main.content p {
+  margin: 0 0 var(--article-body-paragraph-margin);
+}
+
+main.content strong,
+main.content b {
+  color: var(--article-body-strong-color) !important;
+  font-weight: 600;
+}
+
+main.content em {
+  color: #e5ebf5;
+}
+
+main.content .lead,
+main.content > p:first-of-type {
+  color: #dde5f0 !important;
+}
