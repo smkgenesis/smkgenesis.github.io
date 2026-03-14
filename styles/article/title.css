@@ -1,7 +1,7 @@
 /* Article main title */
 .quarto-title h1.title {
-  position: relative;
-  max-width: var(--article-title-max-width);
+  width: 100%;
+  max-width: 100%;
   padding-left: var(--article-title-accent-offset) !important;
   margin-bottom: var(--article-title-margin-bottom) !important;
   color: var(--article-title-color) !important;
@@ -9,14 +9,7 @@
   font-weight: var(--article-title-weight) !important;
   letter-spacing: var(--article-title-letter-spacing) !important;
   line-height: var(--article-title-line-height) !important;
-}
-
-.quarto-title h1.title::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: var(--article-title-accent-top);
-  width: var(--article-title-accent-width);
-  height: var(--article-title-accent-height);
-  background: var(--article-title-accent-color);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }

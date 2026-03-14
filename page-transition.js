@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const CONTENT_SELECTOR = "#quarto-content";
   const NAV_LINK_SELECTOR = ".navbar .nav-link";
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -45,19 +45,29 @@
   };
 
   const applySectionKicker = (url) => {
+    const titleHeader = document.querySelector("#title-block-header");
     const titleBlock = document.querySelector("#title-block-header .quarto-title");
-    if (!titleBlock) return;
+    if (!titleHeader || !titleBlock) return;
 
-    const existing = titleBlock.querySelector(".section-kicker");
+    let topRow = titleHeader.querySelector(".article-header-top");
+    if (!topRow) {
+      topRow = document.createElement("div");
+      topRow.className = "article-header-top";
+      titleHeader.insertBefore(topRow, titleHeader.firstChild);
+    }
+
+    const existing = topRow.querySelector(".section-kicker");
     if (existing) existing.remove();
-
-    const h1 = titleBlock.querySelector("h1.title");
-    if (!h1) return;
 
     const kicker = document.createElement("p");
     kicker.className = "section-kicker";
     kicker.textContent = sectionLabel(url);
-    titleBlock.insertBefore(kicker, h1);
+    topRow.prepend(kicker);
+
+    const toggle = document.querySelector(".language-toggle");
+    if (toggle) {
+      topRow.appendChild(toggle);
+    }
   };
 
   const fetchHTML = async (url) => {

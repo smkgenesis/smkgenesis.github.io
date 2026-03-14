@@ -72,6 +72,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="theme-color" content="#12151e">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="page-transition.js" defer=""></script>
@@ -169,12 +172,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Building My Personal AI Utilization System</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">AI Workflow</div>
-    <div class="quarto-category">Architecture</div>
-    <div class="quarto-category">Productivity</div>
-  </div>
-  </div>
+</div>
 
 <div>
   <div class="description">
@@ -201,17 +199,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="article-subtitle">
-<p>A practical architecture for using AI tools in research, learning, and software development.</p>
-</div>
 <div class="language-toggle" role="group" aria-label="Language switch">
-<p><a class="language-toggle__link is-active" href="../../articles/building-my-personal-ai-utilization-system/en.html" lang="en">EN</a> <a class="language-toggle__link" href="../../articles/building-my-personal-ai-utilization-system/ko.html" lang="ko">KO</a></p>
+<a class="language-toggle__link is-active" href="../../articles/building-my-personal-ai-utilization-system/en.html" lang="en">EN</a><a class="language-toggle__link" href="../../articles/building-my-personal-ai-utilization-system/ko.html" lang="ko">KO</a>
 </div>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 <p>AI tools are powerful, but using them independently often leads to messy workflows.</p>
 <p>A typical workflow might look like this:</p>
-<p>Ask ChatGPT -&gt; open Perplexity -&gt; upload to NotebookLM -&gt; copy results to Drive -&gt; repeat</p>
+<div class="workflow-pipeline">
+<p><span class="workflow-pipeline__step">Ask ChatGPT</span> <span class="workflow-pipeline__arrow">-&gt;</span> <span class="workflow-pipeline__step">Open Perplexity</span> <span class="workflow-pipeline__arrow">-&gt;</span> <span class="workflow-pipeline__step">Upload to NotebookLM</span> <span class="workflow-pipeline__arrow">-&gt;</span> <span class="workflow-pipeline__step">Copy to Drive</span> <span class="workflow-pipeline__arrow">-&gt;</span> <span class="workflow-pipeline__step">Repeat</span></p>
+</div>
 <p>Over time, several problems appear:</p>
 <ul>
 <li>context becomes fragmented</li>
@@ -292,18 +289,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="philosophy" class="level2">
 <h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
 <p>The system follows three basic principles.</p>
-<ol type="1">
-<li>AI assists thinking - it does not replace it</li>
+<ol class="ordered-list">
+<li>
+<span class="ordered-list__title">AI assists thinking - it does not replace it</span> <span class="ordered-list__body">Human judgment remains central.</span>
+</li>
+<li>
+<span class="ordered-list__title">AI is a cognitive tool</span> <span class="ordered-list__body">AI extends research, coding, and learning workflows.</span>
+</li>
+<li>
+<span class="ordered-list__title">Working systems &gt; perfect systems</span> <span class="ordered-list__body">A simple system that works consistently is better than a perfect design that is never used.</span>
+</li>
 </ol>
-<p>Human judgment remains central.</p>
-<ol start="2" type="1">
-<li>AI is a cognitive tool</li>
-</ol>
-<p>AI extends research, coding, and learning workflows.</p>
-<ol start="3" type="1">
-<li>Working systems &gt; perfect systems</li>
-</ol>
-<p>A simple system that works consistently is better than a perfect design that is never used.</p>
 </section>
 <section id="architecture-overview" class="level2">
 <h2 class="anchored" data-anchor-id="architecture-overview">Architecture Overview</h2>
@@ -318,50 +314,56 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="architecture-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="architecture-diagram">Architecture Diagram</h2>
-<pre class="text file-tree-block"><code>                           INPUTS
-    +-----------------------------------------------------+
-    |                                                     |
-    |  LearnUS files   Research papers   Notes   Manuals  |
-    |  Course PDFs     Project docs      Drafts  Outputs  |
-    |                                                     |
-    +--------------------------+--------------------------+
-                               |
-                               v
-                    +-------------------------+
-                    |       Gemini CLI        |
-                    |   + gws integration     |
-                    |                         |
-                    | - file classification   |
-                    | - renaming              |
-                    | - folder routing        |
-                    | - context updates       |
-                    | - schedule extraction   |
-                    +------------+------------+
-                                 |
-                                 v
-                    +-------------------------+
-                    |      Google Drive       |
-                    |   Shared Memory Layer   |
-                    |                         |
-                    | University/             |
-                    | Projects/               |
-                    | Librarian/              |
-                    | librarian_memory/       |
-                    +--------+--------+-------+
-                             |        |
-               +-------------+        +-------------+
-               v                                    v
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    classDef default fill:#1E293B,stroke:#475569,stroke-width:1px,color:#F8FAFC,rx:8px,ry:8px;
+    classDef coreBox fill:#0F172A,stroke:#94A3B8,stroke-width:2px,color:#FFFFFF,font-weight:bold;
+    classDef endPoint fill:none,stroke:none,color:#94A3B8,font-size:16px,font-weight:bold;
 
-     +----------------------+             +----------------------+
-     |   Knowledge Tools    |             |   Execution Tools    |
-     |                      |             |                      |
-     | NotebookLM           |             | Claude               |
-     | Perplexity           |             | ChatGPT / Codex      |
-     | Zotero (manual)      |             | Claude Code          |
-     +----------------------+             +----------------------+
-               |                                    |
-               v                                    v
-       Research &amp; Analysis                Design &amp; Implementation</code></pre>
+    INPUTS["&lt;b&gt;INPUTS&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;LearnUS files &amp;nbsp;|&amp;nbsp; Research papers &amp;nbsp;|&amp;nbsp; Notes &amp;nbsp;|&amp;nbsp; Manuals&lt;br/&gt;Course PDFs &amp;nbsp;|&amp;nbsp; Project docs &amp;nbsp;|&amp;nbsp; Drafts &amp;nbsp;|&amp;nbsp; Outputs"]
+
+    CLI["&lt;b&gt;Gemini CLI + gws integration&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;- file classification&lt;br/&gt;- renaming&lt;br/&gt;- folder routing&lt;br/&gt;- context updates&lt;br/&gt;- schedule extraction"]:::coreBox
+
+    DRIVE["&lt;b&gt;Google Drive&lt;/b&gt;&lt;br/&gt;(Shared Memory Layer)&lt;br/&gt;&lt;br/&gt;University/&lt;br/&gt;Projects/&lt;br/&gt;Librarian/&lt;br/&gt;librarian_memory/"]:::coreBox
+
+    INPUTS --&gt; CLI
+    CLI --&gt; DRIVE
+
+    subgraph K_Tools ["Knowledge Tools"]
+        direction TB
+        N["NotebookLM"]
+        P["Perplexity"]
+        Z["Zotero - manual"]
+    end
+
+    subgraph E_Tools ["Execution Tools"]
+        direction TB
+        C["Claude"]
+        GPT["ChatGPT / Codex"]
+        CC["Claude Code"]
+    end
+
+    DRIVE --&gt; K_Tools
+    DRIVE --&gt; E_Tools
+
+    RA["Research &amp; Analysis"]:::endPoint
+    DI["Design &amp; Implementation"]:::endPoint
+
+    K_Tools --&gt; RA
+    E_Tools --&gt; DI
+
+    style K_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px
+    style E_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="core-architectural-principle" class="level2">
 <h2 class="anchored" data-anchor-id="core-architectural-principle">Core Architectural Principle</h2>

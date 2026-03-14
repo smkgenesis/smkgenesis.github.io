@@ -1,0 +1,56 @@
+/* Ordered list component */
+main.content ol.ordered-list {
+  list-style: none;
+  counter-reset: ordered-list;
+  margin: 1.35rem 0 1.8rem;
+  padding-left: 0;
+}
+
+main.content ol.ordered-list > li {
+  counter-increment: ordered-list;
+  display: grid;
+  grid-template-columns: var(--article-ordered-number-width) minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: start;
+  margin-bottom: var(--article-ordered-item-gap);
+  padding-left: 0;
+}
+
+main.content ol.ordered-list > li::before {
+  content: counter(ordered-list) ".";
+  grid-column: 1;
+  color: var(--article-ordered-number-color);
+  font-family: var(--article-ordered-number-font);
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+main.content ol.ordered-list > li > * {
+  grid-column: 2;
+}
+
+main.content ol.ordered-list > li > p,
+main.content ol.ordered-list > li > .ordered-list__body {
+  margin: 0;
+  color: var(--article-ordered-body-color) !important;
+  font-size: 0.98em;
+}
+
+main.content ol.ordered-list .ordered-list__title,
+main.content ol.ordered-list > li > strong:first-child,
+main.content ol.ordered-list > li > p:first-child > strong:first-child {
+  display: block;
+  margin: 0 0 var(--article-ordered-gap) 0;
+  color: var(--article-ordered-title-color) !important;
+  font-weight: 600;
+}
+
+main.content ol.ordered-list .ordered-list__body {
+  display: block;
+}
+
+main.content ol.ordered-list > li:last-child {
+  margin-bottom: 0;
+}

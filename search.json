@@ -11,14 +11,14 @@
     "href": "articles/building-my-personal-ai-utilization-system/en.html",
     "title": "Building My Personal AI Utilization System",
     "section": "",
-    "text": "A practical architecture for using AI tools in research, learning, and software development."
+    "text": "ENKO"
   },
   {
     "objectID": "articles/building-my-personal-ai-utilization-system/en.html#motivation",
     "href": "articles/building-my-personal-ai-utilization-system/en.html#motivation",
     "title": "Building My Personal AI Utilization System",
     "section": "Motivation",
-    "text": "Motivation\nAI tools are powerful, but using them independently often leads to messy workflows.\nA typical workflow might look like this:\nAsk ChatGPT -&gt; open Perplexity -&gt; upload to NotebookLM -&gt; copy results to Drive -&gt; repeat\nOver time, several problems appear:\n\ncontext becomes fragmented\nknowledge spreads across multiple tools\nswitching between AIs creates friction\nlong-term work lacks a persistent structure\n\nThe limitation is not the capability of AI models.\nThe real problem is the lack of a clear architecture for using them together."
+    "text": "Motivation\nAI tools are powerful, but using them independently often leads to messy workflows.\nA typical workflow might look like this:\n\nAsk ChatGPT -&gt; Open Perplexity -&gt; Upload to NotebookLM -&gt; Copy to Drive -&gt; Repeat\n\nOver time, several problems appear:\n\ncontext becomes fragmented\nknowledge spreads across multiple tools\nswitching between AIs creates friction\nlong-term work lacks a persistent structure\n\nThe limitation is not the capability of AI models.\nThe real problem is the lack of a clear architecture for using them together."
   },
   {
     "objectID": "articles/building-my-personal-ai-utilization-system/en.html#goal",
@@ -39,7 +39,7 @@
     "href": "articles/building-my-personal-ai-utilization-system/en.html#philosophy",
     "title": "Building My Personal AI Utilization System",
     "section": "Philosophy",
-    "text": "Philosophy\nThe system follows three basic principles.\n\nAI assists thinking - it does not replace it\n\nHuman judgment remains central.\n\nAI is a cognitive tool\n\nAI extends research, coding, and learning workflows.\n\nWorking systems &gt; perfect systems\n\nA simple system that works consistently is better than a perfect design that is never used."
+    "text": "Philosophy\nThe system follows three basic principles.\n\n\nAI assists thinking - it does not replace it Human judgment remains central.\n\n\nAI is a cognitive tool AI extends research, coding, and learning workflows.\n\n\nWorking systems &gt; perfect systems A simple system that works consistently is better than a perfect design that is never used."
   },
   {
     "objectID": "articles/building-my-personal-ai-utilization-system/en.html#architecture-overview",
@@ -53,7 +53,7 @@
     "href": "articles/building-my-personal-ai-utilization-system/en.html#architecture-diagram",
     "title": "Building My Personal AI Utilization System",
     "section": "Architecture Diagram",
-    "text": "Architecture Diagram\n                           INPUTS\n    +-----------------------------------------------------+\n    |                                                     |\n    |  LearnUS files   Research papers   Notes   Manuals  |\n    |  Course PDFs     Project docs      Drafts  Outputs  |\n    |                                                     |\n    +--------------------------+--------------------------+\n                               |\n                               v\n                    +-------------------------+\n                    |       Gemini CLI        |\n                    |   + gws integration     |\n                    |                         |\n                    | - file classification   |\n                    | - renaming              |\n                    | - folder routing        |\n                    | - context updates       |\n                    | - schedule extraction   |\n                    +------------+------------+\n                                 |\n                                 v\n                    +-------------------------+\n                    |      Google Drive       |\n                    |   Shared Memory Layer   |\n                    |                         |\n                    | University/             |\n                    | Projects/               |\n                    | Librarian/              |\n                    | librarian_memory/       |\n                    +--------+--------+-------+\n                             |        |\n               +-------------+        +-------------+\n               v                                    v\n\n     +----------------------+             +----------------------+\n     |   Knowledge Tools    |             |   Execution Tools    |\n     |                      |             |                      |\n     | NotebookLM           |             | Claude               |\n     | Perplexity           |             | ChatGPT / Codex      |\n     | Zotero (manual)      |             | Claude Code          |\n     +----------------------+             +----------------------+\n               |                                    |\n               v                                    v\n       Research & Analysis                Design & Implementation"
+    "text": "Architecture Diagram\n\n\n\n\n\nflowchart TD\n    classDef default fill:#1E293B,stroke:#475569,stroke-width:1px,color:#F8FAFC,rx:8px,ry:8px;\n    classDef coreBox fill:#0F172A,stroke:#94A3B8,stroke-width:2px,color:#FFFFFF,font-weight:bold;\n    classDef endPoint fill:none,stroke:none,color:#94A3B8,font-size:16px,font-weight:bold;\n\n    INPUTS[\"&lt;b&gt;INPUTS&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;LearnUS files &nbsp;|&nbsp; Research papers &nbsp;|&nbsp; Notes &nbsp;|&nbsp; Manuals&lt;br/&gt;Course PDFs &nbsp;|&nbsp; Project docs &nbsp;|&nbsp; Drafts &nbsp;|&nbsp; Outputs\"]\n\n    CLI[\"&lt;b&gt;Gemini CLI + gws integration&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;- file classification&lt;br/&gt;- renaming&lt;br/&gt;- folder routing&lt;br/&gt;- context updates&lt;br/&gt;- schedule extraction\"]:::coreBox\n\n    DRIVE[\"&lt;b&gt;Google Drive&lt;/b&gt;&lt;br/&gt;(Shared Memory Layer)&lt;br/&gt;&lt;br/&gt;University/&lt;br/&gt;Projects/&lt;br/&gt;Librarian/&lt;br/&gt;librarian_memory/\"]:::coreBox\n\n    INPUTS --&gt; CLI\n    CLI --&gt; DRIVE\n\n    subgraph K_Tools [\"Knowledge Tools\"]\n        direction TB\n        N[\"NotebookLM\"]\n        P[\"Perplexity\"]\n        Z[\"Zotero - manual\"]\n    end\n\n    subgraph E_Tools [\"Execution Tools\"]\n        direction TB\n        C[\"Claude\"]\n        GPT[\"ChatGPT / Codex\"]\n        CC[\"Claude Code\"]\n    end\n\n    DRIVE --&gt; K_Tools\n    DRIVE --&gt; E_Tools\n\n    RA[\"Research & Analysis\"]:::endPoint\n    DI[\"Design & Implementation\"]:::endPoint\n\n    K_Tools --&gt; RA\n    E_Tools --&gt; DI\n\n    style K_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px\n    style E_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px"
   },
   {
     "objectID": "articles/building-my-personal-ai-utilization-system/en.html#core-architectural-principle",
@@ -144,7 +144,7 @@
     "href": "articles/building-my-personal-ai-utilization-system/ko.html",
     "title": "Building My Personal AI Utilization System",
     "section": "",
-    "text": "Korean version in progress."
+    "text": "ENKO"
   },
   {
     "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#notice",

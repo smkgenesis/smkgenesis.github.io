@@ -5,7 +5,38 @@ main.content ol {
   padding-left: var(--article-list-indent);
 }
 
-main.content li {
+main.content ul {
+  list-style: none;
+}
+
+main.content ul > li {
+  display: grid;
+  grid-template-columns: var(--article-list-prompt-width) minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: start;
+  color: var(--article-list-color) !important;
+  font-size: var(--article-list-size);
+  line-height: var(--article-list-line-height);
+  letter-spacing: var(--article-list-letter-spacing);
+  margin-bottom: 0.8rem;
+  padding-left: 0;
+}
+
+main.content ul > li::before {
+  content: ">";
+  grid-column: 1;
+  color: var(--article-list-prompt-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.98em;
+  line-height: inherit;
+  text-align: left;
+}
+
+main.content ul > li > * {
+  grid-column: 2;
+}
+
+main.content ol > li {
   color: var(--article-list-color) !important;
   font-size: var(--article-list-size);
   line-height: var(--article-list-line-height);
@@ -14,7 +45,7 @@ main.content li {
   padding-left: 0.1rem;
 }
 
-main.content li::marker {
+main.content ol > li::marker {
   color: var(--article-list-marker);
 }
 
