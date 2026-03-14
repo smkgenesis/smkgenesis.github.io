@@ -24,6 +24,13 @@
   --article-title-accent-height: 1.35em;
   --article-title-accent-top: 0.2em;
   --article-title-margin-bottom: 2.3rem;
+  --article-subtitle-color: rgba(214, 223, 236, 0.82);
+  --article-subtitle-size: clamp(1.05rem, 1.2vw + 0.9rem, 1.28rem);
+  --article-subtitle-line-height: 1.72;
+  --article-subtitle-max-width: 48rem;
+  --article-subtitle-margin-top: -0.2rem;
+  --article-subtitle-margin-bottom: 2.4rem;
+  --article-subtitle-font: "IBM Plex Sans", "Noto Sans KR", sans-serif;
 
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
@@ -2088,6 +2095,22 @@ body.gnb-hidden #quarto-header .navbar {
   background: var(--article-title-accent-color);
 }
 
+.article-subtitle {
+  max-width: var(--article-subtitle-max-width);
+  margin: var(--article-subtitle-margin-top) 0 var(--article-subtitle-margin-bottom) 0 !important;
+  color: var(--article-subtitle-color) !important;
+  font-family: var(--article-subtitle-font);
+  font-size: var(--article-subtitle-size);
+  line-height: var(--article-subtitle-line-height);
+  letter-spacing: -0.01em;
+}
+
+.article-subtitle p {
+  margin: 0 !important;
+  color: inherit !important;
+  font: inherit;
+}
+
 /* Mobile exception */
 @media (max-width: 768px) {
   #quarto-header .navbar {
@@ -2160,4 +2183,5 @@ pre .co,
 .sourceCode .co {
   color: #9fb1ca !important;
 }
+
 

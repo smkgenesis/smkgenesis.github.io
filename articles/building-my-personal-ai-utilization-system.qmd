@@ -6,7 +6,9 @@ categories: [AI Workflow, Architecture, Productivity]
 toc: true
 ---
 
+::: {.article-subtitle}
 A practical architecture for using AI tools in research, learning, and software development.
+:::
 
 ## Motivation
 AI tools are powerful, but using them independently often leads to messy workflows.
@@ -377,3 +379,5 @@ Turn a collection of AI tools into a structured working system.
 Reference implementation:
 
 [https://github.com/smkgenesis/ai-utilization-system](https://github.com/smkgenesis/ai-utilization-system)
+
+

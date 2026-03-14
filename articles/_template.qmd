@@ -6,10 +6,13 @@ categories: [Category, Topic]
 toc: true
 ---
 
+::: {.article-subtitle}
 A short subtitle or framing sentence for the article.
+:::
 
 ## Section Title
 Lead paragraph.
 
 ## Another Section
 Body paragraph.
+
