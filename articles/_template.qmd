@@ -1,0 +1,15 @@
+﻿---
+title: "Article Title"
+date: 2026-03-14
+description: "One-sentence summary of the article."
+categories: [Category, Topic]
+toc: true
+---
+
+A short subtitle or framing sentence for the article.
+
+## Section Title
+Lead paragraph.
+
+## Another Section
+Body paragraph.

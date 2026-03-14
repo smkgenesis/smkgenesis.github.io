@@ -12,6 +12,18 @@
   --muted: #aab6c7;
   --link: #8ebfd2;
   --link-hover: #b2d5e1;
+  --article-title-color: #f1f2f6;
+  --article-title-size: clamp(2.4rem, 5vw, 4rem);
+  --article-title-weight: 600;
+  --article-title-letter-spacing: -0.022em;
+  --article-title-line-height: 1.08;
+  --article-title-max-width: 14ch;
+  --article-title-accent-offset: 18px;
+  --article-title-accent-color: rgba(233, 214, 194, 0.46);
+  --article-title-accent-width: 1px;
+  --article-title-accent-height: 1.35em;
+  --article-title-accent-top: 0.2em;
+  --article-title-margin-bottom: 2.3rem;
 
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
@@ -2056,19 +2068,24 @@ body.gnb-hidden #quarto-header .navbar {
 
 .quarto-title h1.title {
   position: relative;
-  padding-left: 18px !important;
-  margin-bottom: 2.3rem !important;
-  font-size: clamp(1.9rem, 5vw, 3.2rem) !important;
+  max-width: var(--article-title-max-width);
+  padding-left: var(--article-title-accent-offset) !important;
+  margin-bottom: var(--article-title-margin-bottom) !important;
+  color: var(--article-title-color) !important;
+  font-size: var(--article-title-size) !important;
+  font-weight: var(--article-title-weight) !important;
+  letter-spacing: var(--article-title-letter-spacing) !important;
+  line-height: var(--article-title-line-height) !important;
 }
 
 .quarto-title h1.title::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.2em;
-  width: 1px;
-  height: 1.35em;
-  background: rgba(233, 214, 194, 0.46);
+  top: var(--article-title-accent-top);
+  width: var(--article-title-accent-width);
+  height: var(--article-title-accent-height);
+  background: var(--article-title-accent-color);
 }
 
 /* Mobile exception */
@@ -2143,3 +2160,4 @@ pre .co,
 .sourceCode .co {
   color: #9fb1ca !important;
 }
+
