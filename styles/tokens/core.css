@@ -87,15 +87,6 @@
   --article-symptom-label-size: 0.76rem;
   --article-symptom-label-letter-spacing: 0.12em;
   --article-symptom-block-gap: 0.9rem;
-  --article-conclusion-bg: rgba(255, 255, 255, 0.035);
-  --article-conclusion-border: rgba(226, 200, 176, 0.24);
-  --article-conclusion-text: #eef3fb;
-  --article-conclusion-accent-start: rgba(122, 202, 255, 0.92);
-  --article-conclusion-accent-end: rgba(234, 191, 122, 0.88);
-  --article-conclusion-icon-bg: rgba(255, 255, 255, 0.08);
-  --article-conclusion-icon-color: #dceafe;
-  --article-conclusion-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 16px 36px rgba(6, 10, 18, 0.18);
-
   --article-list-color: #d9e1ec;
   --article-list-marker: #e4cab3;
   --article-list-size: 1.03rem;
@@ -178,10 +169,6 @@
   --article-conclusion-accent-start: rgba(144, 167, 197, 0.72);
   --article-conclusion-accent-end: rgba(112, 133, 161, 0.52);
   --article-conclusion-text: #dfe6f1;
-
-  --article-quote-border: rgba(233, 214, 194, 0.46);
-  --article-quote-bg: rgba(237, 224, 208, 0.06);
-  --article-quote-color: #dbe4f0;
 
   --article-callout-note-bg: rgba(142, 191, 210, 0.08);
   --article-callout-note-border: rgba(142, 191, 210, 0.28);

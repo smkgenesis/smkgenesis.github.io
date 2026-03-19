@@ -49,8 +49,9 @@ Use for external links that need a sentence of explanation.
 
 ## Extended Components
 
-### Blockquote
-Use for claims, quotes, or a short framing statement worth isolating.
+### Highlight box
+Use for claims, rules, conclusions, short quotes, or any isolated statement worth emphasizing.
+This replaces the old visual `blockquote` role.
 
 ### Callout
 Use for note, warning, important constraints, or implementation caveats.
@@ -96,4 +97,14 @@ Use for folder structures, hierarchies, or artifact layouts.
 6. Turn folder layouts into file-tree blocks.
 7. Use callouts only when the reader needs a strong side-channel warning or note.
 
-### Language toggle`r`nUse at the top of every article.`r`nRule: each article is treated as an EN/KO pair inside one slug directory, and both links must be explicit.
+## Current Defaults
+
+1. Emphasis -> `highlight-box`
+2. Flow -> `workflow-pipeline`
+3. Text architecture -> `text-diagram`
+4. External repo/doc -> `repository-card`
+5. Raw source preservation -> source wording stays intact; structure is what gets edited
+
+### Language toggle
+Use at the top of every article.
+Rule: each article is treated as an EN/KO pair inside one slug directory, and both links must be explicit.

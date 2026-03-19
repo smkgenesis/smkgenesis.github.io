@@ -36,10 +36,6 @@
     document.body.classList.remove("aa-Detached");
   };
 
-  const applySectionKicker = () => {
-    return;
-  };
-
   const initFileTrees = () => {
     document.querySelectorAll(".file-tree__toggle").forEach((button) => {
       if (button.dataset.treeBound === "true") return;
@@ -162,7 +158,6 @@
       const nextDoc = parseDocument(html);
       swapContent(nextDoc);
       updateActiveNav(targetUrl);
-      applySectionKicker();
       initFileTrees();
 
       if (mode === "push") {
@@ -235,7 +230,6 @@
   };
 
   const initPageChrome = () => {
-    applySectionKicker();
     initFileTrees();
   };
 

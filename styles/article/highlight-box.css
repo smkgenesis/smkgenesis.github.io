@@ -11,6 +11,8 @@
     var(--article-conclusion-bg);
   box-shadow: var(--article-conclusion-shadow);
   overflow: clip;
+}
+
 .highlight-box::before,
 .section-conclusion::before {
   content: "";

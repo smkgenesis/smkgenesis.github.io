@@ -1,74 +1,28 @@
 # Posting Workflow
 
-This is the standard workflow for converting raw source text into a finished blog post.
+This file is the short execution checklist.
+The full operating rules live in [assembly-manual.md](/C:/Users/smkge/Develop/smkgenesis.github.io/main/_writing/assembly-manual.md).
 
 ## Input
-The source can be:
-- rough notes
-- a draft essay
-- a technical explanation
-- a design memo
-- a research summary
 
-## Step 1. Extract article spine
-Identify:
-- main thesis
-- target reader
-- major sections
-- supporting evidence
-- places where scanability is needed
+The default case is:
+- one English original source
+- one Korean original source
 
-Output:
-- title candidate
-- subtitle candidate
-- section outline
+## Workflow
 
-## Step 2. Classify content by component
-Map raw content into components.
+1. Create or open the target slug directory.
+2. Move title and subtitle into front matter.
+3. Build `en.qmd` and `ko.qmd` from the canonical source text.
+4. Reassemble the content with the approved article components.
+5. Keep wording intact unless the user explicitly asks for rewriting.
+6. Render and fix layout bugs.
+7. Commit and deploy.
 
-Typical mapping:
-- claim or framing sentence -> subtitle
-- repeated items -> list
-- role mapping -> table
-- flow or system relation -> diagram
-- exact technical term -> inline code
-- folder hierarchy -> file-tree block
-- repo or doc link -> repository/reference card
-- warning or side constraint -> callout
+## Non-negotiable rules
 
-## Step 3. Normalize style
-Rewrite for:
-- shorter paragraphs
-- consistent terminology
-- explicit section transitions
-- reader-first ordering
-
-## Step 4. Build article draft
-Start from main/articles/_template.qmd.
-Then fill sections with the chosen components.
-Every article must be published as an EN/KO pair inside one slug directory, with the language toggle links filled before publish.
-
-## Step 5. Review for overuse
-Check that the article is not overloaded with decoration.
-Rules:
-- do not use tables when lists are enough
-- do not use diagrams for trivial flows
-- do not use callouts for normal paragraphs
-- do not turn every link into a card
-
-## Step 6. Final publish check
-Verify:
-- title is explicit
-- subtitle explains scope
-- sections follow logical order
-- diagrams have captions
-- code blocks are purposeful
-- links are classified correctly
-- article has a clear ending
-
-## Expected collaboration pattern
-When the user provides source text, the editor should:
-1. derive the structure
-2. choose the right components
-3. produce the final QMD draft
-4. keep tone editorial and technically clear
+1. `highlight-box` is the default emphasis box.
+2. `workflow-pipeline` is the default flow component.
+3. `blockquote` is not used for visual emphasis.
+4. EN and KO articles should share the same structural skeleton.
+5. Do not keep duplicate raw-source copies unless the user explicitly wants archival storage.
