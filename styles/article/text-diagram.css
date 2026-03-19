@@ -1,0 +1,33 @@
+/* Text diagrams */
+.text-diagram {
+  margin: 1.55rem 0 2rem;
+  padding: 1.05rem 1.1rem 0.9rem;
+  border: 1px solid var(--article-diagram-border);
+  border-radius: var(--article-diagram-radius);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.008)),
+    var(--article-diagram-bg);
+  box-shadow: var(--article-diagram-shadow);
+  overflow: hidden;
+}
+
+.text-diagram__pre {
+  margin: 0;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: var(--article-code-color) !important;
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.76rem, 0.1vw + 0.75rem, 0.88rem);
+  line-height: 1.58;
+  white-space: pre;
+}
+
+.text-diagram__caption {
+  margin: 0.72rem 0 0;
+  color: var(--article-diagram-caption);
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}

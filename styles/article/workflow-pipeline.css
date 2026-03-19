@@ -1,40 +1,119 @@
 /* Workflow pipeline */
 .workflow-pipeline {
-  display: flex;
+  position: relative;
+  margin: 1.25rem 0 1.65rem;
+  padding: 0.72rem 0.85rem;
+  border: 1px solid var(--article-workflow-panel-border);
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.008)),
+    var(--article-workflow-panel-bg);
+  box-shadow: var(--article-workflow-panel-glow);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(169, 184, 205, 0.28) transparent;
+}
+
+.workflow-pipeline > p {
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.5rem;
-  margin: 1.2rem 0 1.6rem;
-  padding: 0.8rem 0.9rem;
-  border: 1px solid var(--article-workflow-border);
-  border-radius: 0.95rem;
-  background: var(--article-workflow-bg);
-  box-shadow: var(--article-workflow-shadow);
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  padding-bottom: 0.18rem;
+  white-space: nowrap;
+}
+
+.workflow-pipeline::-webkit-scrollbar {
+  height: 8px;
+}
+
+.workflow-pipeline::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.workflow-pipeline::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(169, 184, 205, 0.22);
+}
+
+.workflow-pipeline::before,
+.workflow-pipeline__loop-label,
+.workflow-pipeline__loop-turn,
+.workflow-pipeline__lane {
+  display: none !important;
 }
 
 .workflow-pipeline__step {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 2rem;
-  padding: 0.25rem 0.75rem;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  min-height: 2.45rem;
+  min-width: 0;
+  padding: 0.44rem 0.82rem;
   border: 1px solid var(--article-workflow-step-border);
-  border-radius: 0.38rem;
-  background: var(--article-workflow-step-bg);
+  border-radius: 0.78rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+    var(--article-workflow-step-bg);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
   color: var(--article-workflow-text) !important;
   font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
+  line-height: 1.12;
   white-space: nowrap;
+}
+
+.workflow-pipeline__content {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.workflow-pipeline__title {
+  color: var(--article-workflow-text) !important;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.workflow-pipeline__meta {
+  display: none;
+}
+
+.workflow-pipeline__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.48rem;
+  height: 1.48rem;
+  border-radius: 0.46rem;
+  flex: 0 0 auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0f1520;
+  background: rgba(255,255,255,0.9);
 }
 
 .workflow-pipeline__arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  min-width: 0.95rem;
   color: var(--article-workflow-arrow);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+  font-size: 0.96rem;
   line-height: 1;
+  white-space: nowrap;
 }

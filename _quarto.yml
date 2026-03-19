@@ -1,9 +1,13 @@
-﻿project:
+project:
   type: website
   output-dir: _site
   resources:
     - CNAME
     - .nojekyll
+  render:
+    - "*.qmd"
+    - "articles/**/*.qmd"
+    - "!article-sources/**"
 
 website:
   title: "Minkyu's Tech Blog"

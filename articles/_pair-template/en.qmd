@@ -76,45 +76,31 @@ Use a diagram when the reader needs system structure, flow, or relationships.
 :::
 
 ::: {.workflow-pipeline}
-<span class="workflow-pipeline__step">Input</span>
+<span class="workflow-pipeline__step workflow-pipeline__step--compact">
+  <span class="workflow-pipeline__content">
+    <span class="workflow-pipeline__title">Input</span>
+  </span>
+</span>
 <span class="workflow-pipeline__arrow" aria-hidden="true">&rarr;</span>
-<span class="workflow-pipeline__step">Process</span>
+<span class="workflow-pipeline__step workflow-pipeline__step--compact">
+  <span class="workflow-pipeline__content">
+    <span class="workflow-pipeline__title">Process</span>
+  </span>
+</span>
 <span class="workflow-pipeline__arrow" aria-hidden="true">&rarr;</span>
-<span class="workflow-pipeline__step">Output</span>
+<span class="workflow-pipeline__step workflow-pipeline__step--compact">
+  <span class="workflow-pipeline__content">
+    <span class="workflow-pipeline__title">Output</span>
+  </span>
+</span>
 :::
 
-```{mermaid fig-cap="Replace with a caption that explains what the diagram shows."}
-flowchart LR
-  A[Input] --> B[Process]
-  B --> C[Output]
-```
-
-## Structure
-::: {.section-lead}
-Use file-tree blocks for folder structures, pipeline layouts, or internal organization.
-:::
-
-<div class="file-tree" aria-label="Example project structure">
-  <ul class="file-tree__root">
-    <li class="file-tree__item">
-      <div class="file-tree__folder is-open">
-        <button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"><span class="file-tree__chevron" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">Project</span></button>
-        <ul class="file-tree__children">
-          <li class="file-tree__item file-tree__item--folder"><div class="file-tree__row"><span class="file-tree__chevron-spacer" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">app</span></div></li>
-          <li class="file-tree__item file-tree__item--folder"><div class="file-tree__row"><span class="file-tree__chevron-spacer" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">docs</span></div></li>
-          <li class="file-tree__item file-tree__item--folder"><div class="file-tree__row"><span class="file-tree__chevron-spacer" aria-hidden="true"></span><span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"></span><span class="file-tree__label">tests</span></div></li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+<div class="text-diagram" role="img" aria-label="Replace with a caption that explains what the diagram shows.">
+<pre class="text-diagram__pre">+-------------+     +-------------+     +-------------+
+| Input       | --> | Process     | --> | Output      |
++-------------+     +-------------+     +-------------+</pre>
+<p class="text-diagram__caption">Replace with a caption that explains what the diagram shows.</p>
 </div>
-
-## Example
-::: {.section-lead}
-Use inline code like `gemini`, `gws`, or `librarian_memory` for exact terms.
-:::
-
-Use code blocks for runnable examples.
 
 ```python
 from pathlib import Path
