@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2026-03-12">
 <meta name="description" content="A practical architecture for using AI tools in research, learning, and software development.">
 
-<title>Building My Personal AI Utilization System – Minkyu’s Tech Blog</title>
+<title>en – Minkyu's Tech Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,53 +116,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal">Goal</a></li>
-  <li><a href="#key-idea" id="toc-key-idea" class="nav-link" data-scroll-target="#key-idea">Key Idea</a></li>
-  <li><a href="#philosophy" id="toc-philosophy" class="nav-link" data-scroll-target="#philosophy">Philosophy</a></li>
-  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link" data-scroll-target="#architecture-overview">Architecture Overview</a></li>
-  <li><a href="#architecture-diagram" id="toc-architecture-diagram" class="nav-link" data-scroll-target="#architecture-diagram">Architecture Diagram</a></li>
-  <li><a href="#core-architectural-principle" id="toc-core-architectural-principle" class="nav-link" data-scroll-target="#core-architectural-principle">Core Architectural Principle</a>
-  <ul class="collapse">
-  <li><a href="#knowledge-state" id="toc-knowledge-state" class="nav-link" data-scroll-target="#knowledge-state">Knowledge State</a></li>
-  <li><a href="#code-state" id="toc-code-state" class="nav-link" data-scroll-target="#code-state">Code State</a></li>
-  </ul></li>
-  <li><a href="#google-drive-folder-architecture" id="toc-google-drive-folder-architecture" class="nav-link" data-scroll-target="#google-drive-folder-architecture">Google Drive Folder Architecture</a>
-  <ul class="collapse">
-  <li><a href="#root-structure" id="toc-root-structure" class="nav-link" data-scroll-target="#root-structure">Root Structure</a></li>
-  <li><a href="#librarian" id="toc-librarian" class="nav-link" data-scroll-target="#librarian">Librarian</a></li>
-  <li><a href="#local-librarian_memory" id="toc-local-librarian_memory" class="nav-link" data-scroll-target="#local-librarian_memory">Local librarian_memory</a></li>
-  </ul></li>
-  <li><a href="#gemini-managed-memory" id="toc-gemini-managed-memory" class="nav-link" data-scroll-target="#gemini-managed-memory">Gemini-Managed Memory</a></li>
-  <li><a href="#university-workspace" id="toc-university-workspace" class="nav-link" data-scroll-target="#university-workspace">University Workspace</a></li>
-  <li><a href="#project-workspace" id="toc-project-workspace" class="nav-link" data-scroll-target="#project-workspace">Project Workspace</a></li>
-  <li><a href="#example-workflows" id="toc-example-workflows" class="nav-link" data-scroll-target="#example-workflows">Example Workflows</a>
-  <ul class="collapse">
-  <li><a href="#scenario-1---automatic-course-material-organization" id="toc-scenario-1---automatic-course-material-organization" class="nav-link" data-scroll-target="#scenario-1---automatic-course-material-organization">Scenario 1 - Automatic Course Material Organization</a></li>
-  <li><a href="#scenario-2---project-documentation-management" id="toc-scenario-2---project-documentation-management" class="nav-link" data-scroll-target="#scenario-2---project-documentation-management">Scenario 2 - Project Documentation Management</a></li>
-  <li><a href="#scenario-3---research-workflow" id="toc-scenario-3---research-workflow" class="nav-link" data-scroll-target="#scenario-3---research-workflow">Scenario 3 - Research Workflow</a></li>
-  <li><a href="#scenario-4---shared-context-across-ai-tools" id="toc-scenario-4---shared-context-across-ai-tools" class="nav-link" data-scroll-target="#scenario-4---shared-context-across-ai-tools">Scenario 4 - Shared Context Across AI Tools</a></li>
-  <li><a href="#scenario-5---automatic-schedule-extraction" id="toc-scenario-5---automatic-schedule-extraction" class="nav-link" data-scroll-target="#scenario-5---automatic-schedule-extraction">Scenario 5 - Automatic Schedule Extraction</a></li>
-  </ul></li>
-  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a>
-  <ul class="collapse">
-  <li><a href="#step-1---identity-layer" id="toc-step-1---identity-layer" class="nav-link" data-scroll-target="#step-1---identity-layer">Step 1 - Identity Layer</a></li>
-  <li><a href="#step-2---development-environment" id="toc-step-2---development-environment" class="nav-link" data-scroll-target="#step-2---development-environment">Step 2 - Development Environment</a></li>
-  <li><a href="#step-3---gemini-cli-and-google-drive-integration" id="toc-step-3---gemini-cli-and-google-drive-integration" class="nav-link" data-scroll-target="#step-3---gemini-cli-and-google-drive-integration">Step 3 - Gemini CLI and Google Drive Integration</a></li>
-  <li><a href="#step-4---ai-tools" id="toc-step-4---ai-tools" class="nav-link" data-scroll-target="#step-4---ai-tools">Step 4 - AI Tools</a></li>
-  <li><a href="#step-5---optional-infrastructure" id="toc-step-5---optional-infrastructure" class="nav-link" data-scroll-target="#step-5---optional-infrastructure">Step 5 - Optional Infrastructure</a></li>
-  </ul></li>
-  <li><a href="#setup-philosophy" id="toc-setup-philosophy" class="nav-link" data-scroll-target="#setup-philosophy">Setup Philosophy</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository">Repository</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -199,37 +153,33 @@ ul.task-list li input[type="checkbox"] {
 <div class="language-toggle" role="group" aria-label="Language switch">
 <a class="language-toggle__link is-active" href="../../articles/building-my-personal-ai-utilization-system/en.html" lang="en">EN</a><a class="language-toggle__link" href="../../articles/building-my-personal-ai-utilization-system/ko.html" lang="ko">KO</a>
 </div>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
 <div class="section-lead">
-<p>AI tools are powerful, but using them independently often leads to messy workflows.</p>
+<p>AI tools are powerful, but using them individually quickly becomes messy.</p>
 </div>
-<p>A typical workflow might look like this:</p>
+<p>A typical workflow looks like this:</p>
 <div class="workflow-pipeline">
-<p><span class="workflow-pipeline__step">Ask ChatGPT</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Open Perplexity</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Upload to NotebookLM</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Copy to Drive</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Repeat</span></p>
+<p><span class="workflow-pipeline__step">ChatGPT</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Perplexity</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">NotebookLM</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Drive</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">repeat</span></p>
 </div>
-<div class="symptom-block">
-<p class="symptom-block__label">
-What breaks over time
-</p>
+<p>Over time:</p>
 <ul>
 <li>context becomes fragmented</li>
-<li>knowledge spreads across multiple tools</li>
+<li>knowledge spreads across tools</li>
 <li>switching between AIs creates friction</li>
-<li>long-term work lacks a persistent structure</li>
+<li>long-term work loses structure</li>
 </ul>
-</div>
-<p>The limitation is not the capability of AI models.</p>
-<div class="section-conclusion">
-<p>The real problem is the lack of a clear architecture for using them together.</p>
+<p>The limitation is not the capability of AI.</p>
+<div class="highlight-box">
+<p>The real problem is the lack of architecture.</p>
 </div>
 </section>
-<section id="goal" class="level2">
-<h2 class="anchored" data-anchor-id="goal">Goal</h2>
+<section id="goal" class="level1">
+<h1>Goal</h1>
 <div class="section-lead">
-<p>Design a system where multiple AI tools cooperate instead of being used independently.</p>
+<p>Design a system where multiple AI tools work together instead of being used independently.</p>
 </div>
-<p>The system should support:</p>
+<p>This system should support:</p>
 <ul>
 <li>studying university courses</li>
 <li>managing research materials</li>
@@ -237,541 +187,470 @@ What breaks over time
 <li>building software projects</li>
 <li>organizing knowledge over time</li>
 </ul>
-<div class="section-conclusion">
 <p>The focus is practical workflow, not theoretical design.</p>
+</section>
+<section id="key-idea" class="level1">
+<h1>Key Idea</h1>
+<div class="section-lead">
+<p>Assign clear roles to different tools.</p>
+</div>
+<pre class="text"><code>Search       → Perplexity
+Store        → Zotero
+Analyze      → NotebookLM
+Organize     → Gemini
+Design       → Claude
+Build        → ChatGPT / Codex
+Code State   → GitHub
+Memory       → Google Drive
+Control      → gws CLI</code></pre>
+<div class="highlight-box">
+<p>Each tool does one job well.</p>
 </div>
 </section>
-<section id="key-idea" class="level2">
-<h2 class="anchored" data-anchor-id="key-idea">Key Idea</h2>
-<div class="section-lead">
-<p>Instead of relying on a single AI tool for everything, the system assigns specific roles to different tools.</p>
-</div>
-<p>Example role distribution:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Tool</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Search</td>
-<td>Perplexity</td>
-</tr>
-<tr class="even">
-<td>Store</td>
-<td>Zotero</td>
-</tr>
-<tr class="odd">
-<td>Analyze</td>
-<td>NotebookLM</td>
-</tr>
-<tr class="even">
-<td>Organize</td>
-<td>Gemini</td>
-</tr>
-<tr class="odd">
-<td>Design</td>
-<td>Claude</td>
-</tr>
-<tr class="even">
-<td>Build</td>
-<td>ChatGPT / Codex</td>
-</tr>
-<tr class="odd">
-<td>Code State</td>
-<td>GitHub</td>
-</tr>
-<tr class="even">
-<td>Memory</td>
-<td>Google Drive</td>
-</tr>
-<tr class="odd">
-<td>Control</td>
-<td>gws CLI</td>
-</tr>
-</tbody>
-</table>
-<div class="section-conclusion">
-<p>Each tool is used for what it does best, which turns a loose collection of AI products into a structured working environment.</p>
-</div>
-</section>
-<section id="philosophy" class="level2">
-<h2 class="anchored" data-anchor-id="philosophy">Philosophy</h2>
-<div class="section-lead">
-<p>The system follows three basic principles.</p>
-</div>
+<section id="philosophy" class="level1">
+<h1>Philosophy</h1>
 <ol class="ordered-list">
 <li>
-<span class="ordered-list__title">AI assists thinking - it does not replace it</span> <span class="ordered-list__body">Human judgment remains central.</span>
+<span class="ordered-list__title">AI assists thinking — it does not replace it</span>
 </li>
 <li>
-<span class="ordered-list__title">AI is a cognitive tool</span> <span class="ordered-list__body">AI extends research, coding, and learning workflows.</span>
+<span class="ordered-list__title">AI is a cognitive tool</span>
 </li>
 <li>
-<span class="ordered-list__title">Working systems &gt; perfect systems</span> <span class="ordered-list__body">A simple system that works consistently is better than a perfect design that is never used.</span>
+<span class="ordered-list__title">Working systems &gt; perfect systems</span>
 </li>
 </ol>
-<div class="section-conclusion">
-<p>Keep judgment human, give each tool a clear job, and optimize for a system you will actually use.</p>
-</div>
 </section>
-<section id="architecture-overview" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-overview">Architecture Overview</h2>
+<section id="practical-constraints" class="level1">
+<h1>Practical Constraints</h1>
 <div class="section-lead">
-<p>Google Drive acts as the shared knowledge and memory layer of the system.</p>
+<p>AI workflow tooling is still immature.</p>
 </div>
-<p>The main operational interface to this layer is Gemini CLI, which interacts with Google Drive through gws.</p>
-<p>The architecture follows a simple pattern:</p>
-<div class="workflow-pipeline">
-<p><span class="workflow-pipeline__step">Inputs</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Gemini CLI</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Google Drive</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">AI tools</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Outputs</span></p>
-</div>
-<p>GitHub operates in parallel as the code-state system.</p>
-<div class="section-conclusion">
-<p>Raw materials enter the system, Gemini organizes them, AI tools consume the organized state, and the resulting outputs are written back into that same shared layer.</p>
-</div>
-</section>
-<section id="architecture-diagram" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-diagram">Architecture Diagram</h2>
-<div class="text-diagram" role="img" aria-label="System flow from raw inputs to shared memory, specialized AI tools, and final outputs.">
-<pre class="text-diagram__pre">+---------------------------+
-| INPUTS                    |
-| LearnUS / papers / notes  |
-+---------------------------+
-             |
-             v
-+---------------------------+
-| Gemini CLI + gws          |
-| classify / route / update |
-+---------------------------+
-             |
-             v
-+---------------------------+
-| Google Drive              |
-| shared memory layer       |
-+---------------------------+
-         /           \
-        v             v
-+-----------------+  +-----------------+
-| Knowledge Tools |  | Execution Tools |
-| NotebookLM      |  | Claude          |
-| Perplexity      |  | ChatGPT / Codex |
-| Zotero (manual) |  | Claude Code     |
-+-----------------+  +-----------------+
-        |             |
-        v             v
- Research &amp; Analysis   Design &amp; Implementation</pre>
-<p class="text-diagram__caption">
-System flow from raw inputs to shared memory, specialized AI tools, and final outputs.
-</p>
-</div>
-</section>
-<section id="core-architectural-principle" class="level2">
-<h2 class="anchored" data-anchor-id="core-architectural-principle">Core Architectural Principle</h2>
-<div class="section-lead">
-<p>The system separates two types of state.</p>
-</div>
-<section id="knowledge-state" class="level3">
-<h3 class="anchored" data-anchor-id="knowledge-state">Knowledge State</h3>
-<p>Stored in Google Drive</p>
-<p>Includes:</p>
 <ul>
+<li>no universal standard</li>
+<li>fragmented ecosystems</li>
+<li>high setup cost</li>
+</ul>
+<p>And a common trap:</p>
+<div class="highlight-box">
+<p>You spend more time building the system than using it.</p>
+</div>
+<p>This architecture is designed to avoid that.</p>
+</section>
+<section id="core-architecture" class="level1">
+<h1>Core Architecture</h1>
+<p>This system is built around one simple idea:</p>
+<div class="highlight-box">
+<p>Google Drive = shared memory<br>
+Gemini CLI = memory operator (Librarian)</p>
+</div>
+</section>
+<section id="architecture-overview" class="level1">
+<h1>Architecture Overview</h1>
+<p>This is not a linear pipeline.</p>
+<p>It is an <strong>input/output system centered on memory</strong>.</p>
+<section id="diagram" class="level2">
+<h2 class="anchored" data-anchor-id="diagram">Diagram</h2>
+<div class="text-diagram" role="img" aria-label="Architecture overview diagram.">
+<pre class="text-diagram__pre">                   INPUTS
+      PDFs / notes / docs / course files / drafts
+                         |
+                         v
+              [ Gemini CLI (via gws CLI) ]
+              - classify
+              - rename
+              - route
+              - update memory
+              - extract dates
+                         |
+                         v
+                [ Google Drive Memory Layer ]
+                         |
+            +------------+------------+
+            |                         |
+            v                         v
+    [ Knowledge Tools ]       [ Execution Tools ]
+    - NotebookLM              - Claude
+    - Perplexity              - ChatGPT / Codex
+    - Zotero (manual)         - Claude Code
+            |                         |
+            v                         v
+    Analysis / Search        Design / Build / Code
+            \                         /
+             \                       /
+              +---------+-----------+
+                        |
+                        v
+                      OUTPUTS
+                 Google Drive / GitHub</pre>
+</div>
+</section>
+</section>
+<section id="how-it-works" class="level1">
+<h1>How It Works</h1>
+<section id="input-gemini" class="level2">
+<h2 class="anchored" data-anchor-id="input-gemini">1. Input → Gemini</h2>
+<div class="section-lead">
+<p>All raw inputs go through Gemini CLI.</p>
+</div>
+<ul>
+<li>lecture files</li>
+<li>PDFs</li>
+<li>notes</li>
+<li>drafts</li>
+</ul>
+<p>Gemini:</p>
+<ul>
+<li>reads content</li>
+<li>renames files</li>
+<li>classifies</li>
+<li>places them correctly</li>
+<li>updates context</li>
+</ul>
+</section>
+<section id="google-drive-memory" class="level2">
+<h2 class="anchored" data-anchor-id="google-drive-memory">2. Google Drive = Memory</h2>
+<div class="section-lead">
+<p>Drive stores:</p>
+</div>
+<ul>
+<li>documents</li>
 <li>course materials</li>
-<li>research summaries</li>
-<li>documentation</li>
-<li>project notes</li>
-<li>shared AI context</li>
+<li>project files</li>
+<li>AI context</li>
 </ul>
+<p>This is what gives the system <strong>continuity</strong>.</p>
 </section>
-<section id="code-state" class="level3">
-<h3 class="anchored" data-anchor-id="code-state">Code State</h3>
-<p>Stored in GitHub</p>
-<p>Includes:</p>
-<ul>
-<li>source code</li>
-<li>version history</li>
-<li>software projects</li>
-</ul>
-<div class="section-conclusion">
-<p>This separation keeps research workflows and development workflows clean.</p>
-</div>
-</section>
-</section>
-<section id="google-drive-folder-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="google-drive-folder-architecture">Google Drive Folder Architecture</h2>
+<section id="ai-tools-consume-context" class="level2">
+<h2 class="anchored" data-anchor-id="ai-tools-consume-context">3. AI Tools Consume Context</h2>
 <div class="section-lead">
-<p>Google Drive acts as the shared memory layer of the system.</p>
+<p>Different tools read from the same memory.</p>
 </div>
-<p>All AI tools interact with this layer either directly or indirectly.</p>
-<p>The structure is intentionally minimal.</p>
-<section id="root-structure" class="level3">
-<h3 class="anchored" data-anchor-id="root-structure">Root Structure</h3>
-<pre class="text file-tree-block"><code>AI_OS/
+<section id="knowledge-side" class="level3">
+<h3 class="anchored" data-anchor-id="knowledge-side">Knowledge side</h3>
+<ul>
+<li>NotebookLM → document analysis</li>
+<li>Perplexity → search</li>
+<li>Zotero → paper archive (manual, source of truth)</li>
+</ul>
+</section>
+<section id="execution-side" class="level3">
+<h3 class="anchored" data-anchor-id="execution-side">Execution side</h3>
+<ul>
+<li>Claude → reasoning / design</li>
+<li>ChatGPT / Codex → implementation</li>
+<li>Claude Code → repo interaction</li>
+</ul>
+</section>
+</section>
+<section id="output-system" class="level2">
+<h2 class="anchored" data-anchor-id="output-system">4. Output → System</h2>
+<p>Outputs are written back:</p>
+<ul>
+<li>Drive → knowledge</li>
+<li>GitHub → code</li>
+</ul>
+</section>
+</section>
+<section id="minimal-setup" class="level1">
+<h1>Minimal Setup</h1>
+<div class="section-lead">
+<p>You do NOT need everything.</p>
+</div>
+<section id="minimal-working-system" class="level2">
+<h2 class="anchored" data-anchor-id="minimal-working-system">Minimal Working System</h2>
+<pre class="text"><code>Google Drive
+Gemini CLI
+gws CLI</code></pre>
+<p>This alone gives you:</p>
+<ul>
+<li>file organization</li>
+<li>persistent memory</li>
+<li>reusable context</li>
+</ul>
+</section>
+<section id="optional-tools" class="level2">
+<h2 class="anchored" data-anchor-id="optional-tools">Optional Tools</h2>
+<pre class="text"><code>Perplexity → search
+NotebookLM → analysis
+Claude → reasoning
+ChatGPT / Codex → coding
+GitHub → code state
+Zotero → research archive</code></pre>
+<p>Add gradually.</p>
+</section>
+<section id="key-insight" class="level2">
+<h2 class="anchored" data-anchor-id="key-insight">Key Insight</h2>
+<div class="highlight-box">
+<p>The architecture matters more than the tools.</p>
+</div>
+</section>
+</section>
+<section id="google-drive-folder-architecture" class="level1">
+<h1>Google Drive Folder Architecture</h1>
+<pre class="text"><code>AI_OS/
 ├── University/
 ├── Projects/
 └── Librarian/</code></pre>
-<p>Purpose of each folder:</p>
+</section>
+<section id="librarian-global-system-context" class="level1">
+<h1>Librarian (Global System Context)</h1>
+<pre class="text"><code>Librarian/
+    architecture.md
+    routing.md
+    decisions.md</code></pre>
+<p>Defines:</p>
 <ul>
-<li>University → academic course materials</li>
-<li>Projects → personal and development projects</li>
-<li>Librarian → global AI system documentation</li>
+<li>system structure</li>
+<li>tool routing rules</li>
+<li>design decisions</li>
 </ul>
 </section>
-<section id="librarian" class="level3">
-<h3 class="anchored" data-anchor-id="librarian">Librarian</h3>
-<p>The Librarian folder contains system-level context for the AI utilization system.</p>
-<p>Typical files:</p>
-<pre class="text file-tree-block"><code>Librarian/
-├── architecture.md
-├── routing.md
-└── decisions.md</code></pre>
-<p>File roles:</p>
-<ul>
-<li>architecture.md → describes the AI system architecture</li>
-<li>routing.md → rules for selecting the appropriate AI tool</li>
-<li>decisions.md → important system conventions and design choices</li>
-</ul>
-<p>This folder acts as the global reference layer for the AI system.</p>
+<section id="librarian_memory-local-context" class="level1">
+<h1>librarian_memory (Local Context)</h1>
+<p>Each course/project has its own:</p>
+<pre class="text"><code>librarian_memory/</code></pre>
+<section id="standard-files" class="level2">
+<h2 class="anchored" data-anchor-id="standard-files">Standard Files</h2>
+<pre class="text"><code>librarian_memory/
+    current_task.md
+    brief.md
+    handoff.md</code></pre>
 </section>
-<section id="local-librarian_memory" class="level3">
-<h3 class="anchored" data-anchor-id="local-librarian_memory">Local librarian_memory</h3>
-<p>Unlike Librarian, local <code>librarian_memory</code> folders exist inside each course or project.</p>
-<p>Example:</p>
-<pre class="text file-tree-block"><code>University/
-└── 2026_Spring/
-    └── CAS2101_Discrete_Mathematics/
-        └── librarian_memory/
+<section id="current_task.md" class="level2">
+<h2 class="anchored" data-anchor-id="current_task.md">current_task.md</h2>
+<p>Tracks active work.</p>
+<pre class="text"><code>Working on:
+Exercise B
 
-Projects/
-└── Personal_Website/
-    └── librarian_memory/</code></pre>
-<p>These folders store local working context.</p>
-<p>Typical contents:</p>
+Next:
+Proof by induction
+
+Deadline:
+March 16</code></pre>
+</section>
+<section id="brief.md" class="level2">
+<h2 class="anchored" data-anchor-id="brief.md">brief.md</h2>
+<p>Stores key facts.</p>
+<pre class="text"><code>Course: CAS2101
+Midterm: April 21
+Final: June 16</code></pre>
+</section>
+<section id="handoff.md" class="level2">
+<h2 class="anchored" data-anchor-id="handoff.md">handoff.md</h2>
+<p>Maintains continuity.</p>
+<pre class="text"><code>Completed:
+1–3
+
+Remaining:
+4–5
+
+Notes:
+proof structure 중요</code></pre>
+</section>
+<section id="why-this-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters">Why This Matters</h2>
+<p>Without this:</p>
+<div class="highlight-box">
+<p>every AI session resets</p>
+</div>
+<p>With this:</p>
+<div class="highlight-box">
+<p>persistent cross-AI memory</p>
+</div>
+</section>
+</section>
+<section id="librarian-control-policy-critical" class="level1">
+<h1>🔒 Librarian Control Policy (Critical)</h1>
+<p>The following folders are <strong>AI-managed</strong>:</p>
+<pre class="text"><code>Librarian/
+*/librarian_memory/</code></pre>
+<section id="rule" class="level2">
+<h2 class="anchored" data-anchor-id="rule">Rule</h2>
+<div class="highlight-box">
+<p><strong>Do NOT edit these manually.</strong></p>
+</div>
+<p>Instead:</p>
+<pre class="text"><code>"Update current_task.md to reflect new task"</code></pre>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why</h2>
+<p>These folders are:</p>
+<div class="highlight-box">
+<p><strong>system memory + AI context layer</strong></p>
+</div>
+<p>Manual edits can break consistency.</p>
+</section>
+<section id="principle" class="level2">
+<h2 class="anchored" data-anchor-id="principle">Principle</h2>
+<div class="highlight-box">
+<p><strong>User controls intent Gemini controls memory</strong></p>
+</div>
+</section>
+</section>
+<section id="gemini-librarian" class="level1">
+<h1>Gemini = Librarian</h1>
+<p>Gemini manages:</p>
 <ul>
-<li>current task</li>
-<li>progress state</li>
-<li>important notes</li>
-<li>AI handoff information</li>
-</ul>
-<p>Memory separation:</p>
-<ul>
-<li>Global context → Librarian/</li>
-<li>Local context → librarian_memory/</li>
+<li>file organization</li>
+<li>naming</li>
+<li>routing</li>
+<li>context updates</li>
+<li>summaries</li>
+<li>schedule extraction</li>
 </ul>
 </section>
-</section>
-<section id="gemini-managed-memory" class="level2">
-<h2 class="anchored" data-anchor-id="gemini-managed-memory">Gemini-Managed Memory</h2>
-<div class="section-lead">
-<p>Both <code>Librarian/</code> and local <code>librarian_memory/</code> folders should be managed automatically by Gemini.</p>
-</div>
-<p>Through Gemini CLI + gws, Gemini can:</p>
-<ul>
-<li>organize files</li>
-<li>maintain task context</li>
-<li>summarize documents</li>
-<li>update working memory</li>
-<li>preserve continuity across sessions</li>
-</ul>
-<div class="section-conclusion">
-<p>In this architecture, Gemini acts as the system librarian.</p>
+<section id="example-workflows" class="level1">
+<h1>Example Workflows</h1>
+<section id="course-material-automation" class="level2">
+<h2 class="anchored" data-anchor-id="course-material-automation">1. Course Material Automation</h2>
+<div class="workflow-pipeline">
+<p><span class="workflow-pipeline__step">Download</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Gemini</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">auto organize + context update</span></p>
 </div>
 </section>
-<section id="university-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="university-workspace">University Workspace</h2>
-<div class="section-lead">
-<p>Course materials are stored under the <code>University</code> directory.</p>
-</div>
-<p>Example structure:</p>
-<pre class="text file-tree-block"><code>University/
-└── 2026_Spring/
-    └── CAS2101_Discrete_Mathematics/
-        ├── lectures/
-        ├── assignments/
-        ├── announcements/
-        ├── outputs/
-        └── librarian_memory/</code></pre>
-<p>Folder roles:</p>
-<ul>
-<li>lectures → lecture slides and course materials</li>
-<li>assignments → homework and problem sheets</li>
-<li>announcements → administrative notices</li>
-<li>outputs → completed work</li>
-<li>librarian_memory → local AI context</li>
-</ul>
-<div class="section-conclusion">
-<p>Each course becomes a self-contained workspace.</p>
-</div>
+<section id="project-knowledge-management" class="level2">
+<h2 class="anchored" data-anchor-id="project-knowledge-management">2. Project Knowledge Management</h2>
+<pre class="text"><code>Code → GitHub
+Docs → Drive (Gemini managed)</code></pre>
 </section>
-<section id="project-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="project-workspace">Project Workspace</h2>
-<div class="section-lead">
-<p>Projects are stored under the <code>Projects</code> directory.</p>
-</div>
-<p>Example:</p>
-<pre class="text file-tree-block"><code>Projects/
-├── Personal_Website/
-│   └── librarian_memory/
-└── AI_Research_OS/
-    └── librarian_memory/</code></pre>
-<p>Project structures are intentionally flexible.</p>
-<div class="section-conclusion">
-<p>Every project should still include <code>librarian_memory/</code> so local AI context survives across sessions and tools.</p>
-</div>
-</section>
-<section id="example-workflows" class="level2">
-<h2 class="anchored" data-anchor-id="example-workflows">Example Workflows</h2>
-<div class="section-lead">
-<p>The architecture becomes clearer when applied to real scenarios.</p>
-</div>
-<section id="scenario-1---automatic-course-material-organization" class="level3">
-<h3 class="anchored" data-anchor-id="scenario-1---automatic-course-material-organization">Scenario 1 - Automatic Course Material Organization</h3>
-<p>Course files downloaded from LearnUS can be passed directly to Gemini CLI.</p>
-<p>Gemini automatically:</p>
-<ul>
-<li>reads the file</li>
-<li>detects course information</li>
-<li>renames the document</li>
-<li>places it in the correct folder</li>
-<li>updates the course context</li>
-</ul>
-<p>Example transformation:</p>
-<pre class="text file-tree-block"><code>00. Course Introduction.pdf
-&amp;rarr; CAS2101_L00_Course_Introduction.pdf</code></pre>
-<p>Stored in:</p>
-<pre class="text file-tree-block"><code>University/
-2026_Spring/
-CAS2101_Discrete_Mathematics/
-lectures/</code></pre>
-<p>At the same time Gemini updates:</p>
-<p><code>librarian_memory/current_task.md</code></p>
-</section>
-<section id="scenario-2---project-documentation-management" class="level3">
-<h3 class="anchored" data-anchor-id="scenario-2---project-documentation-management">Scenario 2 - Project Documentation Management</h3>
-<p>Software projects rely heavily on GitHub for code.</p>
-<p>Code lives in GitHub.</p>
-<p>But projects often generate additional materials:</p>
-<ul>
-<li>documentation</li>
-<li>design notes</li>
-<li>architecture diagrams</li>
-<li>manuals</li>
-</ul>
-<p>These files are stored in:</p>
-<pre class="text file-tree-block"><code>Projects/
-project_name/</code></pre>
-<p>Gemini helps organize these documents while GitHub manages code.</p>
-</section>
-<section id="scenario-3---research-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="scenario-3---research-workflow">Scenario 3 - Research Workflow</h3>
-<p>Academic research follows a structured pipeline.</p>
+<section id="research-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="research-workflow">3. Research Workflow</h2>
 <div class="workflow-pipeline">
 <p><span class="workflow-pipeline__step">Perplexity</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Zotero</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">NotebookLM</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Claude</span></p>
 </div>
-<p>Steps:</p>
-<ol type="1">
-<li>Discover papers using Perplexity</li>
-<li>Store original PDFs in Zotero</li>
-<li>Analyze documents in NotebookLM</li>
-<li>Reason about ideas with Claude</li>
-</ol>
-<p>Important distinction:</p>
-<p><code>Zotero = authoritative paper archive</code></p>
-<p>The user manages Zotero directly.</p>
+<p>Zotero = original source</p>
 </section>
-<section id="scenario-4---shared-context-across-ai-tools" class="level3">
-<h3 class="anchored" data-anchor-id="scenario-4---shared-context-across-ai-tools">Scenario 4 - Shared Context Across AI Tools</h3>
-<p>AI tools usually lose context between sessions.</p>
-<p>This system solves that by storing context in Drive.</p>
-<p>Example:</p>
-<pre class="text file-tree-block"><code>CAS2101_Discrete_Mathematics/
-librarian_memory/</code></pre>
-<p>Files such as:</p>
-<ul>
-<li><code>current_task.md</code></li>
-<li><code>handoff.md</code></li>
-<li><code>brief.md</code></li>
-</ul>
-<p>can be read by multiple AI tools.</p>
-<p>Examples:</p>
-<ul>
-<li>Claude</li>
-<li>ChatGPT</li>
-<li>Perplexity</li>
-</ul>
-<p>When connected to the Drive workspace, these tools can restore context by reading these files.</p>
-<p>This creates persistent cross-AI memory.</p>
+<section id="shared-context-across-ais" class="level2">
+<h2 class="anchored" data-anchor-id="shared-context-across-ais">4. Shared Context Across AIs</h2>
+<p>All tools read:</p>
+<pre class="text"><code>librarian_memory/</code></pre>
+<p>→ shared memory</p>
 </section>
-<section id="scenario-5---automatic-schedule-extraction" class="level3">
-<h3 class="anchored" data-anchor-id="scenario-5---automatic-schedule-extraction">Scenario 5 - Automatic Schedule Extraction</h3>
-<p>Course documents often contain important dates.</p>
-<p>Examples:</p>
-<ul>
-<li>assignment deadlines</li>
-<li>exam dates</li>
-<li>presentations</li>
-</ul>
-<p>Gemini CLI can:</p>
+<section id="schedule-automation" class="level2">
+<h2 class="anchored" data-anchor-id="schedule-automation">5. Schedule Automation</h2>
 <div class="workflow-pipeline">
-<p><span class="workflow-pipeline__step">Read document</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Extract dates</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Update Google Calendar</span></p>
-</div>
-<p>Example:</p>
-<ul>
-<li>Midterm: April 21</li>
-<li>Final: June 16</li>
-</ul>
-<p>Gemini can automatically create calendar events such as:</p>
-<ul>
-<li>CAS2101 Midterm</li>
-<li>CAS2101 Final Exam</li>
-</ul>
-<p>At the same time, it updates local context.</p>
-<p>This connects:</p>
-<div class="workflow-pipeline">
-<p><span class="workflow-pipeline__step">Documents</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Memory</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Calendar</span></p>
+<p><span class="workflow-pipeline__step">Document</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Gemini</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Calendar + memory update</span></p>
 </div>
 </section>
 </section>
-<section id="environment-setup" class="level2">
-<h2 class="anchored" data-anchor-id="environment-setup">Environment Setup</h2>
+<section id="flexibility-evolution" class="level1">
+<h1>Flexibility &amp; Evolution</h1>
 <div class="section-lead">
-<p>The system relies on several tools working together.</p>
+<p>This system is <strong>loosely coupled</strong>.</p>
 </div>
-<p>Detailed installation instructions are intentionally omitted.</p>
-<p>If needed, refer to official documentation or ask an AI assistant during setup.</p>
-<section id="step-1---identity-layer" class="level3">
-<h3 class="anchored" data-anchor-id="step-1---identity-layer">Step 1 - Identity Layer</h3>
-<p>Create accounts for the services used in the system.</p>
-<p>Required services:</p>
+<p>You can:</p>
 <ul>
-<li>Google</li>
-<li>GitHub</li>
-<li>OpenAI</li>
-<li>Anthropic</li>
-<li>Perplexity</li>
+<li>replace tools</li>
+<li>simplify structure</li>
+<li>customize workflows</li>
 </ul>
-<p>Strongly Recommended</p>
-<p>Use a single Google account as the primary identity.</p>
-<p>Many services support Google OAuth login, simplifying authentication.</p>
-<p>Benefits:</p>
+<section id="context-is-portable" class="level2">
+<h2 class="anchored" data-anchor-id="context-is-portable">Context is Portable</h2>
+<p>All important state lives in:</p>
+<pre class="text"><code>Drive + markdown files</code></pre>
+<p>So you can:</p>
+<pre class="text"><code>move context → change tools → continue work</code></pre>
+</section>
+<section id="key-idea-1" class="level2">
+<h2 class="anchored" data-anchor-id="key-idea-1">Key Idea</h2>
+<div class="highlight-box">
+<p><strong>Tools are replaceable Context is persistent</strong></p>
+</div>
+</section>
+</section>
+<section id="interoperability-mcp" class="level1">
+<h1>Interoperability (MCP)</h1>
+<p>This system aligns with emerging standards like:</p>
+<div class="highlight-box">
+<p><strong>Model Context Protocol (MCP)</strong></p>
+</div>
+<p>Which enables:</p>
 <ul>
-<li>fewer credentials</li>
-<li>faster setup</li>
-<li>easier cross-service integration</li>
+<li>shared context</li>
+<li>tool interoperability</li>
+<li>external system integration</li>
 </ul>
 </section>
-<section id="step-2---development-environment" class="level3">
-<h3 class="anchored" data-anchor-id="step-2---development-environment">Step 2 - Development Environment</h3>
-<p>Install basic development tools.</p>
-<ul>
-<li>Git</li>
-<li>VS Code</li>
-<li>Node.js or Python</li>
-<li>Terminal environment</li>
-</ul>
+<section id="environment-setup-guideline" class="level1">
+<h1>Environment Setup (Guideline)</h1>
+<section id="identity-layer" class="level2">
+<h2 class="anchored" data-anchor-id="identity-layer">Identity Layer</h2>
+<pre class="text"><code>Google
+GitHub
+OpenAI
+Anthropic
+Perplexity</code></pre>
+<p>👉 Use Google as unified login</p>
 </section>
-<section id="step-3---gemini-cli-and-google-drive-integration" class="level3">
-<h3 class="anchored" data-anchor-id="step-3---gemini-cli-and-google-drive-integration">Step 3 - Gemini CLI and Google Drive Integration</h3>
-<p>Core components:</p>
-<ul>
-<li>Google Cloud project</li>
-<li>gcloud CLI</li>
-<li>gws CLI</li>
-<li>Gemini CLI</li>
-<li>Google Drive for desktop</li>
-</ul>
-<p>Recommended setup order:</p>
-<ol type="1">
-<li>Install Google Drive for desktop</li>
-<li>Install gcloud CLI</li>
-<li>Create a Google Cloud project</li>
-<li>Install and authenticate gws CLI</li>
-<li>Install Gemini CLI</li>
-</ol>
+<section id="development" class="level2">
+<h2 class="anchored" data-anchor-id="development">Development</h2>
+<pre class="text"><code>Git
+VS Code
+Node / Python
+Terminal</code></pre>
+</section>
+<section id="core-integration" class="level2">
+<h2 class="anchored" data-anchor-id="core-integration">Core Integration</h2>
+<pre class="text"><code>gcloud CLI
+gws CLI
+Gemini CLI
+Google Drive</code></pre>
+</section>
+<section id="setup-principle" class="level2">
+<h2 class="anchored" data-anchor-id="setup-principle">Setup Principle</h2>
+<div class="highlight-box">
+<p><strong>Do not copy blindly. Adapt to your environment.</strong></p>
+</div>
+</section>
+</section>
+<section id="quick-start" class="level1">
+<h1>Quick Start</h1>
+<pre class="text"><code>1. Create folder structure
+2. Add librarian_memory files
+3. Install Gemini CLI + gws
+4. Run first file</code></pre>
+</section>
+<section id="adapting-the-system" class="level1">
+<h1>Adapting the System</h1>
+<div class="section-lead">
+<p>You don’t have to build this alone.</p>
+</div>
+<section id="use-ai" class="level2">
+<h2 class="anchored" data-anchor-id="use-ai">Use AI</h2>
+<pre class="text"><code>Give this article or repo to an AI
+→ ask it to adapt the system</code></pre>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<pre class="text"><code>"Adapt this to my Mac + Python workflow"
+"Simplify this to minimal setup"</code></pre>
+</section>
+<section id="why-this-works" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-works">Why This Works</h2>
+<p>Because the system is:</p>
+<pre class="text"><code>modular + loosely coupled + context-driven</code></pre>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<div class="section-lead">
+<p>AI tools alone create fragmentation.</p>
+</div>
+<p>This system turns them into:</p>
+<div class="highlight-box">
+<p><strong>a structured, persistent working environment</strong></p>
+</div>
 <p>Result:</p>
-<div class="workflow-pipeline">
-<p><span class="workflow-pipeline__step">Gemini CLI</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">gws</span> <span class="workflow-pipeline__arrow" aria-hidden="true">→</span> <span class="workflow-pipeline__step">Google Drive</span></p>
-</div>
-<p>This enables AI-managed shared memory.</p>
-</section>
-<section id="step-4---ai-tools" class="level3">
-<h3 class="anchored" data-anchor-id="step-4---ai-tools">Step 4 - AI Tools</h3>
-<p>Tools can be accessed through different interfaces.</p>
-<p>Web tools</p>
 <ul>
-<li>Perplexity</li>
-<li>NotebookLM</li>
-</ul>
-<p>CLI tools</p>
-<ul>
-<li>Gemini CLI</li>
-<li>Codex CLI</li>
-<li>Claude Code</li>
-</ul>
-<p>App / Web tools</p>
-<ul>
-<li>ChatGPT</li>
-<li>Claude</li>
-</ul>
-<p>Usage depends on workflow preference.</p>
-</section>
-<section id="step-5---optional-infrastructure" class="level3">
-<h3 class="anchored" data-anchor-id="step-5---optional-infrastructure">Step 5 - Optional Infrastructure</h3>
-<p>Optional but useful tools:</p>
-<ul>
-<li>Zotero</li>
-<li>Docker</li>
-<li>GoodNotes</li>
-</ul>
-<p>Typical uses:</p>
-<ul>
-<li>Zotero → paper archive</li>
-<li>Docker → reproducible environments</li>
-<li>GoodNotes → handwritten notes</li>
-</ul>
-</section>
-</section>
-<section id="setup-philosophy" class="level2">
-<h2 class="anchored" data-anchor-id="setup-philosophy">Setup Philosophy</h2>
-<div class="section-lead">
-<p>The system avoids tightly coupling all tools.</p>
-</div>
-<p>Instead it relies on loosely connected components through shared resources:</p>
-<ul>
-<li>Google Drive</li>
-<li>GitHub</li>
-<li>local files</li>
-</ul>
-<div class="section-conclusion">
-<p>This makes the architecture flexible and easy to modify.</p>
-</div>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<div class="section-lead">
-<p>AI tools are powerful, but using them independently often leads to fragmented workflows and lost context.</p>
-</div>
-<p>This architecture treats AI tools as specialized components within a structured system.</p>
-<p>By assigning clear roles to each tool and using Google Drive as a shared memory layer, the system enables:</p>
-<ul>
+<li>shared context</li>
 <li>organized knowledge</li>
-<li>persistent AI context</li>
-<li>coordinated workflows across tools</li>
+<li>reduced friction</li>
 </ul>
-<div class="section-conclusion">
-<p>The result is a practical environment for learning, research, and software development.</p>
-</div>
 </section>
-<section id="repository" class="level2">
-<h2 class="anchored" data-anchor-id="repository">Repository</h2>
-<p>A reference implementation of this architecture is available on GitHub.</p>
+<section id="repository" class="level1">
+<h1>Repository</h1>
 <div class="repository-card">
 <p><a href="https://github.com/smkgenesis/ai-utilization-system">ai-utilization-system</a></p>
-<p>The repository includes environment setup guidelines, example folder structures, and documentation of the AI utilization architecture.</p>
-</div>
-<div class="section-conclusion">
-<p>Turn a collection of AI tools into a structured working system.</p>
 </div>
 
 

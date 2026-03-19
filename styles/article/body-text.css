@@ -2,7 +2,6 @@
 main.content p,
 main.content dt,
 main.content dd,
-main.content blockquote,
 main.content figcaption {
   color: var(--article-body-color) !important;
 }

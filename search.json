@@ -2,121 +2,219 @@
   {
     "objectID": "articles/building-my-personal-ai-utilization-system/ko.html",
     "href": "articles/building-my-personal-ai-utilization-system/ko.html",
-    "title": "나만의 AI 활용 시스템 구축하기",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
     "section": "",
     "text": "ENKO"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#문제의식",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#문제의식",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "문제의식",
-    "text": "문제의식\n\nAI 도구는 강력하지만, 각각을 따로 사용하면 워크플로우가 쉽게 흐트러진다.\n\n보통 이런 흐름이 반복된다.\n\nChatGPT에 질문하기 → Perplexity 열기 → NotebookLM에 업로드 → Drive에 복사 → 반복\n\n\n\n시간이 지나며 무너지는 것들\n\n\n컨텍스트가 파편화된다\n지식이 여러 도구에 흩어진다\nAI를 오갈 때마다 마찰이 생긴다\n장기 작업을 유지할 구조가 사라진다\n\n\n문제는 AI 모델의 성능 자체가 아니다.\n\n진짜 문제는 여러 도구를 함께 쓰기 위한 명확한 아키텍처가 없다는 데 있다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#diagram",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#diagram",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "Diagram",
+    "text": "Diagram\n\n                    입력 (INPUTS)\n       PDF / 노트 / 강의자료 / 문서 / 초안 등\n                         |\n                         v\n              [ Gemini CLI (gws 기반) ]\n              - 파일 분석\n              - 이름 변경\n              - 위치 분류\n              - 컨텍스트 업데이트\n              - 일정 추출\n                         |\n                         v\n                 [ Google Drive ]\n                   메모리 레이어\n                         |\n            +------------+------------+\n            |                         |\n            v                         v\n      [ 지식 처리 계층 ]         [ 실행 계층 ]\n      - NotebookLM              - Claude\n      - Perplexity              - ChatGPT / Codex\n      - Zotero (수동 관리)      - Claude Code\n            |                         |\n            v                         v\n         분석 / 탐색              설계 / 구현 / 코드\n            \\                         /\n             \\                       /\n              +---------+-----------+\n                        |\n                        v\n                     출력 (OUTPUT)\n               Google Drive / GitHub"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#목표",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#목표",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "목표",
-    "text": "목표\n\n여러 AI 도구를 각각 따로 쓰는 대신, 서로 협업하는 시스템으로 설계하는 것이 목표다.\n\n이 시스템은 다음 작업을 지원해야 한다.\n\n대학 수업 공부\n연구 자료 관리\n장문의 문서 작성\n소프트웨어 프로젝트 개발\n시간에 따라 축적되는 지식 정리\n\n\n핵심은 이론적 설계가 아니라 실제로 굴러가는 워크플로우다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#입력-gemini",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#입력-gemini",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "1. 입력 → Gemini",
+    "text": "1. 입력 → Gemini\n\n모든 파일은 Gemini를 거친다.\n\n\n강의 자료\nPDF\n노트\n문서\n\nGemini가:\n\n읽고\n이름 바꾸고\n분류하고\n위치 배치하고\n컨텍스트 업데이트"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-아이디어",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-아이디어",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "핵심 아이디어",
-    "text": "핵심 아이디어\n\n하나의 AI 도구에 모든 역할을 몰아주지 않고, 각 도구에 가장 잘하는 일을 맡긴다.\n\n예시 역할 분담:\n\n\n\n기능\n도구\n\n\n\n\n검색\nPerplexity\n\n\n저장\nZotero\n\n\n분석\nNotebookLM\n\n\n정리\nGemini\n\n\n설계\nClaude\n\n\n구현\nChatGPT / Codex\n\n\n코드 상태\nGitHub\n\n\n메모리\nGoogle Drive\n\n\n제어\ngws CLI\n\n\n\n\n각 도구를 가장 잘하는 곳에 배치하면, 흩어진 AI 제품 묶음이 아니라 구조화된 작업 환경이 된다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#google-drive-메모리",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#google-drive-메모리",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "2. Google Drive = 메모리",
+    "text": "2. Google Drive = 메모리\n\nDrive에는 다음이 저장된다:\n\n\n문서\n강의 자료\n프로젝트 자료\nAI 컨텍스트\n\n\n이게 없으면: 매번 처음부터 시작"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#철학",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#철학",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "철학",
-    "text": "철학\n\n이 시스템은 세 가지 기본 원칙을 따른다.\n\n\n\nAI는 사고를 돕지만, 사고를 대체하지는 않는다 최종 판단의 중심은 항상 인간에게 남아 있어야 한다.\n\n\nAI는 인지 도구다 AI는 연구, 코딩, 학습 과정 전체를 확장하는 도구로 사용되어야 한다.\n\n\n완벽한 시스템보다 굴러가는 시스템이 낫다 한 번도 쓰이지 않는 완벽한 설계보다, 꾸준히 작동하는 단순한 시스템이 더 낫다.\n\n\n\n판단은 인간이 맡고, 각 도구에는 역할을 부여하며, 실제로 계속 쓸 수 있는 시스템을 우선한다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#ai들이-메모리를-사용",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#ai들이-메모리를-사용",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "3. AI들이 메모리를 사용",
+    "text": "3. AI들이 메모리를 사용\n\n지식 계층\n\nNotebookLM → 문서 분석\nPerplexity → 검색\nZotero → 논문 원본 저장 (핵심 저장소)\n\n\n\n실행 계층\n\nClaude → 구조 설계\nChatGPT / Codex → 구현\nClaude Code → repo 작업"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#아키텍처-개요",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#아키텍처-개요",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "아키텍처 개요",
-    "text": "아키텍처 개요\n\nGoogle Drive는 이 시스템의 공용 지식 계층이자 메모리 계층으로 동작한다.\n\n이 계층을 다루는 주된 인터페이스는 Gemini CLI이며, gws를 통해 Google Drive와 상호작용한다.\n전체 아키텍처는 다음과 같은 단순한 패턴을 따른다.\n\n입력 → Gemini CLI → Google Drive → AI 도구 → 출력\n\nGitHub는 병렬적으로 코드 상태를 관리하는 계층으로 분리된다.\n\n원자료가 시스템으로 들어오고, Gemini가 정리하며, AI 도구가 그 상태를 소비하고, 결과물은 다시 같은 공유 계층으로 돌아간다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#출력-시스템으로-복귀",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#출력-시스템으로-복귀",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "4. 출력 → 시스템으로 복귀",
+    "text": "4. 출력 → 시스템으로 복귀\n\n결과물 → Google Drive\n코드 → GitHub"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#아키텍처-다이어그램",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#아키텍처-다이어그램",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "아키텍처 다이어그램",
-    "text": "아키텍처 다이어그램\n\n\n\n\n\n%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': true, 'fontSize': '18px', 'fontFamily': 'IBM Plex Sans, sans-serif' }}}%%\nflowchart TD\n    classDef default fill:#1E293B,stroke:#475569,stroke-width:1px,color:#F8FAFC,rx:8px,ry:8px,font-size:16px;\n    classDef coreBox fill:#0F172A,stroke:#94A3B8,stroke-width:2px,color:#FFFFFF,font-weight:bold,font-size:18px;\n    classDef endPoint fill:none,stroke:none,color:#94A3B8,font-size:18px,font-weight:bold;\n\n    INPUTS[\"&lt;b&gt;입력&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;LearnUS 파일 &nbsp;|&nbsp; 연구 논문 &nbsp;|&nbsp; 노트 &nbsp;|&nbsp; 매뉴얼&lt;br/&gt;수업 PDF &nbsp;|&nbsp; 프로젝트 문서 &nbsp;|&nbsp; 초안 &nbsp;|&nbsp; 결과물\"]\n\n    CLI[\"&lt;b&gt;Gemini CLI + gws 연동&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;- 파일 분류&lt;br/&gt;- 이름 변경&lt;br/&gt;- 폴더 라우팅&lt;br/&gt;- 컨텍스트 업데이트&lt;br/&gt;- 일정 추출\"]:::coreBox\n\n    DRIVE[\"&lt;b&gt;Google Drive&lt;/b&gt;&lt;br/&gt;(공유 메모리 계층)&lt;br/&gt;&lt;br/&gt;University/&lt;br/&gt;Projects/&lt;br/&gt;Librarian/&lt;br/&gt;librarian_memory/\"]:::coreBox\n\n    INPUTS --&gt; CLI\n    CLI --&gt; DRIVE\n\n    subgraph K_Tools [\"지식 도구\"]\n        direction TB\n        N[\"NotebookLM\"]\n        P[\"Perplexity\"]\n        Z[\"Zotero - 수동 관리\"]\n    end\n\n    subgraph E_Tools [\"실행 도구\"]\n        direction TB\n        C[\"Claude\"]\n        GPT[\"ChatGPT / Codex\"]\n        CC[\"Claude Code\"]\n    end\n\n    DRIVE --&gt; K_Tools\n    DRIVE --&gt; E_Tools\n\n    RA[\"연구 및 분석\"]:::endPoint\n    DI[\"설계 및 구현\"]:::endPoint\n\n    K_Tools --&gt; RA\n    E_Tools --&gt; DI\n\n    style K_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px\n    style E_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px"
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#최소-구성",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#최소-구성",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "최소 구성",
+    "text": "최소 구성\nGoogle Drive\nGemini CLI\ngws CLI\n이걸로 이미 가능:\n\n파일 정리\n컨텍스트 유지\n반복 가능한 작업"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-구조-원칙",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-구조-원칙",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "핵심 구조 원칙",
-    "text": "핵심 구조 원칙\n\n이 시스템은 상태를 두 종류로 분리한다.\n\n\n지식 상태\nGoogle Drive에 저장된다.\n포함되는 것:\n\n수업 자료\n연구 요약\n문서화 자료\n프로젝트 노트\nAI 간 공유 컨텍스트\n\n\n\n코드 상태\nGitHub에 저장된다.\n포함되는 것:\n\n소스 코드\n버전 히스토리\n소프트웨어 프로젝트\n\n\n이 분리는 연구 워크플로우와 개발 워크플로우를 서로 깔끔하게 유지해 준다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#선택-도구",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#선택-도구",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "선택 도구",
+    "text": "선택 도구\nPerplexity → 검색\nNotebookLM → 분석\nClaude → 사고/설계\nChatGPT / Codex → 구현\nGitHub → 코드\nZotero → 논문\n필요한 것만 추가하면 된다."
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#google-drive-폴더-아키텍처",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#google-drive-폴더-아키텍처",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "Google Drive 폴더 아키텍처",
-    "text": "Google Drive 폴더 아키텍처\n\nGoogle Drive는 이 시스템의 공유 메모리 계층으로 동작한다.\n\n모든 AI 도구는 직접 또는 간접적으로 이 계층과 상호작용한다.\n구조는 의도적으로 최소화되어 있다.\n\n루트 구조\nAI_OS/\n├── University/\n├── Projects/\n└── Librarian/\n각 폴더의 역할:\n\nUniversity → 대학 수업 자료\nProjects → 개인 및 개발 프로젝트\nLibrarian → 전역 AI 시스템 문서\n\n\n\nLibrarian\nLibrarian 폴더는 AI 활용 시스템의 전역 컨텍스트를 담는다.\n대표 파일 예시:\nLibrarian/\n├── architecture.md\n├── routing.md\n└── decisions.md\n파일 역할:\n\narchitecture.md → AI 시스템 아키텍처 설명\nrouting.md → 적절한 AI 도구를 고르는 규칙\ndecisions.md → 중요한 시스템 규칙과 설계 결정\n\n이 폴더는 시스템 전체의 전역 참조 계층으로 작동한다.\n\n\n로컬 librarian_memory\nLibrarian과 달리, 로컬 librarian_memory 폴더는 각 수업 또는 프로젝트 내부에 존재한다.\n예시:\nUniversity/\n└── 2026_Spring/\n    └── CAS2101_Discrete_Mathematics/\n        └── librarian_memory/\n\nProjects/\n└── Personal_Website/\n    └── librarian_memory/\n이 폴더들은 로컬 작업 컨텍스트를 저장한다.\n대표 내용:\n\n현재 작업\n진행 상태\n중요한 메모\nAI 간 handoff 정보\n\n메모리 분리:\n\n전역 컨텍스트 → Librarian/\n로컬 컨텍스트 → librarian_memory/"
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "핵심",
+    "text": "핵심\n\n도구보다 구조가 중요하다"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#gemini가-관리하는-메모리",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#gemini가-관리하는-메모리",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "Gemini가 관리하는 메모리",
-    "text": "Gemini가 관리하는 메모리\n\nLibrarian/와 각 로컬 librarian_memory/ 폴더는 Gemini가 자동으로 관리하는 것을 권장한다.\n\nGemini CLI + gws를 통해 Gemini는 다음 작업을 수행할 수 있다.\n\n파일 정리\n작업 컨텍스트 유지\n문서 요약\n작업 메모리 갱신\n세션 간 연속성 보존\n\n\n이 아키텍처에서 Gemini는 시스템의 사서 역할을 한다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#기본-파일",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#기본-파일",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "기본 파일",
+    "text": "기본 파일\ncurrent_task.md\nbrief.md\nhandoff.md"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#university-워크스페이스",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#university-워크스페이스",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "University 워크스페이스",
-    "text": "University 워크스페이스\n\n수업 자료는 University 디렉터리 아래에 저장된다.\n\n예시 구조:\nUniversity/\n└── 2026_Spring/\n    └── CAS2101_Discrete_Mathematics/\n        ├── lectures/\n        ├── assignments/\n        ├── announcements/\n        ├── outputs/\n        └── librarian_memory/\n폴더 역할:\n\nlectures → 강의 슬라이드와 수업 자료\nassignments → 과제와 문제지\nannouncements → 행정 공지\noutputs → 완료한 결과물\nlibrarian_memory → 로컬 AI 컨텍스트\n\n\n각 과목은 하나의 독립된 작업 공간이 된다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#current_task.md",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#current_task.md",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "current_task.md",
+    "text": "current_task.md\n현재 작업 상태\n현재:\nExercise B\n\n다음:\n귀납법 복습\n\n마감:\n3월 16일"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#project-워크스페이스",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#project-워크스페이스",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "Project 워크스페이스",
-    "text": "Project 워크스페이스\n\n프로젝트는 Projects 디렉터리 아래에 저장된다.\n\n예시:\nProjects/\n├── Personal_Website/\n│   └── librarian_memory/\n└── AI_Research_OS/\n    └── librarian_memory/\n프로젝트 구조는 의도적으로 유연하게 둔다.\n\n모든 프로젝트는 librarian_memory/를 포함해야 로컬 AI 컨텍스트가 세션과 도구를 넘어 유지된다.\n\n\n그럼에도 모든 프로젝트에는 librarian_memory/가 있어야 로컬 AI 컨텍스트를 유지할 수 있다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#brief.md",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#brief.md",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "brief.md",
+    "text": "brief.md\n핵심 정보\n과목: CAS2101\n중간: 4월 21일\n기말: 6월 16일"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#예시-워크플로우",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#예시-워크플로우",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "예시 워크플로우",
-    "text": "예시 워크플로우\n\n이 아키텍처는 실제 시나리오에 적용했을 때 더 분명해진다.\n\n\n시나리오 1 - 수업 자료 자동 정리\nLearnUS에서 내려받은 수업 파일은 바로 Gemini CLI에 넘길 수 있다.\nGemini는 자동으로 다음을 수행한다.\n\n파일 읽기\n과목 정보 감지\n문서 이름 변경\n올바른 폴더로 배치\n수업 컨텍스트 갱신\n\n예시 변환:\n00. Course Introduction.pdf\n&rarr; CAS2101_L00_Course_Introduction.pdf\n저장 위치:\nUniversity/\n2026_Spring/\nCAS2101_Discrete_Mathematics/\nlectures/\n동시에 Gemini는 다음 파일도 갱신한다.\nlibrarian_memory/current_task.md\n\n\n시나리오 2 - 프로젝트 문서 관리\n소프트웨어 프로젝트의 코드는 GitHub가 관리한다.\n코드는 GitHub에 놓인다.\n하지만 프로젝트는 다음과 같은 부가 자료를 많이 만들어낸다.\n\n문서화 자료\n설계 노트\n아키텍처 다이어그램\n매뉴얼\n\n이 파일들은 다음 위치에 저장된다.\nProjects/\nproject_name/\nGemini는 이런 문서를 정리하고, GitHub는 코드를 관리한다.\n\n\n시나리오 3 - 연구 워크플로우\n학술 연구는 다음과 같은 구조적 파이프라인을 따른다.\n\nPerplexity → Zotero → NotebookLM → Claude\n\n단계:\n\nPerplexity로 논문 찾기\n원본 PDF를 Zotero에 저장하기\nNotebookLM에서 문서 분석하기\nClaude로 아이디어를 정리하고 추론하기\n\n중요한 구분점:\nZotero = 논문 원본 아카이브\nZotero는 사용자가 직접 관리한다.\n\n\n시나리오 4 - AI 도구 간 공유 컨텍스트\n대부분의 AI 도구는 세션이 바뀌면 컨텍스트를 잃는다.\n이 시스템은 컨텍스트를 Drive에 저장함으로써 그 문제를 해결한다.\n예시:\nCAS2101_Discrete_Mathematics/\nlibrarian_memory/\n다음과 같은 파일들은:\n\ncurrent_task.md\nhandoff.md\nbrief.md\n\n여러 AI 도구가 함께 읽을 수 있다.\n예:\n\nClaude\nChatGPT\nPerplexity\n\n이 도구들이 Drive 워크스페이스에 연결되어 있으면, 이런 파일을 읽고 다시 컨텍스트를 복원할 수 있다.\n이렇게 해서 AI 간 지속적인 공용 메모리가 생긴다.\n\n\n시나리오 5 - 일정 자동 추출\n수업 문서에는 중요한 날짜가 자주 들어 있다.\n예:\n\n과제 마감일\n시험 날짜\n발표 일정\n\nGemini CLI는 다음과 같은 흐름으로 동작할 수 있다.\n\n문서 읽기 → 날짜 추출 → Google Calendar 업데이트\n\n예시:\n\nMidterm: April 21\nFinal: June 16\n\nGemini는 자동으로 다음과 같은 캘린더 이벤트를 만들 수 있다.\n\nCAS2101 Midterm\nCAS2101 Final Exam\n\n동시에 로컬 컨텍스트도 갱신한다.\n이 연결은 다음처럼 요약된다.\n\n문서 → 메모리 → 캘린더"
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#handoff.md",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#handoff.md",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "handoff.md",
+    "text": "handoff.md\nAI 간 컨텍스트 전달\n완료:\n1~3\n\n남음:\n4~5\n\n메모:\n증명 구조 중요"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#환경-구성",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#환경-구성",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "환경 구성",
-    "text": "환경 구성\n\n이 시스템은 여러 도구가 함께 작동하는 환경을 전제로 한다.\n\n세부 설치 방법은 의도적으로 생략한다.\n필요하다면 공식 문서를 참고하거나, 설치 과정에서 AI assistant의 도움을 받으면 된다.\n\n1단계 - 계정 계층\n시스템에서 사용하는 서비스의 계정을 만든다.\n필수 서비스:\n\nGoogle\nGitHub\nOpenAI\nAnthropic\nPerplexity\n\n강하게 권장하는 방식:\n하나의 Google 계정을 기본 정체성 계층으로 삼는다.\n많은 서비스가 Google OAuth 로그인을 지원하므로 인증 구성이 단순해진다.\n장점:\n\n자격 증명 수 감소\n설치 속도 향상\n서비스 간 연동 단순화\n\n\n\n2단계 - 개발 환경\n기본 개발 도구를 설치한다.\n\nGit\nVS Code\nNode.js 또는 Python\n터미널 환경\n\n\n\n3단계 - Gemini CLI와 Google Drive 연동\n핵심 구성 요소:\n\nGoogle Cloud project\ngcloud CLI\ngws CLI\nGemini CLI\nGoogle Drive for desktop\n\n권장 설치 순서:\n\nGoogle Drive for desktop 설치\ngcloud CLI 설치\nGoogle Cloud project 생성\ngws CLI 설치 및 인증\nGemini CLI 설치\n\n결과:\n\nGemini CLI → gws → Google Drive\n\n이렇게 해서 AI가 관리하는 공유 메모리 계층이 만들어진다.\n\n\n4단계 - AI 도구\n도구는 여러 인터페이스를 통해 접근할 수 있다.\n웹 도구\n\nPerplexity\nNotebookLM\n\nCLI 도구\n\nGemini CLI\nCodex CLI\nClaude Code\n\n앱 / 웹 도구\n\nChatGPT\nClaude\n\n어떤 인터페이스를 주로 쓸지는 워크플로우 선호에 따라 달라진다.\n\n\n5단계 - 선택적 인프라\n선택 사항이지만 유용한 도구:\n\nZotero\nDocker\nGoodNotes\n\n대표 용도:\n\nZotero → 논문 아카이브\nDocker → 재현 가능한 실행 환경\nGoodNotes → 손필기 노트"
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-의미",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-의미",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "핵심 의미",
+    "text": "핵심 의미\n\n이게 없으면: 매번 리셋\n\n\n이게 있으면: 지속적인 AI 협업 가능"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#구성-철학",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#구성-철학",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "구성 철학",
-    "text": "구성 철학\n\n이 시스템은 모든 도구를 강하게 결합하지 않는다.\n\n대신 다음과 같은 공유 자원을 매개로 느슨하게 연결한다.\n\nGoogle Drive\nGitHub\n로컬 파일\n\n\n그래서 아키텍처를 유연하게 수정할 수 있고, 필요한 부분만 쉽게 바꿀 수 있다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#규칙",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#규칙",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "규칙",
+    "text": "규칙\n\n직접 수정하지 말 것\n\n대신\n\"current_task.md 업데이트해줘\""
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#결론",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#결론",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "결론",
-    "text": "결론\n\nAI 도구는 강력하지만, 각각을 따로 쓰면 워크플로우가 파편화되고 컨텍스트를 잃기 쉽다.\n\n이 아키텍처는 AI 도구를 구조화된 시스템 안의 전문화된 구성 요소로 다룬다.\n각 도구에 명확한 역할을 주고, Google Drive를 공유 메모리 계층으로 사용하면 다음이 가능해진다.\n\n정리된 지식\n지속적인 AI 컨텍스트\n도구 간 협업 워크플로우\n\n\n결과적으로 이것은 학습, 연구, 소프트웨어 개발을 위한 실용적인 작업 환경이 된다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#이유",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#이유",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "이유",
+    "text": "이유\n\n이건 단순 파일이 아니라: 시스템 메모리"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#저장소",
-    "href": "articles/building-my-personal-ai-utilization-system/ko.html#저장소",
-    "title": "나만의 AI 활용 시스템 구축하기",
-    "section": "저장소",
-    "text": "저장소\n이 아키텍처의 참고 구현은 GitHub에서 확인할 수 있다.\n\nai-utilization-system\n이 저장소에는 환경 설정 가이드, 폴더 구조 예시, 그리고 AI 활용 아키텍처 문서가 포함되어 있다.\n\n\n흩어진 AI 도구 집합을 구조화된 작업 시스템으로 바꾸는 것이 이 프로젝트의 목표다."
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#원칙",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#원칙",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "원칙",
+    "text": "원칙\n\n사용자 = 의도\nGemini = 메모리 관리"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#강의자료-자동-정리",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#강의자료-자동-정리",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "1. 강의자료 자동 정리",
+    "text": "1. 강의자료 자동 정리\n\n다운로드 → Gemini → 자동 정리 + 컨텍스트 업데이트"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#프로젝트-관리",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#프로젝트-관리",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "2. 프로젝트 관리",
+    "text": "2. 프로젝트 관리\n코드 → GitHub\n문서 → Drive (Gemini 관리)"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#연구-흐름",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#연구-흐름",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "3. 연구 흐름",
+    "text": "3. 연구 흐름\n\nPerplexity → Zotero → NotebookLM → Claude\n\nZotero = 원본 저장소"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#ai-간-컨텍스트-공유",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#ai-간-컨텍스트-공유",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "4. AI 간 컨텍스트 공유",
+    "text": "4. AI 간 컨텍스트 공유\nlibrarian_memory/\n모든 AI가 읽음"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#일정-자동화",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#일정-자동화",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "5. 일정 자동화",
+    "text": "5. 일정 자동화\n\n문서 → Gemini → 캘린더 반영"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#컨텍스트-이동-가능",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#컨텍스트-이동-가능",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "컨텍스트 이동 가능",
+    "text": "컨텍스트 이동 가능\nDrive + markdown 파일"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-1",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-1",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "핵심",
+    "text": "핵심\n\n도구는 바뀌어도 컨텍스트는 유지된다"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#계정",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#계정",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "계정",
+    "text": "계정\nGoogle\nGitHub\nOpenAI\nAnthropic\nPerplexity\n👉 Google 통합 추천"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#개발-환경",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#개발-환경",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "개발 환경",
+    "text": "개발 환경\nGit\nVS Code\nNode / Python\nTerminal"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-통합",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-통합",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "핵심 통합",
+    "text": "핵심 통합\ngcloud CLI\ngws CLI\nGemini CLI\nGoogle Drive"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#원칙-1",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#원칙-1",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "원칙",
+    "text": "원칙\n\n그대로 따라하지 말고 본인 환경에 맞게 조정할 것"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#방법",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#방법",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "방법",
+    "text": "방법\n이 글이나 레포를 AI에게 던진다\n→ 내 환경에 맞게 수정하라고 한다"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#예시",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#예시",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "예시",
+    "text": "예시\n\"Mac 환경에 맞게 바꿔줘\"\n\"최소 구성으로 줄여줘\"\n\"Docker 기반으로 만들어줘\""
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-2",
+    "href": "articles/building-my-personal-ai-utilization-system/ko.html#핵심-2",
+    "title": "나의 개인 AI 활용 시스템 구축하기",
+    "section": "핵심",
+    "text": "핵심\n\n혼자 구축하지 말고 AI를 활용해라"
   },
   {
     "objectID": "articles.html",
@@ -133,115 +231,213 @@
     "text": "ENKO"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#motivation",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#motivation",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#diagram",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#diagram",
     "title": "Building My Personal AI Utilization System",
-    "section": "Motivation",
-    "text": "Motivation\n\nAI tools are powerful, but using them independently often leads to messy workflows.\n\nA typical workflow might look like this:\n\nAsk ChatGPT → Open Perplexity → Upload to NotebookLM → Copy to Drive → Repeat\n\n\n\nWhat breaks over time\n\n\ncontext becomes fragmented\nknowledge spreads across multiple tools\nswitching between AIs creates friction\nlong-term work lacks a persistent structure\n\n\nThe limitation is not the capability of AI models.\n\nThe real problem is the lack of a clear architecture for using them together."
+    "section": "Diagram",
+    "text": "Diagram\n\n                   INPUTS\n      PDFs / notes / docs / course files / drafts\n                         |\n                         v\n              [ Gemini CLI (via gws CLI) ]\n              - classify\n              - rename\n              - route\n              - update memory\n              - extract dates\n                         |\n                         v\n                [ Google Drive Memory Layer ]\n                         |\n            +------------+------------+\n            |                         |\n            v                         v\n    [ Knowledge Tools ]       [ Execution Tools ]\n    - NotebookLM              - Claude\n    - Perplexity              - ChatGPT / Codex\n    - Zotero (manual)         - Claude Code\n            |                         |\n            v                         v\n    Analysis / Search        Design / Build / Code\n            \\                         /\n             \\                       /\n              +---------+-----------+\n                        |\n                        v\n                      OUTPUTS\n                 Google Drive / GitHub"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#goal",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#goal",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#input-gemini",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#input-gemini",
     "title": "Building My Personal AI Utilization System",
-    "section": "Goal",
-    "text": "Goal\n\nDesign a system where multiple AI tools cooperate instead of being used independently.\n\nThe system should support:\n\nstudying university courses\nmanaging research materials\nwriting long documents\nbuilding software projects\norganizing knowledge over time\n\n\nThe focus is practical workflow, not theoretical design."
+    "section": "1. Input → Gemini",
+    "text": "1. Input → Gemini\n\nAll raw inputs go through Gemini CLI.\n\n\nlecture files\nPDFs\nnotes\ndrafts\n\nGemini:\n\nreads content\nrenames files\nclassifies\nplaces them correctly\nupdates context"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#key-idea",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#key-idea",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#google-drive-memory",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#google-drive-memory",
+    "title": "Building My Personal AI Utilization System",
+    "section": "2. Google Drive = Memory",
+    "text": "2. Google Drive = Memory\n\nDrive stores:\n\n\ndocuments\ncourse materials\nproject files\nAI context\n\nThis is what gives the system continuity."
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#ai-tools-consume-context",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#ai-tools-consume-context",
+    "title": "Building My Personal AI Utilization System",
+    "section": "3. AI Tools Consume Context",
+    "text": "3. AI Tools Consume Context\n\nDifferent tools read from the same memory.\n\n\nKnowledge side\n\nNotebookLM → document analysis\nPerplexity → search\nZotero → paper archive (manual, source of truth)\n\n\n\nExecution side\n\nClaude → reasoning / design\nChatGPT / Codex → implementation\nClaude Code → repo interaction"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#output-system",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#output-system",
+    "title": "Building My Personal AI Utilization System",
+    "section": "4. Output → System",
+    "text": "4. Output → System\nOutputs are written back:\n\nDrive → knowledge\nGitHub → code"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#minimal-working-system",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#minimal-working-system",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Minimal Working System",
+    "text": "Minimal Working System\nGoogle Drive\nGemini CLI\ngws CLI\nThis alone gives you:\n\nfile organization\npersistent memory\nreusable context"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#optional-tools",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#optional-tools",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Optional Tools",
+    "text": "Optional Tools\nPerplexity → search\nNotebookLM → analysis\nClaude → reasoning\nChatGPT / Codex → coding\nGitHub → code state\nZotero → research archive\nAdd gradually."
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#key-insight",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#key-insight",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Key Insight",
+    "text": "Key Insight\n\nThe architecture matters more than the tools."
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#standard-files",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#standard-files",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Standard Files",
+    "text": "Standard Files\nlibrarian_memory/\n    current_task.md\n    brief.md\n    handoff.md"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#current_task.md",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#current_task.md",
+    "title": "Building My Personal AI Utilization System",
+    "section": "current_task.md",
+    "text": "current_task.md\nTracks active work.\nWorking on:\nExercise B\n\nNext:\nProof by induction\n\nDeadline:\nMarch 16"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#brief.md",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#brief.md",
+    "title": "Building My Personal AI Utilization System",
+    "section": "brief.md",
+    "text": "brief.md\nStores key facts.\nCourse: CAS2101\nMidterm: April 21\nFinal: June 16"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#handoff.md",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#handoff.md",
+    "title": "Building My Personal AI Utilization System",
+    "section": "handoff.md",
+    "text": "handoff.md\nMaintains continuity.\nCompleted:\n1–3\n\nRemaining:\n4–5\n\nNotes:\nproof structure 중요"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#why-this-matters",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#why-this-matters",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Why This Matters",
+    "text": "Why This Matters\nWithout this:\n\nevery AI session resets\n\nWith this:\n\npersistent cross-AI memory"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#rule",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#rule",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Rule",
+    "text": "Rule\n\nDo NOT edit these manually.\n\nInstead:\n\"Update current_task.md to reflect new task\""
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#why",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#why",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Why",
+    "text": "Why\nThese folders are:\n\nsystem memory + AI context layer\n\nManual edits can break consistency."
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#principle",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#principle",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Principle",
+    "text": "Principle\n\nUser controls intent Gemini controls memory"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#course-material-automation",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#course-material-automation",
+    "title": "Building My Personal AI Utilization System",
+    "section": "1. Course Material Automation",
+    "text": "1. Course Material Automation\n\nDownload → Gemini → auto organize + context update"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#project-knowledge-management",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#project-knowledge-management",
+    "title": "Building My Personal AI Utilization System",
+    "section": "2. Project Knowledge Management",
+    "text": "2. Project Knowledge Management\nCode → GitHub\nDocs → Drive (Gemini managed)"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#research-workflow",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#research-workflow",
+    "title": "Building My Personal AI Utilization System",
+    "section": "3. Research Workflow",
+    "text": "3. Research Workflow\n\nPerplexity → Zotero → NotebookLM → Claude\n\nZotero = original source"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#shared-context-across-ais",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#shared-context-across-ais",
+    "title": "Building My Personal AI Utilization System",
+    "section": "4. Shared Context Across AIs",
+    "text": "4. Shared Context Across AIs\nAll tools read:\nlibrarian_memory/\n→ shared memory"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#schedule-automation",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#schedule-automation",
+    "title": "Building My Personal AI Utilization System",
+    "section": "5. Schedule Automation",
+    "text": "5. Schedule Automation\n\nDocument → Gemini → Calendar + memory update"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#context-is-portable",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#context-is-portable",
+    "title": "Building My Personal AI Utilization System",
+    "section": "Context is Portable",
+    "text": "Context is Portable\nAll important state lives in:\nDrive + markdown files\nSo you can:\nmove context → change tools → continue work"
+  },
+  {
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#key-idea-1",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#key-idea-1",
     "title": "Building My Personal AI Utilization System",
     "section": "Key Idea",
-    "text": "Key Idea\n\nInstead of relying on a single AI tool for everything, the system assigns specific roles to different tools.\n\nExample role distribution:\n\n\n\nFunction\nTool\n\n\n\n\nSearch\nPerplexity\n\n\nStore\nZotero\n\n\nAnalyze\nNotebookLM\n\n\nOrganize\nGemini\n\n\nDesign\nClaude\n\n\nBuild\nChatGPT / Codex\n\n\nCode State\nGitHub\n\n\nMemory\nGoogle Drive\n\n\nControl\ngws CLI\n\n\n\n\nEach tool is used for what it does best, which turns a loose collection of AI products into a structured working environment."
+    "text": "Key Idea\n\nTools are replaceable Context is persistent"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#philosophy",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#philosophy",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#identity-layer",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#identity-layer",
     "title": "Building My Personal AI Utilization System",
-    "section": "Philosophy",
-    "text": "Philosophy\n\nThe system follows three basic principles.\n\n\n\nAI assists thinking - it does not replace it Human judgment remains central.\n\n\nAI is a cognitive tool AI extends research, coding, and learning workflows.\n\n\nWorking systems &gt; perfect systems A simple system that works consistently is better than a perfect design that is never used.\n\n\n\nKeep judgment human, give each tool a clear job, and optimize for a system you will actually use."
+    "section": "Identity Layer",
+    "text": "Identity Layer\nGoogle\nGitHub\nOpenAI\nAnthropic\nPerplexity\n👉 Use Google as unified login"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#architecture-overview",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#architecture-overview",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#development",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#development",
     "title": "Building My Personal AI Utilization System",
-    "section": "Architecture Overview",
-    "text": "Architecture Overview\n\nGoogle Drive acts as the shared knowledge and memory layer of the system.\n\nThe main operational interface to this layer is Gemini CLI, which interacts with Google Drive through gws.\nThe architecture follows a simple pattern:\n\nInputs → Gemini CLI → Google Drive → AI tools → Outputs\n\nGitHub operates in parallel as the code-state system.\n\nRaw materials enter the system, Gemini organizes them, AI tools consume the organized state, and the resulting outputs are written back into that same shared layer."
+    "section": "Development",
+    "text": "Development\nGit\nVS Code\nNode / Python\nTerminal"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#architecture-diagram",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#architecture-diagram",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#core-integration",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#core-integration",
     "title": "Building My Personal AI Utilization System",
-    "section": "Architecture Diagram",
-    "text": "Architecture Diagram\n\n+---------------------------+\n| INPUTS                    |\n| LearnUS / papers / notes  |\n+---------------------------+\n             |\n             v\n+---------------------------+\n| Gemini CLI + gws          |\n| classify / route / update |\n+---------------------------+\n             |\n             v\n+---------------------------+\n| Google Drive              |\n| shared memory layer       |\n+---------------------------+\n         /           \\\n        v             v\n+-----------------+  +-----------------+\n| Knowledge Tools |  | Execution Tools |\n| NotebookLM      |  | Claude          |\n| Perplexity      |  | ChatGPT / Codex |\n| Zotero (manual) |  | Claude Code     |\n+-----------------+  +-----------------+\n        |             |\n        v             v\n Research & Analysis   Design & Implementation\n\nSystem flow from raw inputs to shared memory, specialized AI tools, and final outputs."
+    "section": "Core Integration",
+    "text": "Core Integration\ngcloud CLI\ngws CLI\nGemini CLI\nGoogle Drive"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#core-architectural-principle",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#core-architectural-principle",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#setup-principle",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#setup-principle",
     "title": "Building My Personal AI Utilization System",
-    "section": "Core Architectural Principle",
-    "text": "Core Architectural Principle\n\nThe system separates two types of state.\n\n\nKnowledge State\nStored in Google Drive\nIncludes:\n\ncourse materials\nresearch summaries\ndocumentation\nproject notes\nshared AI context\n\n\n\nCode State\nStored in GitHub\nIncludes:\n\nsource code\nversion history\nsoftware projects\n\n\nThis separation keeps research workflows and development workflows clean."
+    "section": "Setup Principle",
+    "text": "Setup Principle\n\nDo not copy blindly. Adapt to your environment."
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#google-drive-folder-architecture",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#google-drive-folder-architecture",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#use-ai",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#use-ai",
     "title": "Building My Personal AI Utilization System",
-    "section": "Google Drive Folder Architecture",
-    "text": "Google Drive Folder Architecture\n\nGoogle Drive acts as the shared memory layer of the system.\n\nAll AI tools interact with this layer either directly or indirectly.\nThe structure is intentionally minimal.\n\nRoot Structure\nAI_OS/\n├── University/\n├── Projects/\n└── Librarian/\nPurpose of each folder:\n\nUniversity → academic course materials\nProjects → personal and development projects\nLibrarian → global AI system documentation\n\n\n\nLibrarian\nThe Librarian folder contains system-level context for the AI utilization system.\nTypical files:\nLibrarian/\n├── architecture.md\n├── routing.md\n└── decisions.md\nFile roles:\n\narchitecture.md → describes the AI system architecture\nrouting.md → rules for selecting the appropriate AI tool\ndecisions.md → important system conventions and design choices\n\nThis folder acts as the global reference layer for the AI system.\n\n\nLocal librarian_memory\nUnlike Librarian, local librarian_memory folders exist inside each course or project.\nExample:\nUniversity/\n└── 2026_Spring/\n    └── CAS2101_Discrete_Mathematics/\n        └── librarian_memory/\n\nProjects/\n└── Personal_Website/\n    └── librarian_memory/\nThese folders store local working context.\nTypical contents:\n\ncurrent task\nprogress state\nimportant notes\nAI handoff information\n\nMemory separation:\n\nGlobal context → Librarian/\nLocal context → librarian_memory/"
+    "section": "Use AI",
+    "text": "Use AI\nGive this article or repo to an AI\n→ ask it to adapt the system"
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#gemini-managed-memory",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#gemini-managed-memory",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#example",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#example",
     "title": "Building My Personal AI Utilization System",
-    "section": "Gemini-Managed Memory",
-    "text": "Gemini-Managed Memory\n\nBoth Librarian/ and local librarian_memory/ folders should be managed automatically by Gemini.\n\nThrough Gemini CLI + gws, Gemini can:\n\norganize files\nmaintain task context\nsummarize documents\nupdate working memory\npreserve continuity across sessions\n\n\nIn this architecture, Gemini acts as the system librarian."
+    "section": "Example",
+    "text": "Example\n\"Adapt this to my Mac + Python workflow\"\n\"Simplify this to minimal setup\""
   },
   {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#university-workspace",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#university-workspace",
+    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#why-this-works",
+    "href": "articles/building-my-personal-ai-utilization-system/en.html#why-this-works",
     "title": "Building My Personal AI Utilization System",
-    "section": "University Workspace",
-    "text": "University Workspace\n\nCourse materials are stored under the University directory.\n\nExample structure:\nUniversity/\n└── 2026_Spring/\n    └── CAS2101_Discrete_Mathematics/\n        ├── lectures/\n        ├── assignments/\n        ├── announcements/\n        ├── outputs/\n        └── librarian_memory/\nFolder roles:\n\nlectures → lecture slides and course materials\nassignments → homework and problem sheets\nannouncements → administrative notices\noutputs → completed work\nlibrarian_memory → local AI context\n\n\nEach course becomes a self-contained workspace."
-  },
-  {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#project-workspace",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#project-workspace",
-    "title": "Building My Personal AI Utilization System",
-    "section": "Project Workspace",
-    "text": "Project Workspace\n\nProjects are stored under the Projects directory.\n\nExample:\nProjects/\n├── Personal_Website/\n│   └── librarian_memory/\n└── AI_Research_OS/\n    └── librarian_memory/\nProject structures are intentionally flexible.\n\nEvery project should still include librarian_memory/ so local AI context survives across sessions and tools."
-  },
-  {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#example-workflows",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#example-workflows",
-    "title": "Building My Personal AI Utilization System",
-    "section": "Example Workflows",
-    "text": "Example Workflows\n\nThe architecture becomes clearer when applied to real scenarios.\n\n\nScenario 1 - Automatic Course Material Organization\nCourse files downloaded from LearnUS can be passed directly to Gemini CLI.\nGemini automatically:\n\nreads the file\ndetects course information\nrenames the document\nplaces it in the correct folder\nupdates the course context\n\nExample transformation:\n00. Course Introduction.pdf\n&rarr; CAS2101_L00_Course_Introduction.pdf\nStored in:\nUniversity/\n2026_Spring/\nCAS2101_Discrete_Mathematics/\nlectures/\nAt the same time Gemini updates:\nlibrarian_memory/current_task.md\n\n\nScenario 2 - Project Documentation Management\nSoftware projects rely heavily on GitHub for code.\nCode lives in GitHub.\nBut projects often generate additional materials:\n\ndocumentation\ndesign notes\narchitecture diagrams\nmanuals\n\nThese files are stored in:\nProjects/\nproject_name/\nGemini helps organize these documents while GitHub manages code.\n\n\nScenario 3 - Research Workflow\nAcademic research follows a structured pipeline.\n\nPerplexity → Zotero → NotebookLM → Claude\n\nSteps:\n\nDiscover papers using Perplexity\nStore original PDFs in Zotero\nAnalyze documents in NotebookLM\nReason about ideas with Claude\n\nImportant distinction:\nZotero = authoritative paper archive\nThe user manages Zotero directly.\n\n\nScenario 4 - Shared Context Across AI Tools\nAI tools usually lose context between sessions.\nThis system solves that by storing context in Drive.\nExample:\nCAS2101_Discrete_Mathematics/\nlibrarian_memory/\nFiles such as:\n\ncurrent_task.md\nhandoff.md\nbrief.md\n\ncan be read by multiple AI tools.\nExamples:\n\nClaude\nChatGPT\nPerplexity\n\nWhen connected to the Drive workspace, these tools can restore context by reading these files.\nThis creates persistent cross-AI memory.\n\n\nScenario 5 - Automatic Schedule Extraction\nCourse documents often contain important dates.\nExamples:\n\nassignment deadlines\nexam dates\npresentations\n\nGemini CLI can:\n\nRead document → Extract dates → Update Google Calendar\n\nExample:\n\nMidterm: April 21\nFinal: June 16\n\nGemini can automatically create calendar events such as:\n\nCAS2101 Midterm\nCAS2101 Final Exam\n\nAt the same time, it updates local context.\nThis connects:\n\nDocuments → Memory → Calendar"
-  },
-  {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#environment-setup",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#environment-setup",
-    "title": "Building My Personal AI Utilization System",
-    "section": "Environment Setup",
-    "text": "Environment Setup\n\nThe system relies on several tools working together.\n\nDetailed installation instructions are intentionally omitted.\nIf needed, refer to official documentation or ask an AI assistant during setup.\n\nStep 1 - Identity Layer\nCreate accounts for the services used in the system.\nRequired services:\n\nGoogle\nGitHub\nOpenAI\nAnthropic\nPerplexity\n\nStrongly Recommended\nUse a single Google account as the primary identity.\nMany services support Google OAuth login, simplifying authentication.\nBenefits:\n\nfewer credentials\nfaster setup\neasier cross-service integration\n\n\n\nStep 2 - Development Environment\nInstall basic development tools.\n\nGit\nVS Code\nNode.js or Python\nTerminal environment\n\n\n\nStep 3 - Gemini CLI and Google Drive Integration\nCore components:\n\nGoogle Cloud project\ngcloud CLI\ngws CLI\nGemini CLI\nGoogle Drive for desktop\n\nRecommended setup order:\n\nInstall Google Drive for desktop\nInstall gcloud CLI\nCreate a Google Cloud project\nInstall and authenticate gws CLI\nInstall Gemini CLI\n\nResult:\n\nGemini CLI → gws → Google Drive\n\nThis enables AI-managed shared memory.\n\n\nStep 4 - AI Tools\nTools can be accessed through different interfaces.\nWeb tools\n\nPerplexity\nNotebookLM\n\nCLI tools\n\nGemini CLI\nCodex CLI\nClaude Code\n\nApp / Web tools\n\nChatGPT\nClaude\n\nUsage depends on workflow preference.\n\n\nStep 5 - Optional Infrastructure\nOptional but useful tools:\n\nZotero\nDocker\nGoodNotes\n\nTypical uses:\n\nZotero → paper archive\nDocker → reproducible environments\nGoodNotes → handwritten notes"
-  },
-  {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#setup-philosophy",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#setup-philosophy",
-    "title": "Building My Personal AI Utilization System",
-    "section": "Setup Philosophy",
-    "text": "Setup Philosophy\n\nThe system avoids tightly coupling all tools.\n\nInstead it relies on loosely connected components through shared resources:\n\nGoogle Drive\nGitHub\nlocal files\n\n\nThis makes the architecture flexible and easy to modify."
-  },
-  {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#conclusion",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#conclusion",
-    "title": "Building My Personal AI Utilization System",
-    "section": "Conclusion",
-    "text": "Conclusion\n\nAI tools are powerful, but using them independently often leads to fragmented workflows and lost context.\n\nThis architecture treats AI tools as specialized components within a structured system.\nBy assigning clear roles to each tool and using Google Drive as a shared memory layer, the system enables:\n\norganized knowledge\npersistent AI context\ncoordinated workflows across tools\n\n\nThe result is a practical environment for learning, research, and software development."
-  },
-  {
-    "objectID": "articles/building-my-personal-ai-utilization-system/en.html#repository",
-    "href": "articles/building-my-personal-ai-utilization-system/en.html#repository",
-    "title": "Building My Personal AI Utilization System",
-    "section": "Repository",
-    "text": "Repository\nA reference implementation of this architecture is available on GitHub.\n\nai-utilization-system\nThe repository includes environment setup guidelines, example folder structures, and documentation of the AI utilization architecture.\n\n\nTurn a collection of AI tools into a structured working system."
+    "section": "Why This Works",
+    "text": "Why This Works\nBecause the system is:\nmodular + loosely coupled + context-driven"
   }
 ]

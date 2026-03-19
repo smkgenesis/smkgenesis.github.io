@@ -36,22 +36,6 @@
     document.body.classList.remove("aa-Detached");
   };
 
-  const applySectionKicker = () => {
-    const titleHeader = document.querySelector("#title-block-header");
-    const titleBlock = document.querySelector("#title-block-header .quarto-title");
-    const toggle = document.querySelector(".language-toggle");
-    if (!titleHeader || !titleBlock || !toggle) return;
-
-    let topRow = titleHeader.querySelector(".article-header-top");
-    if (!topRow) {
-      topRow = document.createElement("div");
-      topRow.className = "article-header-top";
-      titleHeader.insertBefore(topRow, titleHeader.firstChild);
-    }
-
-    topRow.appendChild(toggle);
-  };
-
   const initFileTrees = () => {
     document.querySelectorAll(".file-tree__toggle").forEach((button) => {
       if (button.dataset.treeBound === "true") return;
@@ -174,7 +158,6 @@
       const nextDoc = parseDocument(html);
       swapContent(nextDoc);
       updateActiveNav(targetUrl);
-      applySectionKicker();
       initFileTrees();
 
       if (mode === "push") {
@@ -247,7 +230,6 @@
   };
 
   const initPageChrome = () => {
-    applySectionKicker();
     initFileTrees();
   };
 
