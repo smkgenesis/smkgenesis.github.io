@@ -14,7 +14,7 @@ State the problem clearly in one sentence before expanding it.
 
 Add the minimum explanation needed to establish why the problem matters.
 
-::: {.section-conclusion}
+::: {.highlight-box}
 Use a short closing sentence when the section needs a clear takeaway.
 :::
 
@@ -30,11 +30,9 @@ Add the minimum background needed for the reader to follow the article.
 - Keep the label short and analytical.
 :::
 
-::: {.section-conclusion}
+::: {.highlight-box}
 Close the section with a single sentence that names the real problem or takeaway.
 :::
-
-> Use a `blockquote` when you want to emphasize a claim, quote, or short framing sentence.
 
 ## Core Idea
 ::: {.section-lead}
@@ -50,7 +48,7 @@ Explain the central idea in plain language first.
 | Search | Perplexity |
 | Build | ChatGPT / Codex |
 
-::: {.section-conclusion}
+::: {.highlight-box}
 End the section by stating what the structure achieves, not just what it contains.
 :::
 

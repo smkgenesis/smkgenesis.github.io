@@ -12,7 +12,8 @@
 }
 
 .text-diagram__pre {
-  margin: 0;
+  display: table;
+  margin: 0 auto;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -25,7 +26,8 @@
 }
 
 .text-diagram__caption {
-  margin: 0.72rem 0 0;
+  display: none;
+  margin: 0;
   color: var(--article-diagram-caption);
   font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
   font-size: 0.84rem;

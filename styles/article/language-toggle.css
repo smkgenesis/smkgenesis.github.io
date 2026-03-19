@@ -12,6 +12,13 @@
   flex-shrink: 0;
 }
 
+.page-layout-article #title-block-header + .language-toggle {
+  position: absolute;
+  top: 0.1rem;
+  right: 0;
+  z-index: 3;
+}
+
 .language-toggle__link {
   display: inline-flex;
   align-items: center;
@@ -37,4 +44,11 @@
 .language-toggle__link.is-active {
   background: rgba(237, 224, 208, 0.14);
   color: #f2f5fb !important;
+}
+
+@media (max-width: 700px) {
+  .page-layout-article #title-block-header + .language-toggle {
+    position: static;
+    margin: 0 0 1.2rem;
+  }
 }

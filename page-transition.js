@@ -37,19 +37,7 @@
   };
 
   const applySectionKicker = () => {
-    const titleHeader = document.querySelector("#title-block-header");
-    const titleBlock = document.querySelector("#title-block-header .quarto-title");
-    const toggle = document.querySelector(".language-toggle");
-    if (!titleHeader || !titleBlock || !toggle) return;
-
-    let topRow = titleHeader.querySelector(".article-header-top");
-    if (!topRow) {
-      topRow = document.createElement("div");
-      topRow.className = "article-header-top";
-      titleHeader.insertBefore(topRow, titleHeader.firstChild);
-    }
-
-    topRow.appendChild(toggle);
+    return;
   };
 
   const initFileTrees = () => {

@@ -18,3 +18,11 @@ dd code:not(pre code) {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.86em;
 }
+
+li code:not(pre code) {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  justify-self: start;
+  align-self: start;
+}

@@ -173,6 +173,12 @@
   --article-workflow-loop: rgba(214, 224, 238, 0.72);
   --article-workflow-loop-dim: rgba(255, 255, 255, 0.12);
 
+  --article-conclusion-bg: rgba(255, 255, 255, 0.025);
+  --article-conclusion-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 14px 36px rgba(7, 11, 19, 0.16);
+  --article-conclusion-accent-start: rgba(144, 167, 197, 0.72);
+  --article-conclusion-accent-end: rgba(112, 133, 161, 0.52);
+  --article-conclusion-text: #dfe6f1;
+
   --article-quote-border: rgba(233, 214, 194, 0.46);
   --article-quote-bg: rgba(237, 224, 208, 0.06);
   --article-quote-color: #dbe4f0;

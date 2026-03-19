@@ -25,6 +25,7 @@ main.content {
   max-width: min(100%, 88rem);
   margin: 4rem auto 6rem;
   padding-inline: clamp(2rem, 6vw, 5rem);
+  position: relative;
 }
 
 .page-layout-article main.content > section {
