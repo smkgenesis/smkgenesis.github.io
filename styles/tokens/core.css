@@ -90,6 +90,11 @@
   --article-conclusion-bg: rgba(255, 255, 255, 0.035);
   --article-conclusion-border: rgba(226, 200, 176, 0.24);
   --article-conclusion-text: #eef3fb;
+  --article-conclusion-accent-start: rgba(122, 202, 255, 0.92);
+  --article-conclusion-accent-end: rgba(234, 191, 122, 0.88);
+  --article-conclusion-icon-bg: rgba(255, 255, 255, 0.08);
+  --article-conclusion-icon-color: #dceafe;
+  --article-conclusion-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 16px 36px rgba(6, 10, 18, 0.18);
 
   --article-list-color: #d9e1ec;
   --article-list-marker: #e4cab3;
@@ -157,6 +162,16 @@
   --article-workflow-arrow: rgba(255, 255, 255, 0.34);
   --article-workflow-step-bg: rgba(255, 255, 255, 0.05);
   --article-workflow-step-border: rgba(255, 255, 255, 0.1);
+  --article-workflow-panel-bg: radial-gradient(circle at top left, rgba(82, 104, 138, 0.16), rgba(16, 22, 33, 0.9) 58%);
+  --article-workflow-panel-border: rgba(173, 190, 214, 0.18);
+  --article-workflow-panel-glow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 18px 44px rgba(6, 10, 18, 0.22);
+  --article-workflow-lane-bg: rgba(255, 255, 255, 0.025);
+  --article-workflow-lane-border: rgba(255, 255, 255, 0.06);
+  --article-workflow-step-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 10px 28px rgba(7, 12, 20, 0.28);
+  --article-workflow-step-radius: 0.9rem;
+  --article-workflow-meta: rgba(197, 208, 223, 0.72);
+  --article-workflow-loop: rgba(214, 224, 238, 0.72);
+  --article-workflow-loop-dim: rgba(255, 255, 255, 0.12);
 
   --article-quote-border: rgba(233, 214, 194, 0.46);
   --article-quote-bg: rgba(237, 224, 208, 0.06);

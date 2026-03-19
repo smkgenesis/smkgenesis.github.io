@@ -18,6 +18,7 @@
 @import url("./article/table.css");
 @import url("./article/inline-code.css");
 @import url("./article/diagram.css");
+@import url("./article/text-diagram.css");
 @import url("./article/code-block.css");
 @import url("./article/link-block.css");
 @import url("./article/workflow-pipeline.css");
@@ -35,4 +36,3 @@
 @import url("./feature/page-transition.css");
 @import url("./feature/search-overlay.css");
 @import url("./feature/cursor-glow.css");
-

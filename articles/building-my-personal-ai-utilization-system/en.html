@@ -72,9 +72,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta name="theme-color" content="#12151e">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="page-transition.js" defer=""></script>
@@ -138,7 +135,31 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#google-drive-folder-architecture" id="toc-google-drive-folder-architecture" class="nav-link" data-scroll-target="#google-drive-folder-architecture">Google Drive Folder Architecture</a>
   <ul class="collapse">
   <li><a href="#root-structure" id="toc-root-structure" class="nav-link" data-scroll-target="#root-structure">Root Structure</a></li>
+  <li><a href="#librarian" id="toc-librarian" class="nav-link" data-scroll-target="#librarian">Librarian</a></li>
+  <li><a href="#local-librarian_memory" id="toc-local-librarian_memory" class="nav-link" data-scroll-target="#local-librarian_memory">Local librarian_memory</a></li>
   </ul></li>
+  <li><a href="#gemini-managed-memory" id="toc-gemini-managed-memory" class="nav-link" data-scroll-target="#gemini-managed-memory">Gemini-Managed Memory</a></li>
+  <li><a href="#university-workspace" id="toc-university-workspace" class="nav-link" data-scroll-target="#university-workspace">University Workspace</a></li>
+  <li><a href="#project-workspace" id="toc-project-workspace" class="nav-link" data-scroll-target="#project-workspace">Project Workspace</a></li>
+  <li><a href="#example-workflows" id="toc-example-workflows" class="nav-link" data-scroll-target="#example-workflows">Example Workflows</a>
+  <ul class="collapse">
+  <li><a href="#scenario-1---automatic-course-material-organization" id="toc-scenario-1---automatic-course-material-organization" class="nav-link" data-scroll-target="#scenario-1---automatic-course-material-organization">Scenario 1 - Automatic Course Material Organization</a></li>
+  <li><a href="#scenario-2---project-documentation-management" id="toc-scenario-2---project-documentation-management" class="nav-link" data-scroll-target="#scenario-2---project-documentation-management">Scenario 2 - Project Documentation Management</a></li>
+  <li><a href="#scenario-3---research-workflow" id="toc-scenario-3---research-workflow" class="nav-link" data-scroll-target="#scenario-3---research-workflow">Scenario 3 - Research Workflow</a></li>
+  <li><a href="#scenario-4---shared-context-across-ai-tools" id="toc-scenario-4---shared-context-across-ai-tools" class="nav-link" data-scroll-target="#scenario-4---shared-context-across-ai-tools">Scenario 4 - Shared Context Across AI Tools</a></li>
+  <li><a href="#scenario-5---automatic-schedule-extraction" id="toc-scenario-5---automatic-schedule-extraction" class="nav-link" data-scroll-target="#scenario-5---automatic-schedule-extraction">Scenario 5 - Automatic Schedule Extraction</a></li>
+  </ul></li>
+  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a>
+  <ul class="collapse">
+  <li><a href="#step-1---identity-layer" id="toc-step-1---identity-layer" class="nav-link" data-scroll-target="#step-1---identity-layer">Step 1 - Identity Layer</a></li>
+  <li><a href="#step-2---development-environment" id="toc-step-2---development-environment" class="nav-link" data-scroll-target="#step-2---development-environment">Step 2 - Development Environment</a></li>
+  <li><a href="#step-3---gemini-cli-and-google-drive-integration" id="toc-step-3---gemini-cli-and-google-drive-integration" class="nav-link" data-scroll-target="#step-3---gemini-cli-and-google-drive-integration">Step 3 - Gemini CLI and Google Drive Integration</a></li>
+  <li><a href="#step-4---ai-tools" id="toc-step-4---ai-tools" class="nav-link" data-scroll-target="#step-4---ai-tools">Step 4 - AI Tools</a></li>
+  <li><a href="#step-5---optional-infrastructure" id="toc-step-5---optional-infrastructure" class="nav-link" data-scroll-target="#step-5---optional-infrastructure">Step 5 - Optional Infrastructure</a></li>
+  </ul></li>
+  <li><a href="#setup-philosophy" id="toc-setup-philosophy" class="nav-link" data-scroll-target="#setup-philosophy">Setup Philosophy</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository">Repository</a></li>
   </ul>
 </nav>
     </div>
@@ -313,56 +334,37 @@ What breaks over time
 </section>
 <section id="architecture-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="architecture-diagram">Architecture Diagram</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': true, 'fontSize': '18px', 'fontFamily': 'IBM Plex Sans, sans-serif' }}}%%
-flowchart TD
-    classDef default fill:#1E293B,stroke:#475569,stroke-width:1px,color:#F8FAFC,rx:8px,ry:8px,font-size:16px;
-    classDef coreBox fill:#0F172A,stroke:#94A3B8,stroke-width:2px,color:#FFFFFF,font-weight:bold,font-size:18px;
-    classDef endPoint fill:none,stroke:none,color:#94A3B8,font-size:18px,font-weight:bold;
-
-    INPUTS["&lt;b&gt;INPUTS&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;LearnUS files &amp;nbsp;|&amp;nbsp; Research papers &amp;nbsp;|&amp;nbsp; Notes &amp;nbsp;|&amp;nbsp; Manuals&lt;br/&gt;Course PDFs &amp;nbsp;|&amp;nbsp; Project docs &amp;nbsp;|&amp;nbsp; Drafts &amp;nbsp;|&amp;nbsp; Outputs"]
-
-    CLI["&lt;b&gt;Gemini CLI + gws integration&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;- file classification&lt;br/&gt;- renaming&lt;br/&gt;- folder routing&lt;br/&gt;- context updates&lt;br/&gt;- schedule extraction"]:::coreBox
-
-    DRIVE["&lt;b&gt;Google Drive&lt;/b&gt;&lt;br/&gt;(Shared Memory Layer)&lt;br/&gt;&lt;br/&gt;University/&lt;br/&gt;Projects/&lt;br/&gt;Librarian/&lt;br/&gt;librarian_memory/"]:::coreBox
-
-    INPUTS --&gt; CLI
-    CLI --&gt; DRIVE
-
-    subgraph K_Tools ["Knowledge Tools"]
-        direction TB
-        N["NotebookLM"]
-        P["Perplexity"]
-        Z["Zotero - manual"]
-    end
-
-    subgraph E_Tools ["Execution Tools"]
-        direction TB
-        C["Claude"]
-        GPT["ChatGPT / Codex"]
-        CC["Claude Code"]
-    end
-
-    DRIVE --&gt; K_Tools
-    DRIVE --&gt; E_Tools
-
-    RA["Research &amp; Analysis"]:::endPoint
-    DI["Design &amp; Implementation"]:::endPoint
-
-    K_Tools --&gt; RA
-    E_Tools --&gt; DI
-
-    style K_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px
-    style E_Tools fill:#1E293B,stroke:#475569,stroke-width:1px,stroke-dasharray: 5 5,color:#CBD5E1,rx:8px,ry:8px
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
+<div class="text-diagram" role="img" aria-label="System flow from raw inputs to shared memory, specialized AI tools, and final outputs.">
+<pre class="text-diagram__pre">+---------------------------+
+| INPUTS                    |
+| LearnUS / papers / notes  |
++---------------------------+
+             |
+             v
++---------------------------+
+| Gemini CLI + gws          |
+| classify / route / update |
++---------------------------+
+             |
+             v
++---------------------------+
+| Google Drive              |
+| shared memory layer       |
++---------------------------+
+         /           \
+        v             v
++-----------------+  +-----------------+
+| Knowledge Tools |  | Execution Tools |
+| NotebookLM      |  | Claude          |
+| Perplexity      |  | ChatGPT / Codex |
+| Zotero (manual) |  | Claude Code     |
++-----------------+  +-----------------+
+        |             |
+        v             v
+ Research &amp; Analysis   Design &amp; Implementation</pre>
+<p class="text-diagram__caption">
+System flow from raw inputs to shared memory, specialized AI tools, and final outputs.
+</p>
 </div>
 </section>
 <section id="core-architectural-principle" class="level2">
@@ -404,45 +406,26 @@ flowchart TD
 <p>All AI tools interact with this layer either directly or indirectly.</p>
 <p>The structure is intentionally minimal.</p>
 <section id="root-structure" class="level3">
-<h3 class="anchored">Root Structure</h3>
-<div class="file-tree" aria-label="AI_OS root structure">
-<ul class="file-tree__root">
-<li class="file-tree__item">
-<div class="file-tree__folder is-open">
-<pre><code>    &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;AI_OS&lt;/span&gt;&lt;/button&gt;
-    &lt;ul class="file-tree__children"&gt;
-      &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;University&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-      &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Projects&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-      &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Librarian&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/li&gt;</code></pre>
-</div></li></ul>
-</div>
+<h3 class="anchored" data-anchor-id="root-structure">Root Structure</h3>
+<pre class="text file-tree-block"><code>AI_OS/
+├── University/
+├── Projects/
+└── Librarian/</code></pre>
 <p>Purpose of each folder:</p>
 <ul>
 <li>University → academic course materials</li>
 <li>Projects → personal and development projects</li>
 <li>Librarian → global AI system documentation</li>
 </ul>
+</section>
 <section id="librarian" class="level3">
-<h3 class="anchored">Librarian</h3>
+<h3 class="anchored" data-anchor-id="librarian">Librarian</h3>
 <p>The Librarian folder contains system-level context for the AI utilization system.</p>
 <p>Typical files:</p>
-<div class="file-tree" aria-label="Librarian folder structure">
-<ul class="file-tree__root">
-<li class="file-tree__item">
-<div class="file-tree__folder is-open">
-<pre><code>    &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Librarian&lt;/span&gt;&lt;/button&gt;
-    &lt;ul class="file-tree__children"&gt;
-      &lt;li class="file-tree__item file-tree__item--file"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--file" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;architecture.md&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-      &lt;li class="file-tree__item file-tree__item--file"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--file" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;routing.md&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-      &lt;li class="file-tree__item file-tree__item--file"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--file" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;decisions.md&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/li&gt;</code></pre>
-</div></li></ul>
-</div>
+<pre class="text file-tree-block"><code>Librarian/
+├── architecture.md
+├── routing.md
+└── decisions.md</code></pre>
 <p>File roles:</p>
 <ul>
 <li>architecture.md → describes the AI system architecture</li>
@@ -450,51 +433,19 @@ flowchart TD
 <li>decisions.md → important system conventions and design choices</li>
 </ul>
 <p>This folder acts as the global reference layer for the AI system.</p>
+</section>
 <section id="local-librarian_memory" class="level3">
-<h3 class="anchored">Local librarian_memory</h3>
-<p>Unlike Librarian, local librarian_memory folders exist inside each course or project.</p>
+<h3 class="anchored" data-anchor-id="local-librarian_memory">Local librarian_memory</h3>
+<p>Unlike Librarian, local <code>librarian_memory</code> folders exist inside each course or project.</p>
 <p>Example:</p>
-<div class="file-tree" aria-label="Local librarian memory examples">
-<ul class="file-tree__root">
-<li class="file-tree__item">
-<div class="file-tree__folder is-open">
-<pre><code>    &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;University&lt;/span&gt;&lt;/button&gt;
-    &lt;ul class="file-tree__children"&gt;
-      &lt;li class="file-tree__item"&gt;
-        &lt;div class="file-tree__folder is-open"&gt;
-          &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;2026_Spring&lt;/span&gt;&lt;/button&gt;
-          &lt;ul class="file-tree__children"&gt;
-            &lt;li class="file-tree__item"&gt;
-              &lt;div class="file-tree__folder is-open"&gt;
-                &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;CAS2101_Discrete_Mathematics&lt;/span&gt;&lt;/button&gt;
-                &lt;ul class="file-tree__children"&gt;
-                  &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;librarian_memory&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/div&gt;
-            &lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/li&gt;
-&lt;li class="file-tree__item"&gt;
-  &lt;div class="file-tree__folder is-open"&gt;
-    &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Projects&lt;/span&gt;&lt;/button&gt;
-    &lt;ul class="file-tree__children"&gt;
-      &lt;li class="file-tree__item"&gt;
-        &lt;div class="file-tree__folder is-open"&gt;
-          &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Personal_Website&lt;/span&gt;&lt;/button&gt;
-          &lt;ul class="file-tree__children"&gt;
-            &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;librarian_memory&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/li&gt;</code></pre>
-</div></li></ul>
-</div>
+<pre class="text file-tree-block"><code>University/
+└── 2026_Spring/
+    └── CAS2101_Discrete_Mathematics/
+        └── librarian_memory/
+
+Projects/
+└── Personal_Website/
+    └── librarian_memory/</code></pre>
 <p>These folders store local working context.</p>
 <p>Typical contents:</p>
 <ul>
@@ -508,6 +459,8 @@ flowchart TD
 <li>Global context → Librarian/</li>
 <li>Local context → librarian_memory/</li>
 </ul>
+</section>
+</section>
 <section id="gemini-managed-memory" class="level2">
 <h2 class="anchored" data-anchor-id="gemini-managed-memory">Gemini-Managed Memory</h2>
 <div class="section-lead">
@@ -531,36 +484,14 @@ flowchart TD
 <p>Course materials are stored under the <code>University</code> directory.</p>
 </div>
 <p>Example structure:</p>
-<div class="file-tree" aria-label="University workspace structure">
-<ul class="file-tree__root">
-<li class="file-tree__item">
-<div class="file-tree__folder is-open">
-<pre><code>    &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;University&lt;/span&gt;&lt;/button&gt;
-    &lt;ul class="file-tree__children"&gt;
-      &lt;li class="file-tree__item"&gt;
-        &lt;div class="file-tree__folder is-open"&gt;
-          &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;2026_Spring&lt;/span&gt;&lt;/button&gt;
-          &lt;ul class="file-tree__children"&gt;
-            &lt;li class="file-tree__item"&gt;
-              &lt;div class="file-tree__folder is-open"&gt;
-                &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;CAS2101_Discrete_Mathematics&lt;/span&gt;&lt;/button&gt;
-                &lt;ul class="file-tree__children"&gt;
-                  &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;lectures&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-                  &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;assignments&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-                  &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;announcements&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-                  &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;outputs&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-                  &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;librarian_memory&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/div&gt;
-            &lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/li&gt;</code></pre>
-</div></li></ul>
-</div>
+<pre class="text file-tree-block"><code>University/
+└── 2026_Spring/
+    └── CAS2101_Discrete_Mathematics/
+        ├── lectures/
+        ├── assignments/
+        ├── announcements/
+        ├── outputs/
+        └── librarian_memory/</code></pre>
 <p>Folder roles:</p>
 <ul>
 <li>lectures → lecture slides and course materials</li>
@@ -572,43 +503,23 @@ flowchart TD
 <div class="section-conclusion">
 <p>Each course becomes a self-contained workspace.</p>
 </div>
+</section>
 <section id="project-workspace" class="level2">
 <h2 class="anchored" data-anchor-id="project-workspace">Project Workspace</h2>
 <div class="section-lead">
 <p>Projects are stored under the <code>Projects</code> directory.</p>
 </div>
 <p>Example:</p>
-<div class="file-tree" aria-label="Project workspace examples">
-<ul class="file-tree__root">
-<li class="file-tree__item">
-<div class="file-tree__folder is-open">
-<pre><code>    &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Projects&lt;/span&gt;&lt;/button&gt;
-    &lt;ul class="file-tree__children"&gt;
-      &lt;li class="file-tree__item"&gt;
-        &lt;div class="file-tree__folder is-open"&gt;
-          &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;Personal_Website&lt;/span&gt;&lt;/button&gt;
-          &lt;ul class="file-tree__children"&gt;
-            &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;librarian_memory&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-      &lt;li class="file-tree__item"&gt;
-        &lt;div class="file-tree__folder is-open"&gt;
-          &lt;button class="file-tree__row file-tree__toggle" type="button" aria-expanded="true"&gt;&lt;span class="file-tree__chevron" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;AI_Research_OS&lt;/span&gt;&lt;/button&gt;
-          &lt;ul class="file-tree__children"&gt;
-            &lt;li class="file-tree__item file-tree__item--folder"&gt;&lt;div class="file-tree__row"&gt;&lt;span class="file-tree__chevron-spacer" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__icon file-tree__icon--folder" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="file-tree__label"&gt;librarian_memory&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/li&gt;</code></pre>
-</div></li></ul>
-</div>
+<pre class="text file-tree-block"><code>Projects/
+├── Personal_Website/
+│   └── librarian_memory/
+└── AI_Research_OS/
+    └── librarian_memory/</code></pre>
 <p>Project structures are intentionally flexible.</p>
 <div class="section-conclusion">
 <p>Every project should still include <code>librarian_memory/</code> so local AI context survives across sessions and tools.</p>
 </div>
+</section>
 <section id="example-workflows" class="level2">
 <h2 class="anchored" data-anchor-id="example-workflows">Example Workflows</h2>
 <div class="section-lead">
@@ -865,19 +776,8 @@ librarian_memory/</code></pre>
 
 
 </section>
-</section></section></section></section></section></section></main></div>
 
-
-
-
-
-
-
-
-
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1278,7 +1178,7 @@ librarian_memory/</code></pre>
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 
 
 

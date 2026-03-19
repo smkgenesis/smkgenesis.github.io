@@ -246,47 +246,59 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   };
 
-  applySectionKicker();
-  initFileTrees();
-  initCursorGlow();
-  initScrollAwareGnb();
+  const initPageChrome = () => {
+    applySectionKicker();
+    initFileTrees();
+  };
 
-  document.addEventListener(
-    "click",
-    (event) => {
-      if (event.defaultPrevented || event.button !== 0) return;
-      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const boot = () => {
+    initPageChrome();
+    initCursorGlow();
+    initScrollAwareGnb();
 
-      const link = event.target.closest("a[href]");
-      if (!link) return;
-      if (link.target && link.target !== "") return;
+    document.addEventListener(
+      "click",
+      (event) => {
+        if (event.defaultPrevented || event.button !== 0) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
-      const href = link.getAttribute("href");
-      if (!isInternalNavigable(href)) return;
+        const link = event.target.closest("a[href]");
+        if (!link) return;
+        if (link.target && link.target !== "") return;
 
-      event.preventDefault();
-      navigate(new URL(href, window.location.href), "push");
-    },
-    true
-  );
+        const href = link.getAttribute("href");
+        if (!isInternalNavigable(href)) return;
 
-  document.addEventListener(
-    "pointerenter",
-    (event) => {
+        event.preventDefault();
+        navigate(new URL(href, window.location.href), "push");
+      },
+      true
+    );
+
+    document.addEventListener(
+      "pointerenter",
+      (event) => {
+        const link = event.target.closest?.("a[href]");
+        if (!link) return;
+        prefetchFromLink(link);
+      },
+      true
+    );
+
+    document.addEventListener("focusin", (event) => {
       const link = event.target.closest?.("a[href]");
       if (!link) return;
       prefetchFromLink(link);
-    },
-    true
-  );
+    });
 
-  document.addEventListener("focusin", (event) => {
-    const link = event.target.closest?.("a[href]");
-    if (!link) return;
-    prefetchFromLink(link);
-  });
+    window.addEventListener("popstate", () => {
+      navigate(new URL(window.location.href), "pop");
+    });
+  };
 
-  window.addEventListener("popstate", () => {
-    navigate(new URL(window.location.href), "pop");
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
 })();
