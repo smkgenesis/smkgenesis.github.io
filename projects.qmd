@@ -1,9 +1,0 @@
-﻿---
-title: "Projects"
-listing:
-  contents: projects
-  sort: "title"
-  type: default
-  fields: [title, date, description]
-  categories: false
----
