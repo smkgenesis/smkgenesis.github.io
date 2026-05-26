@@ -95,6 +95,10 @@ h1 span {
   font-size: clamp(1.04rem, 1.6vw, 1.18rem);
 }
 
+.affiliation span {
+  display: block;
+}
+
 .identity p + p {
   margin-top: 1rem;
   color: var(--accent);
