@@ -1,9 +1,0 @@
-﻿li {
-  color: var(--text);
-
-/* Transition lock: hide scrollbars during PJAX motion */
-html.is-pjax-transitioning,
-body.is-pjax-transitioning {
-  overflow: hidden !important;
-}
-
