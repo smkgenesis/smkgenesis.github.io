@@ -439,5 +439,54 @@
     "title": "Building My Personal AI Utilization System",
     "section": "Why This Works",
     "text": "Why This Works\nBecause the system is:\nmodular + loosely coupled + context-driven"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "송민규\nUndergraduate Student, Computer Science, Yonsei University\nAI Systems · Machine Learning Systems · Large-Scale Intelligent Systems\n\n\n\nI am an undergraduate student in Computer Science at Yonsei University.\n\nMy interests lie in AI systems, machine learning systems, and the structural behavior of large-scale intelligent systems. I am especially interested in how large AI systems behave when they are deployed as real execution systems involving memory, runtime, hardware, inference, and reliability constraints.\nRather than treating AI models only as algorithms, I try to understand them as systems: systems that store, compress, retrieve, schedule, fail, and scale. My current work and study focus on building the technical foundation needed to analyze these systems from both computational and mathematical perspectives.\n\n\n\n\nAI Systems\nMachine Learning Systems\nLarge-Model Inference\nAgentic AI Reliability\nRuntime and Memory Efficiency\nMechanistic Understanding of Deep Learning Systems\nStatistical Physics and Information-Theoretic Perspectives on Complex Systems\n\n\n\n\n\nI am currently working on independent research projects around large-scale AI systems, with a focus on memory, inference, reliability, and system-level behavior.\n\nMy work is motivated by a simple question:\n\nHow do large intelligent systems preserve, lose, compress, and reorganize information under real computational constraints?\n\nI am also studying how ideas from machine learning systems, parallel computing, statistical physics, and information theory can be used to reason about the behavior and limitations of modern AI systems.\n\n\n\n\nReviewer, ICML 2026 Workshop on Failure Modes in Agentic AI (FAGEN)\n\n\n\n\n\nProgramming Massively Parallel Processors — David B. Kirk, Wen-mei W. Hwu\nIntroduction to Machine Learning Systems\nDeep Learning — Ian Goodfellow, Yoshua Bengio, Aaron Courville\nvLLM Open Source Runtime\nLectures on Phase Transitions and the Renormalization Group — Nigel Goldenfeld\nInformation, Physics, and Computation — Marc Mézard, Andrea Montanari\nThe Road to Reality — Roger Penrose\n\n\n\n\nAI Systems · ML Systems · Inference Runtime · Memory Efficiency · Agentic AI · Mechanistic Interpretability · Statistical Physics · Information Theory · Complex Systems"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "I am an undergraduate student in Computer Science at Yonsei University.\n\nMy interests lie in AI systems, machine learning systems, and the structural behavior of large-scale intelligent systems. I am especially interested in how large AI systems behave when they are deployed as real execution systems involving memory, runtime, hardware, inference, and reliability constraints.\nRather than treating AI models only as algorithms, I try to understand them as systems: systems that store, compress, retrieve, schedule, fail, and scale. My current work and study focus on building the technical foundation needed to analyze these systems from both computational and mathematical perspectives."
+  },
+  {
+    "objectID": "index.html#research-interests",
+    "href": "index.html#research-interests",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "AI Systems\nMachine Learning Systems\nLarge-Model Inference\nAgentic AI Reliability\nRuntime and Memory Efficiency\nMechanistic Understanding of Deep Learning Systems\nStatistical Physics and Information-Theoretic Perspectives on Complex Systems"
+  },
+  {
+    "objectID": "index.html#current-work",
+    "href": "index.html#current-work",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "I am currently working on independent research projects around large-scale AI systems, with a focus on memory, inference, reliability, and system-level behavior.\n\nMy work is motivated by a simple question:\n\nHow do large intelligent systems preserve, lose, compress, and reorganize information under real computational constraints?\n\nI am also studying how ideas from machine learning systems, parallel computing, statistical physics, and information theory can be used to reason about the behavior and limitations of modern AI systems."
+  },
+  {
+    "objectID": "index.html#academic-service",
+    "href": "index.html#academic-service",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "Reviewer, ICML 2026 Workshop on Failure Modes in Agentic AI (FAGEN)"
+  },
+  {
+    "objectID": "index.html#currently-studying",
+    "href": "index.html#currently-studying",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "Programming Massively Parallel Processors — David B. Kirk, Wen-mei W. Hwu\nIntroduction to Machine Learning Systems\nDeep Learning — Ian Goodfellow, Yoshua Bengio, Aaron Courville\nvLLM Open Source Runtime\nLectures on Phase Transitions and the Renormalization Group — Nigel Goldenfeld\nInformation, Physics, and Computation — Marc Mézard, Andrea Montanari\nThe Road to Reality — Roger Penrose"
+  },
+  {
+    "objectID": "index.html#keywords",
+    "href": "index.html#keywords",
+    "title": "Song, Min-Gyu",
+    "section": "",
+    "text": "AI Systems · ML Systems · Inference Runtime · Memory Efficiency · Agentic AI · Mechanistic Interpretability · Statistical Physics · Information Theory · Complex Systems"
   }
 ]
